@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">SMOOTHEAT</string>
+
+    <string name="registrarse_nombre">Nombre</string>
+    <string name="registrarse_email">Email</string>
+    <string name="registrarse_contrasena">Contraseña</string>
+    <string name="registrarse_repetir_contrasena">Repetir contraseña</string>
+    <string name="registrarse_boton">Resgistrarse</string>
+    <string name="registrarse_titulo">REGISTRATE</string>
+    <string name="registrarse_titulo_nombre">Nombre</string>
+    <string name="registrarse_titulo_email">Email</string>
+    <string name="registrarse_titulo_contrasena">Contraseña</string>
+    <string name="registrarse_titulo_repetir_contrasena">Repetir contraseña</string>
+
+    <string name="login_email">Email</string>
+    <string name="login_contrasena">Contraseña</string>
+    <string name="login_boton">Iniciar sesion</string>
+    <string name="login_registrarse">No tienes una cuenta? Registrate.</string>
+    <string name="login_titulo">INICIAR SESIÓN</string>
+    <string name="login_titulo_email">Email</string>
+    <string name="login_titulo_contrasena">Contraseña</string>
+
+    <string name="menuPrincipal_recetas">Recetas</string>
+    <string name="menuPrincipal_nevera">Nevera</string>
+    <string name="menuPrincipal_como_cocinar">Como \n cocinar</string>
+    <string name="menuPrincipal_lista_de_la_compra">Lista de \n la compra</string>
+
+
+    <string name="action_refresh">favorite</string>
+    <string name="action_settings">settings</string>
+</resources>
