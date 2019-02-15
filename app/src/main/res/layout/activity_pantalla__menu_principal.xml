@@ -26,10 +26,10 @@
             android:layout_marginEnd="28dp"
             android:background="@drawable/boton_redondo"/>
     <Button
-            android:text="@string/menuPrincipal_como_cocinar"
+            android:text="@string/menuPrincipal_aprende_a_cocinar"
             android:layout_width="145dp"
             android:layout_height="200dp"
-            android:id="@+id/boton_como_cocinar" app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/boton_aprende_a_cocinar" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="28dp"
             android:layout_marginBottom="28dp" app:layout_constraintBottom_toBottomOf="parent"
             android:background="@drawable/boton_redondo"/>

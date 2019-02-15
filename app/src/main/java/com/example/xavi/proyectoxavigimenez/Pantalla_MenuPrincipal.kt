@@ -17,12 +17,12 @@ class Pantalla_MenuPrincipal : AppCompatActivity() {
         }
 
         boton_nevera.setOnClickListener{
-            val intent2 = Intent(this, Pantalla_lista_compra::class.java)
+            val intent2 = Intent(this, Pantalla_nevera::class.java)
             startActivityForResult(intent2,1)
         }
 
-        boton_como_cocinar.setOnClickListener{
-            val intent3 = Intent(this, Pantalla_lista_compra::class.java)
+        boton_aprende_a_cocinar.setOnClickListener{
+            val intent3 = Intent(this, Pantalla_aprende_a_cocinar::class.java)
             startActivityForResult(intent3,1)
         }
 
