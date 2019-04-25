@@ -18,9 +18,9 @@
         </activity>
         <activity android:name=".Pantalla_Registrarse">
         </activity>
-        <activity android:name=".Pantalla_lista_compra">
+        <activity android:name=".lista_pantalla_lista_compra">
         </activity>
-        <activity android:name=".Toolbar">
+        <activity android:name=".add_fila_lista_compra">
         </activity>
         <activity android:name=".Pantalla_recetas">
         </activity>

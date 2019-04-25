@@ -7,38 +7,39 @@
         android:layout_height="match_parent"
         tools:context=".Pantalla_MenuPrincipal">
 
-    <!-- <include android:id="@+id/my_toolbar" layout="@layout/activity_toolbar"/> -->
+     <include android:id="@+id/my_toolbar" layout="@layout/activity_toolbar"/>
 
     <Button
             android:text="@string/menuPrincipal_recetas"
             android:layout_width="145dp"
             android:layout_height="200dp"
             android:id="@+id/boton_recetas" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="28dp" app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/boton_redondo"/>
+            android:layout_marginStart="30dp"
+            android:background="@drawable/boton_redondo" android:layout_marginTop="40dp"
+            app:layout_constraintTop_toBottomOf="@+id/my_toolbar"/>
     <Button
             android:text="@string/menuPrincipal_nevera"
             android:layout_width="145dp"
             android:layout_height="200dp"
-            android:id="@+id/boton_nevera" android:layout_marginTop="28dp"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="28dp"
-            android:background="@drawable/boton_redondo"/>
+            android:id="@+id/boton_nevera"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/boton_redondo" android:layout_marginTop="40dp"
+            app:layout_constraintTop_toBottomOf="@+id/my_toolbar"/>
     <Button
             android:text="@string/menuPrincipal_aprende_a_cocinar"
             android:layout_width="145dp"
             android:layout_height="200dp"
             android:id="@+id/boton_aprende_a_cocinar" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="28dp"
-            android:layout_marginBottom="28dp" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="40dp" app:layout_constraintBottom_toBottomOf="parent"
             android:background="@drawable/boton_redondo"/>
     <Button
             android:text="@string/menuPrincipal_lista_de_la_compra"
             android:layout_width="145dp"
             android:layout_height="200dp"
-            android:id="@+id/boton_lista_compra" android:layout_marginBottom="28dp"
+            android:id="@+id/boton_lista_compra" android:layout_marginBottom="40dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="28dp"
+            android:layout_marginEnd="30dp"
             android:background="@drawable/boton_redondo"/>
 </android.support.constraint.ConstraintLayout>

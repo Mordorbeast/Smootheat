@@ -23,7 +23,7 @@ class ListAdapter(private var activity : Activity, private var items : ArrayList
         val viewHolder: ViewHolder
         if (convertView == null) {
             val inflater = activity?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            view = inflater.inflate(R.layout.activity_pantalla_fila_listview, null)
+            view = inflater.inflate(R.layout.activity_fila_lista_compra, null)
             viewHolder = ViewHolder(view)
             view?.tag = viewHolder
         } else {
