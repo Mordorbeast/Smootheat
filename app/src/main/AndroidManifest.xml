@@ -9,7 +9,9 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".Pantalla_log_in">
+        <activity android:name=".recetas">
+        </activity>
+        <activity android:name=".Pantalla_MenuPrincipal"> <!-- Pantalla_log_in -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -18,7 +20,14 @@
         </activity>
         <activity android:name=".Pantalla_Registrarse">
         </activity>
-        <activity android:name=".lista_pantalla_lista_compra">
+        <activity android:name=".lista_compra">
+
+            <!--
+            android:parentActivityName=".add_fila_lista_compra" >
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".add_fila_lista_compra" />
+            -->
         </activity>
         <activity android:name=".add_fila_lista_compra">
         </activity>
@@ -26,7 +35,7 @@
         </activity>
         <activity android:name=".Pantalla_nevera">
         </activity>
-        <activity android:name=".Pantalla_MenuPrincipal">
+        <activity android:name=".Pantalla_log_in"> <!-- Pantalla_MenuPrincipal -->
         </activity>
         <activity android:name=".Pantalla_aprende_a_cocinar">
         </activity>

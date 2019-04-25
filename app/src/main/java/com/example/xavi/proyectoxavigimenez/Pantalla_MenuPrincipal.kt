@@ -7,18 +7,18 @@ import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_pantalla__menu_principal.*
+import kotlinx.android.synthetic.main.activity_pantalla_menu_principal.*
 
 class Pantalla_MenuPrincipal : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pantalla__menu_principal)
+        setContentView(R.layout.activity_pantalla_menu_principal)
 
         setSupportActionBar(my_toolbar as Toolbar)
 
         boton_recetas.setOnClickListener{
-            val intent1 = Intent(this, lista_pantalla_recetas::class.java)
+            val intent1 = Intent(this, recetas::class.java)
             startActivityForResult(intent1,1)
         }
 
@@ -33,7 +33,7 @@ class Pantalla_MenuPrincipal : AppCompatActivity() {
         }
 
         boton_lista_compra.setOnClickListener{
-            val intent4 = Intent(this, lista_pantalla_lista_compra::class.java)
+            val intent4 = Intent(this, lista_compra::class.java)
             startActivityForResult(intent4,1)
         }
 

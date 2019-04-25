@@ -7,4 +7,6 @@
         android:layout_height="match_parent"
         tools:context=".Pantalla_aprende_a_cocinar">
 
+    <include android:id="@+id/my_toolbar5" layout="@layout/activity_toolbar"/>
+
 </android.support.constraint.ConstraintLayout>

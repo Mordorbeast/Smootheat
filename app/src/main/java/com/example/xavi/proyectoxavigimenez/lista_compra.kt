@@ -1,6 +1,7 @@
 package com.example.xavi.proyectoxavigimenez
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
@@ -9,15 +10,24 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import kotlinx.android.synthetic.main.activity_pantalla__menu_principal.*
+import kotlinx.android.synthetic.main.activity_pantalla_lista_compra.*
+import kotlinx.android.synthetic.main.activity_pantalla_menu_principal.*
+import kotlinx.android.synthetic.main.activity_toolbar.*
 
-class lista_pantalla_lista_compra : AppCompatActivity() {
+
+class lista_compra : AppCompatActivity() {
+
+    companion object {
+        const val EMAIL_ALIMENTO = "alimento"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pantalla_lista_compra)
 
-        setSupportActionBar(my_toolbar as Toolbar)
+        setSupportActionBar(my_toolbar2 as Toolbar)
+
+
 
         var listView = findViewById<ListView>(R.id.listViewCompra)
 
@@ -27,12 +37,24 @@ class lista_pantalla_lista_compra : AppCompatActivity() {
         listView.setOnItemClickListener{ parent, view, position, id ->
             Toast.makeText(this, "You Clicked:"+" "+customAdptor.names[position], Toast.LENGTH_SHORT).show()
         }
+
+        add.setOnClickListener(){
+            val intent = Intent(this, add_fila_lista_compra::class.java)
+            intent.putExtras(getRegisterBundle())
+            startActivityForResult(intent,add_fila_lista_compra.REQUEST_CODE)
+        }
+    }
+
+    private fun getRegisterBundle(): Bundle {
+        val bundle = Bundle()
+        //bundle.putString(EMAIL_ALIMENTO, a ) ----------------------------------------
+        return bundle
     }
 
     //toolbar
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_action_bar, menu)
-        return true
+         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {

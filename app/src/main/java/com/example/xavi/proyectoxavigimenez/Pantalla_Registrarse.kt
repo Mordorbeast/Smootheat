@@ -5,7 +5,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_pantalla__registrarse.*
+import kotlinx.android.synthetic.main.activity_pantalla_registrarse.*
 import java.util.regex.Pattern
 
 class Pantalla_Registrarse : AppCompatActivity() {
@@ -16,7 +16,7 @@ class Pantalla_Registrarse : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pantalla__registrarse)
+        setContentView(R.layout.activity_pantalla_registrarse)
 
         //val email = intent.getStringExtra("email")
         //val contrasenya = intent.getStringExtra("contrasenya")

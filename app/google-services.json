@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "960737531524",
+    "firebase_url": "https://smootheat-88d46.firebaseio.com",
+    "project_id": "smootheat-88d46",
+    "storage_bucket": "smootheat-88d46.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:960737531524:android:4e0a82a11ebd6006",
+        "android_client_info": {
+          "package_name": "com.example.xavi.proyectoxavigimenez"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "960737531524-cfeik2uk8oa5ph81pth2in7pkjb3ppvh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAyIRegC653T9ZrEMccFR4vaZtM1c8PRM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
