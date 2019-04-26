@@ -60,11 +60,11 @@ class CustomAdptor3(private val context: Activity): BaseAdapter() {
         R.drawable.abc_btn_radio_to_on_mtrl_000
     )
 
-    var puntuacion = arrayOf("10", "5", "3")
+    //var puntuacion = arrayOf("10", "5", "3")
 
-    var dificultad = arrayOf("3", "2", "1")
+    //var dificultad = arrayOf("3", "2", "1")
 
-    var descripcion = arrayOf("desc xavi", "desc pablo", "desc uri")
+    var descripcion = arrayOf("descripcion de esta receta", "descripcion de esta receta", "descripcion de esta receta")
 
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
@@ -73,20 +73,20 @@ class CustomAdptor3(private val context: Activity): BaseAdapter() {
         val fimage = view1.findViewById<ImageView>(R.id.foto)
         var fnombre = view1.findViewById<TextView>(R.id.nombreReceta)
         var fautor = view1.findViewById<TextView>(R.id.autor)
-        val fpunt = view1.findViewById<TextView>(R.id.puntuacion)
-        var fdif = view1.findViewById<TextView>(R.id.dificultad)
+        //val fpunt = view1.findViewById<TextView>(R.id.puntuacion)
+        //var fdif = view1.findViewById<TextView>(R.id.dificultad)
         var fdesc = view1.findViewById<TextView>(R.id.descripcion)
         fimage.setImageResource(image[position])
         fnombre.text = nombreReceta[position]
         fautor.text = autor[position]
-        fpunt.text = puntuacion[position]
-        fdif.text = dificultad[position]
+        //fpunt.text = puntuacion[position]
+        //fdif.text = dificultad[position]
         fdesc.text = descripcion[position]
         return view1
     }
 
     override fun getItem(position: Int): Any {
-        return image[position]
+        return descripcion[position]
     }
 
     override fun getItemId(position: Int): Long {
@@ -94,7 +94,7 @@ class CustomAdptor3(private val context: Activity): BaseAdapter() {
     }
 
     override fun getCount(): Int {
-        return image.size
+        return descripcion.size
     }
 
 

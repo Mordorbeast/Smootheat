@@ -5,21 +5,31 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import kotlinx.android.synthetic.main.activity_pantalla_lista_compra.*
-import kotlinx.android.synthetic.main.activity_pantalla_menu_principal.*
-import kotlinx.android.synthetic.main.activity_toolbar.*
 
 
 class lista_compra : AppCompatActivity() {
 
     companion object {
-        const val EMAIL_ALIMENTO = "alimento"
+        const val ALIMENTO_EXTRA = "alimento"
     }
+
+    val alimento1 = Alimento("patatas")
+    val alimento2 = Alimento("arroz")
+    val alimento3 = Alimento("pepino")
+    val alimento4 = Alimento("manzana")
+    val alimento5 = Alimento("galletas")
+    val alimento6 = Alimento("platano")
+
+    val alimentos = arrayListOf<Alimento>(alimento1,alimento2,alimento3,alimento4,alimento5,alimento6)
+
+    val customAdptor = AlimentoAdapter(this,alimentos)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,29 +37,53 @@ class lista_compra : AppCompatActivity() {
 
         setSupportActionBar(my_toolbar2 as Toolbar)
 
+        var cfgOptions = intent.getParcelableExtra<Alimento>("alimento1")
+        var productAdd = intent.getStringExtra("alimento1")
+
+        val listView = findViewById<ListView>(R.id.listViewCompra)
 
 
-        var listView = findViewById<ListView>(R.id.listViewCompra)
-
-        val customAdptor = CustomAdptor(this)
         listView.adapter=customAdptor
 
+        //customAdptor.names.set(customAdptor.names.count(), ALIMENTO_EXTRA)
+
+        /*
         listView.setOnItemClickListener{ parent, view, position, id ->
             Toast.makeText(this, "You Clicked:"+" "+customAdptor.names[position], Toast.LENGTH_SHORT).show()
         }
+        */
 
-        add.setOnClickListener(){
+        addAlimento_lista_compra.setOnClickListener(){
             val intent = Intent(this, add_fila_lista_compra::class.java)
-            intent.putExtras(getRegisterBundle())
-            startActivityForResult(intent,add_fila_lista_compra.REQUEST_CODE)
+            startActivityForResult(intent,1)
         }
     }
-
-    private fun getRegisterBundle(): Bundle {
+/*
+    private fun getBundle(): Bundle {
         val bundle = Bundle()
-        //bundle.putString(EMAIL_ALIMENTO, a ) ----------------------------------------
+        bundle.putString(ALIMENTO_EXTRA, alimentoAnadido.text.toString() )
         return bundle
     }
+*/
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == 1) {
+            if (resultCode == RESULT_OK) {
+
+                var name = data!!.getParcelableExtra<Alimento>("alimento1").alimento
+                alimentos.add(data!!.getParcelableExtra<Alimento>("alimento1"))
+                customAdptor.notifyDataSetChanged()
+                Toast.makeText(this, "Se ha añadido el alimento $name", Toast.LENGTH_SHORT).show()
+                //Log.d("Aliemento añadido","Aliemnto: ${name}")
+
+            }
+        }
+    }
+/*
+    private fun updateViews(data: Intent) {
+        alimentoAnadido.setText(data.getStringExtra(ALIMENTO_EXTRA))
+    }
+*/
 
     //toolbar
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -70,48 +104,18 @@ class lista_compra : AppCompatActivity() {
     }
 }
 
+/*
 class CustomAdptor(private val context: Activity): BaseAdapter() {
 
-    //Array of fruits names
     var names =
         arrayOf("Apple", "Strawberry", "Pomegranates", "Oranges", "Watermelon", "Bananas", "Kiwi", "Tomato", "Grapes")
-
-    //Array of fruits desc
-    /*var desc = arrayOf(
-        "1",
-        "2 ",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9"
-    )*/
-
-    //Array of fruits images
-    /*var image = intArrayOf(
-        R.drawable.abc_ab_share_pack_mtrl_alpha,
-        R.drawable.abc_action_bar_item_background_material,
-        R.drawable.abc_btn_check_material,
-        R.drawable.abc_btn_check_to_on_mtrl_015,
-        R.drawable.abc_btn_radio_to_on_mtrl_000,
-        R.drawable.abc_btn_switch_to_on_mtrl_00001,
-        R.drawable.abc_cab_background_internal_bg,
-        R.drawable.abc_list_selector_holo_dark,
-        R.drawable.abc_textfield_default_mtrl_alpha
-    )*/
 
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val inflater = context.layoutInflater
         val view1 = inflater.inflate(R.layout.activity_fila_lista_compra,null)
-        //val fimage = view1.findViewById<ImageView>(R.id.fimageView)
         var fName = view1.findViewById<TextView>(R.id.nombreAlimento)
-        //var fDesc = view1.findViewById<TextView>(R.id.fDesc)
-        //fimage.setImageResource(image[position])
         fName.setText(names[position])
-        //fDesc.setText(desc[position])
         return view1
     }
 
@@ -126,7 +130,5 @@ class CustomAdptor(private val context: Activity): BaseAdapter() {
     override fun getCount(): Int {
         return names.size
     }
-
-
-
 }
+*/

@@ -9,6 +9,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".fila_listView_aprendeCocinar">
+        </activity>
         <activity android:name=".recetas">
         </activity>
         <activity android:name=".Pantalla_MenuPrincipal"> <!-- Pantalla_log_in -->
