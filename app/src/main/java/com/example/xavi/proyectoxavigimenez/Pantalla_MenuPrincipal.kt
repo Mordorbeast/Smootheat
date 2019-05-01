@@ -7,13 +7,17 @@ import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_pantalla_menu_principal.*
+import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.Pantalla_aprende_a_cocinar
+import com.example.xavi.proyectoxavigimenez.lista_compra.lista_compra
+import com.example.xavi.proyectoxavigimenez.nevera.Pantalla_nevera
+import com.example.xavi.proyectoxavigimenez.recetas.recetas
+import kotlinx.android.synthetic.main.pantalla_menu_principal.*
 
 class Pantalla_MenuPrincipal : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pantalla_menu_principal)
+        setContentView(R.layout.pantalla_menu_principal)
 
         setSupportActionBar(my_toolbar as Toolbar)
 

@@ -4,8 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_pantalla_log_in.*
+import kotlinx.android.synthetic.main.pantalla_log_in.*
 import java.util.regex.Pattern
 
 class Pantalla_log_in : AppCompatActivity() {
@@ -17,7 +16,7 @@ class Pantalla_log_in : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pantalla_log_in)
+        setContentView(R.layout.pantalla_log_in)
 
         login_boton.setOnClickListener {
             var contraOK = false

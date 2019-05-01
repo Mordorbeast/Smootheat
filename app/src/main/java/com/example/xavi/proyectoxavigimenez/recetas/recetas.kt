@@ -1,21 +1,30 @@
-package com.example.xavi.proyectoxavigimenez
+package com.example.xavi.proyectoxavigimenez.recetas
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.*
+import kotlinx.android.synthetic.main.pantalla_recetas.*
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
+import com.example.xavi.proyectoxavigimenez.R
 
-import kotlinx.android.synthetic.main.activity_pantalla_recetas.*
-
-class Pantalla_recetas : AppCompatActivity() {
+class recetas : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pantalla_recetas)
+        setContentView(R.layout.pantalla_recetas)
 
         setSupportActionBar(my_toolbar3 as Toolbar)
+
+        val listView = findViewById<ListView>(R.id.listViewRecetas)
+
+        val customAdptor = RecetasAdapter(this)
+        listView.adapter=customAdptor
+
+        listView.setOnItemClickListener{ parent, view, position, id ->
+            Toast.makeText(this, "You Clicked:"+" "+customAdptor.nombreReceta[position], Toast.LENGTH_SHORT).show()
+        }
     }
 
     //toolbar
@@ -36,3 +45,5 @@ class Pantalla_recetas : AppCompatActivity() {
         Toast.makeText(this, s, Toast.LENGTH_LONG).show()
     }
 }
+
+

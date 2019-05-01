@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         tools:context=".Pantalla_MenuPrincipal">
 
-     <include android:id="@+id/my_toolbar" layout="@layout/activity_toolbar"/>
+     <include android:id="@+id/my_toolbar" layout="@layout/toolbar"/>
 
     <Button
             android:text="@string/menuPrincipal_recetas"

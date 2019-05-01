@@ -1,24 +1,19 @@
-package com.example.xavi.proyectoxavigimenez
+package com.example.xavi.proyectoxavigimenez.lista_compra
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
 import android.widget.*
-import kotlinx.android.synthetic.main.activity_pantalla_lista_compra.*
+import com.example.xavi.proyectoxavigimenez.Alimento
+import com.example.xavi.proyectoxavigimenez.R
+import kotlinx.android.synthetic.main.pantalla_lista_compra.*
 
 
 class lista_compra : AppCompatActivity() {
 
-    companion object {
-        const val ALIMENTO_EXTRA = "alimento"
-    }
 
     val alimento1 = Alimento("patatas")
     val alimento2 = Alimento("arroz")
@@ -29,11 +24,11 @@ class lista_compra : AppCompatActivity() {
 
     val alimentos = arrayListOf<Alimento>(alimento1,alimento2,alimento3,alimento4,alimento5,alimento6)
 
-    val customAdptor = AlimentoAdapter(this,alimentos)
+    val customAdptor = ListaCompraAdapter(this, alimentos)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pantalla_lista_compra)
+        setContentView(R.layout.pantalla_lista_compra)
 
         setSupportActionBar(my_toolbar2 as Toolbar)
 
@@ -45,7 +40,6 @@ class lista_compra : AppCompatActivity() {
 
         listView.adapter=customAdptor
 
-        //customAdptor.names.set(customAdptor.names.count(), ALIMENTO_EXTRA)
 
 /*
         listView.setOnItemClickListener{ parent, view, position, id ->
@@ -58,13 +52,7 @@ class lista_compra : AppCompatActivity() {
             startActivityForResult(intent,1)
         }
     }
-/*
-    private fun getBundle(): Bundle {
-        val bundle = Bundle()
-        bundle.putString(ALIMENTO_EXTRA, alimentoAnadido.text.toString() )
-        return bundle
-    }
-*/
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == 1) {
@@ -74,16 +62,11 @@ class lista_compra : AppCompatActivity() {
                 alimentos.add(data.getParcelableExtra<Alimento>("alimento1"))
                 customAdptor.notifyDataSetChanged()
                 Toast.makeText(this, "Se ha añadido el alimento $name", Toast.LENGTH_SHORT).show()
-                //Log.d("Aliemento añadido","Aliemnto: ${name}")
 
             }
         }
     }
-/*
-    private fun updateViews(data: Intent) {
-        alimentoAnadido.setText(data.getStringExtra(ALIMENTO_EXTRA))
-    }
-*/
+
 
     //toolbar
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -104,31 +87,3 @@ class lista_compra : AppCompatActivity() {
     }
 }
 
-/*
-class CustomAdptor(private val context: Activity): BaseAdapter() {
-
-    var names =
-        arrayOf("Apple", "Strawberry", "Pomegranates", "Oranges", "Watermelon", "Bananas", "Kiwi", "Tomato", "Grapes")
-
-
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val inflater = context.layoutInflater
-        val view1 = inflater.inflate(R.layout.activity_fila_lista_compra,null)
-        var fName = view1.findViewById<TextView>(R.id.nombreAlimento)
-        fName.setText(names[position])
-        return view1
-    }
-
-    override fun getItem(position: Int): Any {
-        return names[position]
-    }
-
-    override fun getItemId(position: Int): Long {
-        return position.toLong()
-    }
-
-    override fun getCount(): Int {
-        return names.size
-    }
-}
-*/

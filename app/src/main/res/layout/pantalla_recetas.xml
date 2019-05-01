@@ -5,9 +5,9 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Pantalla_recetas">
+        tools:context=".recetas.Pantalla_recetas">
 
-    <include android:id="@+id/my_toolbar3" layout="@layout/activity_toolbar"/>
+    <include android:id="@+id/my_toolbar3" layout="@layout/toolbar"/>
 
     <SearchView
             android:layout_width="200dp"

@@ -5,9 +5,9 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".lista_compra">
+        tools:context=".lista_compra.lista_compra">
 
-    <include android:id="@+id/my_toolbar2" layout="@layout/activity_toolbar"/>
+    <include android:id="@+id/my_toolbar2" layout="@layout/toolbar"/>
 
     <ListView
             android:id="@+id/listViewCompra"
