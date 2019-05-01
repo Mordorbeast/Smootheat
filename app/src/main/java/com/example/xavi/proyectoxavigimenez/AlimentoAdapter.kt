@@ -10,7 +10,7 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_fila_lista_compra.view.*
 
-class AlimentoAdapter(private var context: Context, private var alimentos : ArrayList<Alimento>) : BaseAdapter(){
+class AlimentoAdapter( var context: Context,  var alimentos : ArrayList<Alimento>) : BaseAdapter(){
 
 
     override fun getView(position: Int, convertView: View?, viewGrup: ViewGroup): View {
