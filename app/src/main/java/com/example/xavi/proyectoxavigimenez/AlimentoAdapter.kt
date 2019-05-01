@@ -19,13 +19,13 @@ class AlimentoAdapter( var context: Context,  var alimentos : ArrayList<Alimento
         
         fila.nombreAlimento.text = alimentos[position].alimento
 
-      /*  fila.ButtonDelete.setOnClickListener{
+        fila.eliminar.setOnClickListener{
             //Toast.makeText(context, "sUCCESSFULLY LOGGED IN", Toast.LENGTH_LONG).show()
-            products.removeAt(position)
+            alimentos.removeAt(position)
             notifyDataSetChanged()
 
         }
-        */
+
         return fila
     }
 

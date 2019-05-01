@@ -13,7 +13,7 @@
         </activity>
         <activity android:name=".recetas">
         </activity>
-        <activity android:name=".Pantalla_log_in"> <!-- Pantalla_MenuPrincipal -->
+        <activity android:name=".Pantalla_MenuPrincipal"> <!-- Pantalla_log_in -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -37,7 +37,7 @@
         </activity>
         <activity android:name=".Pantalla_nevera">
         </activity>
-        <activity android:name=".Pantalla_MenuPrincipal"> <!-- Pantalla_log_in -->
+        <activity android:name=".Pantalla_log_in"> <!-- Pantalla_MenuPrincipal -->
         </activity>
         <activity android:name=".Pantalla_aprende_a_cocinar">
         </activity>

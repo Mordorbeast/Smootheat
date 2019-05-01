@@ -47,11 +47,11 @@ class lista_compra : AppCompatActivity() {
 
         //customAdptor.names.set(customAdptor.names.count(), ALIMENTO_EXTRA)
 
-
+/*
         listView.setOnItemClickListener{ parent, view, position, id ->
             Toast.makeText(this, "You Clicked:"+" "+customAdptor.alimentos[position], Toast.LENGTH_SHORT).show()
         }
-
+*/
 
         addAlimento_lista_compra.setOnClickListener(){
             val intent = Intent(this, add_fila_lista_compra::class.java)
