@@ -33,15 +33,20 @@ class add_fila_lista_compra : AppCompatActivity() {
 
         addAlimento_fila_lista_compra.setOnClickListener(){
 
-            var alimento = alimento.text.toString()
+            val alimento = alimento.text.toString()
 
-            val alimento1 = Alimento(alimento)
+            if(alimento.trim() == "" || alimento.isEmpty()){
+                Toast.makeText(this, "No puede estar vacio", Toast.LENGTH_SHORT).show()
+            }else{
+                val alimento1 = Alimento(alimento)
 
-            val intent = Intent()
-            intent.putExtra("alimento1",alimento1)
-            setResult(Activity.RESULT_OK, intent)
+                val intent = Intent()
+                intent.putExtra("alimento1",alimento1)
+                setResult(Activity.RESULT_OK, intent)
 
-            finish()
+                finish()
+            }
+
         }
     }
 /*

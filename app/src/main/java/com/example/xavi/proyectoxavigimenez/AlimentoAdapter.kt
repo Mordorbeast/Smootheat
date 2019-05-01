@@ -20,9 +20,8 @@ class AlimentoAdapter( var context: Context,  var alimentos : ArrayList<Alimento
         fila.nombreAlimento.text = alimentos[position].alimento
 
         fila.eliminar.setOnClickListener{
-            //Toast.makeText(context, "sUCCESSFULLY LOGGED IN", Toast.LENGTH_LONG).show()
             alimentos.removeAt(position)
-            notifyDataSetChanged()
+            notifyDataSetChanged() //actualiza la list view
 
         }
 
