@@ -15,22 +15,31 @@ import kotlinx.android.synthetic.main.add_fila_lista_compra.*
 
 class add_fila_lista_compra : AppCompatActivity() {
 
+    var alimento_OK = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_fila_lista_compra)
 
-        setSupportActionBar(my_toolbar6 as Toolbar)
+        setSupportActionBar(my_toolbar7 as Toolbar)
 
         val alimentos = arrayListOf<Alimento>()
 
         addAlimento_fila_nevera.setOnClickListener(){
 
-            val alimento = alimento.text.toString()
+            val aliment = alimento.text.toString()
 
-            if(alimento.trim() == "" || alimento.isEmpty()){
-                Toast.makeText(this, "No puede estar vacio", Toast.LENGTH_SHORT).show()
+            if(aliment.trim() == "" || aliment.isEmpty()){
+                //Toast.makeText(this, "No puede estar vacio", Toast.LENGTH_SHORT).show()
+                alimento.error = "No puede estar vacio"
             }else{
-                val alimento1 = Alimento(alimento)
+                alimento_OK = true
+            }
+
+
+
+            if(alimento_OK == true){
+                val alimento1 = Alimento(aliment, "")
 
                 val intent = Intent()
                 intent.putExtra("alimento1",alimento1)

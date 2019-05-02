@@ -15,12 +15,12 @@ import kotlinx.android.synthetic.main.pantalla_lista_compra.*
 class lista_compra : AppCompatActivity() {
 
 
-    val alimento1 = Alimento("patatas")
-    val alimento2 = Alimento("arroz")
-    val alimento3 = Alimento("pepino")
-    val alimento4 = Alimento("manzana")
-    val alimento5 = Alimento("galletas")
-    val alimento6 = Alimento("platano")
+    val alimento1 = Alimento("patatas", "")
+    val alimento2 = Alimento("arroz", "")
+    val alimento3 = Alimento("pepino", "")
+    val alimento4 = Alimento("manzana", "")
+    val alimento5 = Alimento("galletas", "")
+    val alimento6 = Alimento("platano", "")
 
     val alimentos = arrayListOf<Alimento>(alimento1,alimento2,alimento3,alimento4,alimento5,alimento6)
 
