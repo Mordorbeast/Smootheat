@@ -34,8 +34,19 @@
             android:id="@+id/addAlimento_fila_nevera" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="160dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="160dp"
-            app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="100dp"
-            app:layout_constraintTop_toBottomOf="@+id/tipoAlimento"/>
+            app:layout_constraintHorizontal_bias="0.333"
+            android:layout_marginBottom="32dp" app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Spinner
+            android:id="@+id/spinner_sample"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="181dp"
+            android:layout_marginEnd="181dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/alimento"/>
+
+
+<!--
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,5 +56,5 @@
             app:layout_constraintTop_toBottomOf="@+id/alimento" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" android:hint="Tipo de alimento"/>
-
+-->
 </android.support.constraint.ConstraintLayout>
