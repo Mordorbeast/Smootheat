@@ -29,7 +29,7 @@ class add_fila_neveraActivity : AppCompatActivity(), AdapterView.OnItemSelectedL
 
         setSupportActionBar(my_toolbar7 as Toolbar)
 
-        spinner = this.spinner_sample
+        spinner = this.spinner_tiposAlimentos
         spinner!!.onItemSelectedListener = this
 
         // Create an ArrayAdapter using a simple spinner layout and languages array
