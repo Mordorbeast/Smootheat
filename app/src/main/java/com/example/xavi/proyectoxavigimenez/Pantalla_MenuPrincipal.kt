@@ -51,8 +51,27 @@ class Pantalla_MenuPrincipal : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        val intent5 = Intent(this, recetas::class.java)
+        val intent6 = Intent(this, Pantalla_nevera::class.java)
+        val intent7 = Intent(this, Pantalla_aprende_a_cocinar::class.java)
+        var intent8 = Intent(this, lista_compra::class.java)
+
         when(item?.itemId) {
             R.id.menu -> showToast("Menú")
+
+            R.id.recetas_actionbar -> startActivityForResult(intent5,1)
+            R.id.nevera_actionbar -> startActivityForResult(intent6,1)
+            R.id.aprendeCocinar_actionbar -> startActivityForResult(intent7,1)
+            R.id.listaCompra_actionbar -> startActivityForResult(intent8,1)
+
+
+
+
+
+
+
+
+
         }
 
         return super.onOptionsItemSelected(item)
