@@ -2,12 +2,13 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <!-- Settings, should always be in the overflow -->
-    <item android:id="@+id/menu"
-          android:icon="@drawable/ic_menu_black_24dp"
-          app:showAsAction="always"
-          android:title="menu"
-    />
-
+<!--
+        <item android:id="@+id/menu"
+              android:icon="@drawable/ic_menu_black_24dp"
+              app:showAsAction="always"
+              android:title="menu"
+        />
+-->
 
         <item android:id="@+id/recetas_actionbar"
               app:showAsAction="never"
