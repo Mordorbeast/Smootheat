@@ -11,7 +11,7 @@ import com.example.xavi.proyectoxavigimenez.Alimento
 import com.example.xavi.proyectoxavigimenez.R
 import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.Pantalla_aprende_a_cocinar
 import com.example.xavi.proyectoxavigimenez.nevera.Pantalla_nevera
-import com.example.xavi.proyectoxavigimenez.recetas.recetas
+import com.example.xavi.proyectoxavigimenez.recetas.Pantalla_Recetas
 import kotlinx.android.synthetic.main.pantalla_lista_compra.*
 
 
@@ -41,7 +41,7 @@ class lista_compra : AppCompatActivity() {
         val listView = findViewById<ListView>(R.id.listViewCompra)
 
 
-        listView.adapter=customAdptor
+        listView.adapter= customAdptor
 
 
 /*
@@ -61,7 +61,7 @@ class lista_compra : AppCompatActivity() {
         if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
 
-                var name = data!!.getParcelableExtra<Alimento>("alimento1").alimento
+                val name = data!!.getParcelableExtra<Alimento>("alimento1").alimento
                 alimentos.add(data.getParcelableExtra<Alimento>("alimento1"))
                 customAdptor.notifyDataSetChanged()
                 Toast.makeText(this, "Se ha añadido el alimento $name", Toast.LENGTH_SHORT).show()
@@ -73,12 +73,12 @@ class lista_compra : AppCompatActivity() {
 
     //toolbar
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_action_bar, menu)
+        menuInflater.inflate(R.menu.action_bar, menu)
          return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        val intent5 = Intent(this, recetas::class.java)
+        val intent5 = Intent(this, Pantalla_Recetas::class.java)
         val intent6 = Intent(this, Pantalla_nevera::class.java)
         val intent7 = Intent(this, Pantalla_aprende_a_cocinar::class.java)
         val intent8 = Intent(this, lista_compra::class.java)

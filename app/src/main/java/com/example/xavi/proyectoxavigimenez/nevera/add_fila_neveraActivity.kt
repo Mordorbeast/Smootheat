@@ -11,19 +11,18 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
-import android.widget.Toast
 import com.example.xavi.proyectoxavigimenez.Alimento
 import com.example.xavi.proyectoxavigimenez.R
 import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.Pantalla_aprende_a_cocinar
 import com.example.xavi.proyectoxavigimenez.lista_compra.lista_compra
-import com.example.xavi.proyectoxavigimenez.recetas.recetas
+import com.example.xavi.proyectoxavigimenez.recetas.Pantalla_Recetas
 import kotlinx.android.synthetic.main.add_fila_nevera.*
 
 class add_fila_neveraActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     var alimento_OK = false
     //var tipoAlimento_OK = false
-    var tipos = arrayOf("Frutas", "Verduras y hortalizas", "Leche y derivados", "Carne y embutidos", "Pescados y mariscos", "Huevos", "Legumbres", "Cereales", "Frutos secos", "Bebidas", "Salsas")
+    var tipos = arrayOf("Frutas", "Verduras y hortalizas", "Leche y derivados", "Carne y embutidos", "Pescados y mariscos", "Huevos", "Legumbres", "Cereales", "Frutos secos", "Bebidas", "Salsas", "Otros")
     var spinner: Spinner? = null
     var tipoAlimento = ""
 
@@ -85,12 +84,12 @@ class add_fila_neveraActivity : AppCompatActivity(), AdapterView.OnItemSelectedL
 
     //toolbar
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_action_bar, menu)
+        menuInflater.inflate(R.menu.action_bar, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        val intent5 = Intent(this, recetas::class.java)
+        val intent5 = Intent(this, Pantalla_Recetas::class.java)
         val intent6 = Intent(this, Pantalla_nevera::class.java)
         val intent7 = Intent(this, Pantalla_aprende_a_cocinar::class.java)
         val intent8 = Intent(this, lista_compra::class.java)

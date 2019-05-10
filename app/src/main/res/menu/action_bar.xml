@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:android="http://schemas.android.com/apk/res/android" >
+
+        <item android:id="@+id/recetas_actionbar"
+              android:icon="@drawable/ic_menu_black_24dp"
+              app:showAsAction="never"
+              android:title="@string/actionbar_recetas"
+        />
+
+        <item android:id="@+id/nevera_actionbar"
+              app:showAsAction="never"
+              android:title="@string/actionbar_nevera"
+        />
+
+        <item android:id="@+id/aprendeCocinar_actionbar"
+              app:showAsAction="never"
+              android:title="@string/actionbar_aprendeCocinar"
+        />
+
+        <item android:id="@+id/listaCompra_actionbar"
+              app:showAsAction="never"
+              android:title="@string/actionbar_listaCompra"
+        />
+
+
+</menu>

@@ -9,13 +9,15 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".recetas.Pantalla_Recetas2">
+        </activity>
         <activity android:name=".nevera.add_fila_neveraActivity">
         </activity>
         <activity android:name=".nevera.FilaNeveraActivity">
         </activity>
         <activity android:name=".aprende_a_cocinar.fila_listView_aprendeCocinar">
         </activity>
-        <activity android:name=".recetas.recetas">
+        <activity android:name=".recetas.Pantalla_Recetas">
         </activity>
         <activity android:name=".Pantalla_MenuPrincipal"> <!-- Pantalla_log_in -->
             <intent-filter>

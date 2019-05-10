@@ -3,42 +3,59 @@ package com.example.xavi.proyectoxavigimenez.recetas
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.*
-import kotlinx.android.synthetic.main.pantalla_recetas.*
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.ListView
+import android.widget.VideoView
 import com.example.xavi.proyectoxavigimenez.R
+import com.example.xavi.proyectoxavigimenez.Receta
 import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.Pantalla_aprende_a_cocinar
 import com.example.xavi.proyectoxavigimenez.lista_compra.lista_compra
 import com.example.xavi.proyectoxavigimenez.nevera.Pantalla_nevera
+import kotlinx.android.synthetic.main.pantalla_receta2.*
 
-class recetas : AppCompatActivity() {
+class Pantalla_Recetas2 : AppCompatActivity() {
+
+    var receta = Receta("","","","",0,"")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.pantalla_recetas)
+        setContentView(R.layout.pantalla_receta2)
 
-        setSupportActionBar(my_toolbar3 as Toolbar)
+        setSupportActionBar(my_toolbar_receta2 as Toolbar)
 
-        val listView = findViewById<ListView>(R.id.listViewRecetas)
+        val foto = findViewById<ImageView>(R.id.foto_receta2)
+        val desc = findViewById<EditText>(R.id.descripcion_receta2)
+        val video = findViewById<VideoView>(R.id.video_receta2)
 
-        val customAdptor = RecetasAdapter(this)
-        listView.adapter=customAdptor
+        //foto = receta.imagen
+        //desc.text = receta.descLarga
+        //video = receta.video
+    }
 
-        listView.setOnItemClickListener{ parent, view, position, id ->
-            Toast.makeText(this, "You Clicked:"+" "+customAdptor.nombreReceta[position], Toast.LENGTH_SHORT).show()
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == 1) {
+            if (resultCode == RESULT_OK) {
+
+                val receta2 = data!!.getParcelableExtra<Receta>("receta")
+                receta = receta2
+            }
         }
     }
 
+
     //toolbar
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_action_bar, menu)
+        menuInflater.inflate(R.menu.action_bar, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        val intent5 = Intent(this, recetas::class.java)
+        val intent5 = Intent(this, Pantalla_Recetas::class.java)
         val intent6 = Intent(this, Pantalla_nevera::class.java)
         val intent7 = Intent(this, Pantalla_aprende_a_cocinar::class.java)
         val intent8 = Intent(this, lista_compra::class.java)
@@ -53,5 +70,3 @@ class recetas : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 }
-
-

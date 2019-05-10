@@ -6,11 +6,10 @@ import android.os.Bundle
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.Pantalla_aprende_a_cocinar
 import com.example.xavi.proyectoxavigimenez.lista_compra.lista_compra
 import com.example.xavi.proyectoxavigimenez.nevera.Pantalla_nevera
-import com.example.xavi.proyectoxavigimenez.recetas.recetas
+import com.example.xavi.proyectoxavigimenez.recetas.Pantalla_Recetas
 import kotlinx.android.synthetic.main.pantalla_menu_principal.*
 
 class Pantalla_MenuPrincipal : AppCompatActivity() {
@@ -22,7 +21,7 @@ class Pantalla_MenuPrincipal : AppCompatActivity() {
         setSupportActionBar(my_toolbar as Toolbar)
 
         boton_recetas.setOnClickListener{
-            val intent1 = Intent(this, recetas::class.java)
+            val intent1 = Intent(this, Pantalla_Recetas::class.java)
             startActivityForResult(intent1,1)
         }
 
@@ -46,12 +45,12 @@ class Pantalla_MenuPrincipal : AppCompatActivity() {
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_action_bar, menu)
+        menuInflater.inflate(R.menu.action_bar, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        val intent5 = Intent(this, recetas::class.java)
+        val intent5 = Intent(this, Pantalla_Recetas::class.java)
         val intent6 = Intent(this, Pantalla_nevera::class.java)
         val intent7 = Intent(this, Pantalla_aprende_a_cocinar::class.java)
         val intent8 = Intent(this, lista_compra::class.java)

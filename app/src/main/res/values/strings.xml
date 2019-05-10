@@ -25,7 +25,11 @@
     <string name="menuPrincipal_aprende_a_cocinar">Aprende a\n cocinar</string>
     <string name="menuPrincipal_lista_de_la_compra">Lista de \n la compra</string>
 
+    <string name="actionbar_recetas">Recetas</string>
+    <string name="actionbar_nevera">Nevera</string>
+    <string name="actionbar_aprendeCocinar">Aprende a cocinar</string>
+    <string name="actionbar_listaCompra">Lista de la compra</string>
+    <string name="receta2_imagenReceta">imagenReceta</string>
+    <string name="receta2_descripcion">descripcion</string>
 
-    <string name="action_refresh">favorite</string>
-    <string name="action_settings">settings</string>
 </resources>
