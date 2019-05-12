@@ -2,7 +2,6 @@ package com.example.xavi.proyectoxavigimenez
 
 import android.os.Parcel
 import android.os.Parcelable
-import java.lang.StringBuilder
 
 @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class Receta(var nombre: String, var autor: String, var descBrebe: String, var descLarga: String, var imagen: Int, var video: String) : Parcelable {

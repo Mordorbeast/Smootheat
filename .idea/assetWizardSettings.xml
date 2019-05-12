@@ -51,6 +51,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
+                                                <entry key="scalingPercent" value="49" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -60,7 +61,9 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="foregroundImage" value="C:\Users\Xavi\Desktop\Sin título.png" />
+                                      <entry key="backgroundAssetType" value="COLOR" />
+                                      <entry key="backgroundColor" value="ffffff" />
+                                      <entry key="foregroundImage" value="C:\Users\Xavi\Desktop\logoReceta.png" />
                                     </map>
                                   </option>
                                 </PersistentState>
