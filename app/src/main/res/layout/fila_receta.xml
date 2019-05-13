@@ -18,7 +18,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/nombreReceta"
-            android:visibility="visible" android:layout_marginTop="12dp"
+            android:layout_marginTop="12dp"
             app:layout_constraintTop_toBottomOf="@+id/foto_receta2" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="16dp"/>
@@ -30,13 +30,11 @@
             app:layout_constraintTop_toBottomOf="@+id/nombreReceta" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="16dp"/>
-    <EditText
+    <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:ems="10"
-            android:id="@+id/descripcion"
-            android:text="Descripcion" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp" android:layout_marginTop="12dp"
-            app:layout_constraintTop_toBottomOf="@+id/autor" android:clickable="true" android:enabled="false"/>
+            android:id="@+id/descripcion" android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@+id/autor" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp" android:singleLine="false" android:text="Descripcion"/>
 </android.support.constraint.ConstraintLayout>

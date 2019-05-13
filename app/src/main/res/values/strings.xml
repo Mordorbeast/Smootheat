@@ -5,7 +5,7 @@
     <string name="registrarse_email">Email</string>
     <string name="registrarse_contrasena">Contraseña</string>
     <string name="registrarse_repetir_contrasena">Repetir contraseña</string>
-    <string name="registrarse_boton">Resgistrarse</string>
+    <string name="registrarse_boton">Registrarse</string>
     <string name="registrarse_titulo">REGISTRATE</string>
     <string name="registrarse_titulo_nombre">Nombre</string>
     <string name="registrarse_titulo_email">Email</string>

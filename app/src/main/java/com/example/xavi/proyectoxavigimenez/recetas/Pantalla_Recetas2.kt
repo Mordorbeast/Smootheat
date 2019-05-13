@@ -6,10 +6,7 @@ import android.os.Bundle
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.ListView
-import android.widget.VideoView
+import android.widget.*
 import com.example.xavi.proyectoxavigimenez.R
 import com.example.xavi.proyectoxavigimenez.Receta
 import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.Pantalla_aprende_a_cocinar
@@ -28,11 +25,11 @@ class Pantalla_Recetas2 : AppCompatActivity() {
         setSupportActionBar(my_toolbar_receta2 as Toolbar)
 
         val foto = findViewById<ImageView>(R.id.foto_receta2)
-        val desc = findViewById<EditText>(R.id.descripcion_receta2)
+        val desc = findViewById<TextView>(R.id.descripcion_receta2)
         val video = findViewById<VideoView>(R.id.video_receta2)
 
-        //foto = receta.imagen
-        //desc.text = receta.descLarga
+        //foto.setImage = receta.imagen
+        desc.text = receta.descLarga
         //video = receta.video
     }
 

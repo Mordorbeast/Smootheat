@@ -24,7 +24,7 @@ class RecetasAdapter(private val context: Context, var recetas : ArrayList<Recet
         fila.foto_receta2.setImageResource(recetas[position].imagen)
         fila.nombreReceta.text = recetas[position].nombre
         fila.autor.text = recetas[position].autor
-        //fila.descripcion.text = recetas[position].descBrebe
+        fila.descripcion.text = recetas[position].descBrebe
 
 
         return fila
