@@ -40,8 +40,7 @@ class lista_compra : AppCompatActivity() {
 
         val listView = findViewById<ListView>(R.id.listViewCompra)
 
-
-        listView.adapter= customAdptor
+        listView.adapter = customAdptor
 
 
 /*

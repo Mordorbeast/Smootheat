@@ -18,12 +18,6 @@ class Pantalla_Registrarse : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pantalla_registrarse)
 
-        //val email = intent.getStringExtra("email")
-        //val contrasenya = intent.getStringExtra("contrasenya")
-
-        //registrarse_email.setText(email)
-        //registrarse_contrasena.setText(contrasenya)
-
         loadFields(intent.extras!!)
 
         registrarse_boton.setOnClickListener {
