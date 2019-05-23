@@ -5,59 +5,47 @@
                                              xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-
-    <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" android:id="@+id/scrollView_menuPrincipal">
-
-        <android.support.constraint.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
             <include android:id="@+id/my_toolbar" layout="@layout/toolbar"/>
 
-            <Button
-                    android:text="@string/menuPrincipal_recetas"
-                    android:layout_width="135dp"
-                    android:layout_height="200dp"
-                    android:id="@+id/boton_recetas"
-                    android:background="@drawable/boton_redondo"
-                    app:layout_constraintTop_toBottomOf="@+id/my_toolbar"
-                    app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/boton_aprende_a_cocinar"
-                    android:layout_marginTop="32dp"/>
-            <Button
-                    android:text="@string/menuPrincipal_nevera"
-                    android:layout_width="135dp"
-                    android:layout_height="200dp"
-                    android:id="@+id/boton_nevera"
-                    android:background="@drawable/boton_redondo"
-                    app:layout_constraintTop_toBottomOf="@+id/my_toolbar"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/boton_aprende_a_cocinar"
-                    app:layout_constraintEnd_toStartOf="@+id/boton_lista_compra" android:layout_marginTop="32dp"/>
-            <Button
-                    android:text="@string/menuPrincipal_aprende_a_cocinar"
-                    android:layout_width="135dp"
-                    android:layout_height="200dp"
-                    android:id="@+id/boton_aprende_a_cocinar"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:background="@drawable/boton_redondo"
-                    app:layout_constraintTop_toBottomOf="@+id/my_toolbar"
-                    app:layout_constraintStart_toEndOf="@+id/boton_recetas"
-                    app:layout_constraintEnd_toStartOf="@+id/boton_nevera" android:layout_marginTop="32dp"/>
-            <Button
-                    android:text="@string/menuPrincipal_lista_de_la_compra"
-                    android:layout_width="135dp"
-                    android:layout_height="200dp"
-                    android:id="@+id/boton_lista_compra"
-                    app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="8dp"
-                    android:background="@drawable/boton_redondo" app:layout_constraintTop_toBottomOf="@+id/my_toolbar"
-                    app:layout_constraintStart_toEndOf="@+id/boton_nevera" android:layout_marginTop="32dp"/>
+    <Button
+            android:text="@string/menuPrincipal_recetas"
+            android:layout_width="135dp"
+            android:layout_height="200dp"
+            android:id="@+id/boton_recetas"
+            android:background="@drawable/boton_redondo"
+            app:layout_constraintTop_toBottomOf="@+id/my_toolbar"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/boton_aprende_a_cocinar"
+    />
+    <Button
+            android:text="@string/menuPrincipal_nevera"
+            android:layout_width="135dp"
+            android:layout_height="200dp"
+            android:id="@+id/boton_nevera"
+            android:background="@drawable/boton_redondo"
+            app:layout_constraintTop_toBottomOf="@+id/my_toolbar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/boton_aprende_a_cocinar"
+            app:layout_constraintEnd_toStartOf="@+id/boton_lista_compra"/>
+    <Button
+            android:text="@string/menuPrincipal_aprende_a_cocinar"
+            android:layout_width="135dp"
+            android:layout_height="200dp"
+            android:id="@+id/boton_aprende_a_cocinar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/boton_redondo"
+            app:layout_constraintTop_toBottomOf="@+id/my_toolbar"
+            app:layout_constraintStart_toEndOf="@+id/boton_recetas"
+            app:layout_constraintEnd_toStartOf="@+id/boton_nevera"/>
+    <Button
+            android:text="@string/menuPrincipal_lista_de_la_compra"
+            android:layout_width="135dp"
+            android:layout_height="200dp"
+            android:id="@+id/boton_lista_compra"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/boton_redondo" app:layout_constraintTop_toBottomOf="@+id/my_toolbar"
+            app:layout_constraintStart_toEndOf="@+id/boton_nevera"/>
 
-
-        </android.support.constraint.ConstraintLayout>
-    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

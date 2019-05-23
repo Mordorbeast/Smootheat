@@ -15,7 +15,7 @@ class AprendeCocinarAdapter(private val context: Activity): BaseAdapter() {
     @SuppressLint("ViewHolder", "InflateParams")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val inflater = context.layoutInflater
-        val view1 = inflater.inflate(R.layout.fila_list_view_aprende_cocinar,null)
+        val view1 = inflater.inflate(R.layout.fila_aprende_cocinar,null)
 
         var ftitulo = view1.findViewById<TextView>(R.id.tituloVideo)
 

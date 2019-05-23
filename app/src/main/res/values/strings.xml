@@ -35,6 +35,13 @@
 
     <string name="receta2_imagenReceta">imagenReceta</string>
     <string name="receta2_descripcion">descripcion</string>
+    <string name="pantallaNevera_anadir">Añadir</string>
+    <string name="addFilaNevera_anadirAlimento">Añadir alimento</string>
+    <string name="addFilaNevera_alimento">Alimento</string>
+    <string name="addFilaNevera_anadir">Añadir</string>
+    <string name="addFilaListaCompra_anadirAlimento">Añadir alimento</string>
+    <string name="addFilaListaCompra_alimento">Alimento</string>
+    <string name="addFilaListaCompra_anadir">Añadir</string>
 
 
 </resources>
