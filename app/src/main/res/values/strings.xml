@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">SMOOTHEAT</string>
 
+    <string name="splashScreen_contentDescription">Logo de la app</string>
+    <string name="splashScreen_texto">SMOOTHEAT</string>
+
     <string name="registrarse_nombre">Nombre</string>
     <string name="registrarse_email">Email</string>
     <string name="registrarse_contrasena">Contraseña</string>
@@ -29,7 +32,9 @@
     <string name="actionbar_nevera">Nevera</string>
     <string name="actionbar_aprendeCocinar">Aprende a cocinar</string>
     <string name="actionbar_listaCompra">Lista de la compra</string>
+
     <string name="receta2_imagenReceta">imagenReceta</string>
     <string name="receta2_descripcion">descripcion</string>
+
 
 </resources>

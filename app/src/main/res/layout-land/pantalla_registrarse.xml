@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:id="@+id/scrollView_registrarse">
+
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:text="@string/registrarse_titulo"
+                    android:layout_width="234dp"
+                    android:layout_height="46dp"
+                    android:id="@+id/textView4" android:layout_marginTop="16dp"
+                    app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp"
+                    android:textStyle="bold" android:textAllCaps="false"
+                    android:textSize="30sp" android:textAlignment="center"/>
+
+            <TextView
+                    android:text="@string/registrarse_titulo_nombre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView5"
+                    android:textStyle="bold" android:layout_marginTop="32dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView4" android:layout_marginStart="8dp"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.012"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:id="@+id/registrarse_nombre"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.015"
+                    android:hint="@string/registrarse_nombre" android:inputType="textPersonName"
+                    android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView5"/>
+
+            <TextView
+                    android:text="@string/registrarse_titulo_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView6"
+                    android:textStyle="bold"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.011"
+                    android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/registrarse_nombre"/>
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:id="@+id/registrarse_email"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.015"
+                    android:hint="@string/registrarse_email" android:inputType="textEmailAddress"
+                    android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView6"
+            />
+
+            <TextView
+                    android:text="@string/registrarse_titulo_contrasena"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView7"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="232dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView4" android:layout_marginTop="32dp"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:ems="10"
+                    android:id="@+id/registrarse_contrasena" android:layout_marginEnd="88dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:hint="@string/registrarse_contrasena"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView7"/>
+
+            <TextView
+                    android:text="@string/registrarse_titulo_repetir_contrasena"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView8"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="180dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/registrarse_contrasena"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:ems="10"
+                    android:id="@+id/registrarse_repetir_contrasena"
+                    android:layout_marginEnd="88dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:hint="@string/registrarse_repetir_contrasena"
+                    android:inputType="textPassword"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView8"
+            />
+
+            <Button
+                    android:text="@string/registrarse_boton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/registrarse_boton" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.519"
+                    app:layout_constraintTop_toBottomOf="@+id/registrarse_email" android:layout_marginTop="32dp"/>
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

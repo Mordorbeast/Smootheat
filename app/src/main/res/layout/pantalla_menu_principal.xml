@@ -10,13 +10,13 @@
      <include android:id="@+id/my_toolbar" layout="@layout/toolbar"/>
 
     <Button
-            android:text="@string/menuPrincipal_recetas"
-            android:layout_width="145dp"
-            android:layout_height="200dp"
-            android:id="@+id/boton_recetas" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="30dp"
-            android:background="@drawable/boton_redondo" android:layout_marginTop="40dp"
-            app:layout_constraintTop_toBottomOf="@+id/my_toolbar"/>
+        android:text="@string/menuPrincipal_recetas"
+        android:layout_width="145dp"
+        android:layout_height="200dp"
+        android:id="@+id/boton_recetas" app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="30dp"
+        android:background="@drawable/boton_redondo" android:layout_marginTop="40dp"
+        app:layout_constraintTop_toBottomOf="@+id/my_toolbar"/>
     <Button
             android:text="@string/menuPrincipal_nevera"
             android:layout_width="145dp"

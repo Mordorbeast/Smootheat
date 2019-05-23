@@ -4,9 +4,17 @@ import android.app.Activity
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.pantalla_registrarse.*
 import java.util.regex.Pattern
+import com.google.firebase.auth.FirebaseUser
+
+
+
+
+
 
 class Pantalla_Registrarse : AppCompatActivity() {
 
@@ -14,9 +22,17 @@ class Pantalla_Registrarse : AppCompatActivity() {
         const val REQUEST_CODE = 1234
     }
 
+    private lateinit var mAuth: FirebaseAuth
+    private val TAG: String = " "
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pantalla_registrarse)
+
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance()
+
+
 
         loadFields(intent.extras!!)
 
@@ -78,19 +94,23 @@ class Pantalla_Registrarse : AppCompatActivity() {
             }
 
             if(contraOK && emailOK && contra2OK && nombreOK){
+
+                registrarUsuario()
+
                 val intent = Intent()
-                //intent.putExtra("email", registrarse_email.text.toString())
-                //intent.putExtra("contrasenya", registrarse_contrasena.text.toString())
+
                 intent.putExtras(getLoginBundle())
                 setResult(Activity.RESULT_OK, intent)
 
                 finish()
 
+                /*
                 val text3 = "Usuario creado correctamente"
                 val duration3 = Toast.LENGTH_SHORT
 
                 val toast3 = Toast.makeText(applicationContext, text3, duration3)
                 toast3.show()
+                */
             }
 
         }
@@ -107,5 +127,43 @@ class Pantalla_Registrarse : AppCompatActivity() {
         bundle.putString(Pantalla_log_in.PASSWORD_EXTRA, registrarse_contrasena.text.toString())
         return bundle
     }
+
+    override fun onStart() {
+        super.onStart()
+
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = mAuth?.currentUser
+        updateUI(currentUser)
+    }
+
+    private fun updateUI(currentUser: FirebaseUser?) {
+
+    }
+
+
+    fun registrarUsuario(){
+        var email = registrarse_email.text.toString()
+        var password = registrarse_contrasena.text.toString()
+
+
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
+            if (task.isSuccessful) {
+                // Sign in success, update UI with the signed-in user's information
+                Log.d(TAG, "createUserWithEmail:success")
+                val user = mAuth.currentUser
+                updateUI(user)
+            } else {
+                // If sign in fails, display a message to the user.
+                Log.w(TAG, "createUserWithEmail:failure", task.exception);
+                Toast.makeText(this, "Authentication failed.",
+                    Toast.LENGTH_SHORT).show()
+                updateUI(null)
+            }
+
+
+        }
+    }
+
+
 
 }

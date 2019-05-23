@@ -4,8 +4,19 @@ import android.app.Activity
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import kotlinx.android.synthetic.main.pantalla_log_in.*
 import java.util.regex.Pattern
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import android.widget.Toast
+
+
+
+
+
+
+
 
 class Pantalla_log_in : AppCompatActivity() {
 
@@ -14,9 +25,14 @@ class Pantalla_log_in : AppCompatActivity() {
         const val PASSWORD_EXTRA = "contraseña"
     }
 
+    private lateinit var mAuth: FirebaseAuth
+    private val TAG: String = " "
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pantalla_log_in)
+
+        mAuth = FirebaseAuth.getInstance()
 
         login_boton.setOnClickListener {
             var contraOK = false
@@ -59,8 +75,12 @@ class Pantalla_log_in : AppCompatActivity() {
                 toast.show()
                 */
 
+                loguearUsuario()
+
                 val intent2 = Intent(this, Pantalla_MenuPrincipal::class.java)
                 startActivityForResult(intent2,1)
+
+
             }
         }
 
@@ -94,5 +114,57 @@ class Pantalla_log_in : AppCompatActivity() {
         login_contrasena.setText(data.getStringExtra(PASSWORD_EXTRA))
     }
 
+    public override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = mAuth?.currentUser
+        updateUI(currentUser)
+    }
+
+    private fun updateUI(currentUser: FirebaseUser?) {
+        if (currentUser != null){
+            Toast.makeText(
+                this, "Ya has iniciado sesion.",
+                Toast.LENGTH_SHORT
+            ).show()
+        }else{
+            Toast.makeText(
+                this, "No has iniciado sesion.",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+    }
+
+    fun loguearUsuario(){
+        mAuth.signInWithEmailAndPassword(login_email.text.toString(), login_contrasena.text.toString())
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Sign in success, update UI with the signed-in user's information
+                    Log.d(TAG, "signInWithEmail:success")
+
+                    Toast.makeText(
+                        this, "Se ha iniciado sesion correctamente.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                    val user = mAuth.currentUser
+                    updateUI(user)
+
+
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Log.w(TAG, "signInWithEmail:failure", task.exception)
+                    Toast.makeText(
+                        this, "Error al iniciar sesion.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    updateUI(null)
+                }
+
+            }
+    }
+
+    //para log out un usuario
+    // FirebaseAuth.getInstance().signOut()
 
 }
