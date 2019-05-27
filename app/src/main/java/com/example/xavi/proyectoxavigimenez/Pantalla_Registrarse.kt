@@ -22,15 +22,15 @@ class Pantalla_Registrarse : AppCompatActivity() {
         const val REQUEST_CODE = 1234
     }
 
-    private lateinit var mAuth: FirebaseAuth
-    private val TAG: String = " "
+    //private lateinit var mAuth: FirebaseAuth
+    //private val TAG: String = " "
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pantalla_registrarse)
 
         // Initialize Firebase Auth
-        mAuth = FirebaseAuth.getInstance()
+        //mAuth = FirebaseAuth.getInstance()
 
 
 
@@ -127,7 +127,7 @@ class Pantalla_Registrarse : AppCompatActivity() {
         bundle.putString(Pantalla_log_in.PASSWORD_EXTRA, registrarse_contrasena.text.toString())
         return bundle
     }
-
+/*
     override fun onStart() {
         super.onStart()
 
@@ -139,29 +139,25 @@ class Pantalla_Registrarse : AppCompatActivity() {
     private fun updateUI(currentUser: FirebaseUser?) {
 
     }
-
+*/
 
     fun registrarUsuario(){
-        var email = registrarse_email.text.toString()
-        var password = registrarse_contrasena.text.toString()
+        val email = registrarse_email.text.toString()
+        val password = registrarse_contrasena.text.toString()
 
 
-        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
-            if (task.isSuccessful) {
-                // Sign in success, update UI with the signed-in user's information
-                Log.d(TAG, "createUserWithEmail:success")
-                val user = mAuth.currentUser
-                updateUI(user)
-            } else {
-                // If sign in fails, display a message to the user.
-                Log.w(TAG, "createUserWithEmail:failure", task.exception);
-                Toast.makeText(this, "Authentication failed.",
-                    Toast.LENGTH_SHORT).show()
-                updateUI(null)
+        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener {
+                if (!it.isSuccessful){
+                    return@addOnCompleteListener
+                }else{
+                    Log.d("Main", "Usuario creado con uid: ${it.result!!.user.uid}")
+                }
             }
-
-
-        }
+            .addOnFailureListener{
+                Log.d("Main", "Fallo al crear el ususario: ${it.message}")
+                Toast.makeText(this, "Fallo al crear el ususario.",Toast.LENGTH_SHORT).show()
+            }
     }
 
 

@@ -25,14 +25,9 @@ class Pantalla_log_in : AppCompatActivity() {
         const val PASSWORD_EXTRA = "contraseña"
     }
 
-    private lateinit var mAuth: FirebaseAuth
-    private val TAG: String = " "
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pantalla_log_in)
-
-        mAuth = FirebaseAuth.getInstance()
 
         login_boton.setOnClickListener {
             var contraOK = false
@@ -75,7 +70,7 @@ class Pantalla_log_in : AppCompatActivity() {
                 toast.show()
                 */
 
-                loguearUsuario()
+                //loguearUsuario()
 
                 val intent2 = Intent(this, Pantalla_MenuPrincipal::class.java)
                 startActivityForResult(intent2,1)
@@ -86,8 +81,6 @@ class Pantalla_log_in : AppCompatActivity() {
 
         login_registrarse.setOnClickListener {
             val intent = Intent(this, Pantalla_Registrarse::class.java)
-            //intento1.putExtra("email", login_email.text.toString())
-            //intento1.putExtra("contrasenya", login_contrasena.text.toString())
             intent.putExtras(getRegisterBundle())
             startActivityForResult(intent,Pantalla_Registrarse.REQUEST_CODE)
         }
@@ -113,7 +106,7 @@ class Pantalla_log_in : AppCompatActivity() {
         login_email.setText(data.getStringExtra(EMAIL_EXTRA))
         login_contrasena.setText(data.getStringExtra(PASSWORD_EXTRA))
     }
-
+/*
     public override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
@@ -166,5 +159,5 @@ class Pantalla_log_in : AppCompatActivity() {
 
     //para log out un usuario
     // FirebaseAuth.getInstance().signOut()
-
+*/
 }

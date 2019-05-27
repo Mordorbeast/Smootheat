@@ -12,14 +12,14 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
 
-        <activity android:name=".Pantalla_MenuPrincipal"> <!-- SplashScreen -->
+        <activity android:name=".SplashScreen"> <!-- Pantalla_MenuPrincipal -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".SplashScreen"> <!-- Pantalla_MenuPrincipal -->
+        <activity android:name=".Pantalla_MenuPrincipal"> <!-- SplashScreen -->
         </activity>
         <activity android:name=".recetas.Pantalla_Recetas2">
         </activity>
