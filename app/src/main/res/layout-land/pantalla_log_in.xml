@@ -2,7 +2,8 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                              xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
                                              android:layout_height="match_parent"
-                                             xmlns:app="http://schemas.android.com/apk/res-auto">
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             android:background="@color/colorPrimary">
 
     <ScrollView
             android:layout_width="match_parent"
@@ -12,79 +13,74 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+
+
+
             <TextView
                     android:text="@string/login_titulo"
-                    android:layout_width="234dp"
-                    android:layout_height="46dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:id="@+id/textView" android:layout_marginTop="44dp"
                     app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginStart="8dp"
-                    android:textStyle="bold" android:textAllCaps="false"
-                    android:textSize="30sp" android:textAlignment="center"/>
-
-            <TextView
-                    android:text="@string/login_titulo_email"
-                    android:layout_width="47dp"
-                    android:layout_height="19dp"
-                    android:id="@+id/textView2"
-                    android:layout_marginTop="20dp" app:layout_constraintTop_toBottomOf="@+id/textView"
-                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-                    app:layout_constraintHorizontal_bias="0.011" android:textStyle="bold"/>
+                    android:layout_marginEnd="16dp" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="16dp"
+                    android:textAllCaps="false"
+                    android:textSize="30sp" android:textAlignment="center" android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"/>
 
             <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
                     android:ems="10"
                     android:id="@+id/login_email"
                     android:inputType="textEmailAddress" android:hint="@string/login_email"
-                    android:layout_marginStart="8dp"
-                    app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
-                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.015"
-                    android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView2"/>
-
-            <TextView
-                    android:text="@string/login_titulo_contrasena"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView3"
-                    android:layout_marginTop="16dp"
-                    app:layout_constraintTop_toBottomOf="@+id/login_email" android:textStyle="bold"
-                    android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.012"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.496"
+                    android:background="@drawable/edit_text_redondo"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp" app:layout_constraintTop_toBottomOf="@+id/textView"
+                    android:layout_marginTop="32dp"/>
 
             <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
                     android:ems="10"
                     android:id="@+id/login_contrasena"
                     android:hint="@string/login_contrasena"
-                    android:layout_marginStart="8dp"
-                    app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
+                    android:layout_marginStart="16dp"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.015"
-                    android:inputType="textPassword" android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/textView3"/>
+                    app:layout_constraintHorizontal_bias="0.503"
+                    android:inputType="textPassword"
+                    android:background="@drawable/edit_text_redondo"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    app:layout_constraintTop_toBottomOf="@+id/login_email" android:layout_marginTop="24dp"/>
             <Button
                     android:text="@string/login_boton"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/login_boton"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="112dp"
-                    android:layout_marginTop="48dp" app:layout_constraintTop_toBottomOf="@+id/textView"/>
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/boton_redondo_login_register"
+                    app:layout_constraintTop_toBottomOf="@+id/login_contrasena" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="16dp" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="16dp" app:layout_constraintHorizontal_bias="0.502"
+                    android:textColor="@android:color/white"/>
 
             <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/login_registrarse" app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="68dp"
-                    android:textColor="@android:color/holo_blue_dark"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                    android:textColor="@color/colorAccentDark"
                     android:text="@string/login_registrarse" android:layout_marginBottom="8dp"
                     app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/login_boton" app:layout_constraintVertical_bias="0.08"/>
+                    app:layout_constraintTop_toBottomOf="@+id/login_boton" app:layout_constraintVertical_bias="0.069"
+                    android:textAlignment="center" android:textStyle="bold"/>
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>

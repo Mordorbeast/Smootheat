@@ -5,116 +5,90 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Pantalla_Registrarse">
+        tools:context=".Pantalla_Registrarse"
+        android:background="@color/colorPrimary">
 
     <TextView
             android:text="@string/registrarse_titulo"
             android:layout_width="234dp"
             android:layout_height="46dp"
-            android:id="@+id/textView4" android:layout_marginTop="16dp"
+            android:id="@+id/textView4" android:layout_marginTop="44dp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
             android:textStyle="bold" android:textAllCaps="false"
-            android:textSize="30sp" android:textAlignment="center"/>
-
-    <TextView
-            android:text="@string/registrarse_titulo_nombre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView5"
-            android:textStyle="bold" android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.243"/>
+            android:textSize="30sp" android:textAlignment="center" android:textColor="@color/colorPrimaryDark"/>
 
     <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
             android:ems="10"
             android:id="@+id/registrarse_nombre"
-            android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
+            android:background="@drawable/edit_text_redondo"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.503"
             android:hint="@string/registrarse_nombre" android:inputType="textPersonName"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView5"/>
+            android:layout_marginTop="60dp" app:layout_constraintTop_toBottomOf="@+id/textView4"/>
 
-    <TextView
-            android:text="@string/registrarse_titulo_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView6"
-            android:textStyle="bold"
-            android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.231"
-            android:layout_marginTop="12dp" app:layout_constraintTop_toBottomOf="@+id/registrarse_nombre"/>
     <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
             android:ems="10"
             android:id="@+id/registrarse_email"
-            android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
+            android:background="@drawable/edit_text_redondo"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.503"
             android:hint="@string/registrarse_email" android:inputType="textEmailAddress"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView6"/>
-
-    <TextView
-            android:text="@string/registrarse_titulo_contrasena"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView7"
-            android:textStyle="bold"
-            android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.261"
-            android:layout_marginTop="12dp" app:layout_constraintTop_toBottomOf="@+id/registrarse_email"/>
+            android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/registrarse_nombre"/>
 
     <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
             android:inputType="textPassword"
             android:ems="10"
-            android:id="@+id/registrarse_contrasena" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+            android:id="@+id/registrarse_contrasena"
+            android:background="@drawable/edit_text_redondo"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="16dp"
             app:layout_constraintStart_toStartOf="parent"
             android:hint="@string/registrarse_contrasena"
-            app:layout_constraintHorizontal_bias="0.503" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView7"/>
-
-    <TextView
-            android:text="@string/registrarse_titulo_repetir_contrasena"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView8"
-            android:textStyle="bold"
-            android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.313"
-            android:layout_marginTop="12dp" app:layout_constraintTop_toBottomOf="@+id/registrarse_contrasena"/>
+            app:layout_constraintHorizontal_bias="0.503"
+            android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/registrarse_email"/>
 
     <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
             android:ems="10"
             android:id="@+id/registrarse_repetir_contrasena"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+            android:background="@drawable/edit_text_redondo"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="16dp"
             app:layout_constraintStart_toStartOf="parent" android:hint="@string/registrarse_repetir_contrasena"
             android:inputType="textPassword"
-            app:layout_constraintHorizontal_bias="0.503" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView8"/>
+            app:layout_constraintHorizontal_bias="0.503"
+            android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/registrarse_contrasena"/>
 
     <Button
             android:text="@string/registrarse_boton"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/registrarse_boton" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            android:layout_marginBottom="40dp" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.502" android:layout_marginTop="12dp"
+            android:id="@+id/registrarse_boton" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+            app:layout_constraintHorizontal_bias="0.502" android:layout_marginTop="16dp"
             app:layout_constraintTop_toBottomOf="@+id/registrarse_repetir_contrasena"
-            app:layout_constraintVertical_bias="1.0"/>
+            android:background="@drawable/boton_redondo_login_register"
+            android:textColor="@android:color/white"
+    />
 
 </android.support.constraint.ConstraintLayout>

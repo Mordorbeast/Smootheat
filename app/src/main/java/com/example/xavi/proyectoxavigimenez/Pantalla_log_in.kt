@@ -106,6 +106,7 @@ class Pantalla_log_in : AppCompatActivity() {
         login_email.setText(data.getStringExtra(EMAIL_EXTRA))
         login_contrasena.setText(data.getStringExtra(PASSWORD_EXTRA))
     }
+
 /*
     public override fun onStart() {
         super.onStart()
