@@ -15,7 +15,7 @@ import com.example.xavi.proyectoxavigimenez.recetas.Pantalla_Recetas
 import kotlinx.android.synthetic.main.pantalla_lista_compra.*
 
 
-class lista_compra : AppCompatActivity() {
+class Pantalla_lista_compra : AppCompatActivity() {
 
 
     val alimento1 = Alimento("patatas", "")
@@ -80,7 +80,7 @@ class lista_compra : AppCompatActivity() {
         val intent5 = Intent(this, Pantalla_Recetas::class.java)
         val intent6 = Intent(this, Pantalla_nevera::class.java)
         val intent7 = Intent(this, Pantalla_aprende_a_cocinar::class.java)
-        val intent8 = Intent(this, lista_compra::class.java)
+        val intent8 = Intent(this, Pantalla_lista_compra::class.java)
 
         when(item?.itemId) {
             R.id.recetas_actionbar -> startActivityForResult(intent5,1)

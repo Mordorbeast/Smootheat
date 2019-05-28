@@ -11,7 +11,7 @@ import android.widget.Toast
 import com.example.xavi.proyectoxavigimenez.Alimento
 import com.example.xavi.proyectoxavigimenez.R
 import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.Pantalla_aprende_a_cocinar
-import com.example.xavi.proyectoxavigimenez.lista_compra.lista_compra
+import com.example.xavi.proyectoxavigimenez.lista_compra.Pantalla_lista_compra
 import com.example.xavi.proyectoxavigimenez.recetas.Pantalla_Recetas
 import kotlinx.android.synthetic.main.pantalla_nevera.*
 
@@ -73,7 +73,7 @@ class Pantalla_nevera : AppCompatActivity() {
         val intent5 = Intent(this, Pantalla_Recetas::class.java)
         val intent6 = Intent(this, Pantalla_nevera::class.java)
         val intent7 = Intent(this, Pantalla_aprende_a_cocinar::class.java)
-        val intent8 = Intent(this, lista_compra::class.java)
+        val intent8 = Intent(this, Pantalla_lista_compra::class.java)
 
         when(item?.itemId) {
             R.id.recetas_actionbar -> startActivityForResult(intent5,1)

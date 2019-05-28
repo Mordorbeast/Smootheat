@@ -45,6 +45,7 @@
     <string name="addFilaListaCompra_anadirAlimento">Añadir alimento</string>
     <string name="addFilaListaCompra_alimento">Alimento</string>
     <string name="addFilaListaCompra_anadir">Añadir</string>
+    <string name="lista_compra_boton_anadir">Añadir</string>
 
 
 </resources>

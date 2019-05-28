@@ -12,14 +12,14 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
 
-        <activity android:name=".SplashScreen"> <!-- Pantalla_MenuPrincipal -->
+        <activity android:name=".menu.Pantalla_MenuPrincipal"> <!-- Pantalla_MenuPrincipal -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".Pantalla_MenuPrincipal"> <!-- SplashScreen -->
+        <activity android:name=".SplashScreen"> <!-- SplashScreen -->
         </activity>
         <activity android:name=".recetas.Pantalla_Recetas2">
         </activity>
@@ -33,7 +33,7 @@
         </activity>
         <activity android:name=".Pantalla_Registrarse">
         </activity>
-        <activity android:name=".lista_compra.lista_compra">
+        <activity android:name=".lista_compra.Pantalla_lista_compra">
 
             <!--
             android:parentActivityName=".add_fila_lista_compra" >

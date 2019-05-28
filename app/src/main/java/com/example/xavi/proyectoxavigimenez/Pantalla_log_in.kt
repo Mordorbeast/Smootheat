@@ -4,18 +4,9 @@ import android.app.Activity
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import kotlinx.android.synthetic.main.pantalla_log_in.*
 import java.util.regex.Pattern
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import android.widget.Toast
-
-
-
-
-
-
+import com.example.xavi.proyectoxavigimenez.menu.Pantalla_MenuPrincipal
 
 
 class Pantalla_log_in : AppCompatActivity() {

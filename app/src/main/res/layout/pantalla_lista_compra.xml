@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".lista_compra.lista_compra">
+        tools:context=".lista_compra.Pantalla_lista_compra">
 
     <include android:id="@+id/my_toolbar2" layout="@layout/toolbar"/>
 
@@ -19,22 +19,10 @@
             android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/my_toolbar2"
             android:layout_marginBottom="16dp" app:layout_constraintBottom_toTopOf="@+id/addAlimento_lista_compra"
             android:layout_marginStart="8dp" android:layout_marginEnd="8dp"/>
-<!--
-    <Button
-            android:text="Eliminar"
-            android:drawableStart="@android:drawable/ic_menu_delete"
-            android:layout_width="170dp"
-            android:layout_height="60dp"
-            android:id="@+id/eliminar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="16dp" android:layout_marginEnd="16dp"
-            app:layout_constraintStart_toEndOf="@+id/addAlimento_lista_compra" android:layout_marginStart="8dp"
-            app:layout_constraintHorizontal_bias="0.645"/>
--->
+
 
     <Button
-            android:text="Añadir"
+            android:text="@string/lista_compra_boton_anadir"
             android:drawableStart="@android:drawable/ic_input_add"
             android:layout_width="170dp"
             android:layout_height="60dp"
