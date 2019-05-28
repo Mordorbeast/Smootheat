@@ -11,15 +11,19 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-
-        <activity android:name=".menu.Pantalla_MenuPrincipal"> <!-- Pantalla_MenuPrincipal -->
+        <activity
+                android:name=".nevera.Pantalla_nevera"
+                android:label="@string/title_activity_pantalla_nevera_2"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".menu.Pantalla_MenuPrincipal"> <!-- SplashScreen -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".SplashScreen"> <!-- SplashScreen -->
+        <activity android:name=".SplashScreen"> <!-- Pantalla_MenuPrincipal -->
         </activity>
         <activity android:name=".recetas.Pantalla_Recetas2">
         </activity>
@@ -43,8 +47,6 @@
             -->
         </activity>
         <activity android:name=".lista_compra.add_fila_lista_compra">
-        </activity>
-        <activity android:name=".nevera.Pantalla_nevera">
         </activity>
         <activity android:name=".Pantalla_log_in">
         </activity>

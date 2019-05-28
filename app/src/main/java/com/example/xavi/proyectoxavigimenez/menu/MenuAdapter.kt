@@ -3,19 +3,16 @@ package com.example.xavi.proyectoxavigimenez.menu
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.support.v4.app.ActivityCompat.startActivityForResult
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.Toast
 import com.example.xavi.proyectoxavigimenez.R
 import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.Pantalla_aprende_a_cocinar
 import com.example.xavi.proyectoxavigimenez.lista_compra.Pantalla_lista_compra
 import com.example.xavi.proyectoxavigimenez.nevera.Pantalla_nevera
 import com.example.xavi.proyectoxavigimenez.recetas.Pantalla_Recetas
 import kotlinx.android.synthetic.main.elemento_gridlayout_menu_principal.view.*
-import kotlinx.android.synthetic.main.pantalla_menu_principal.view.*
 
 class MenuAdapter(var context: Context ,var textos : ArrayList<String>) : BaseAdapter() {
 

@@ -8,21 +8,21 @@
         tools:context=".nevera.FilaNeveraActivity">
 
     <TextView
-            android:text="TextView"
+            android:text="@string/fila_nevera_alimento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/alimento" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
             app:layout_constraintTop_toTopOf="parent"/>
     <TextView
-            android:text="Eliminar"
+            android:text="@string/fila_nevera_eliminar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/eliminar" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             android:textColor="#F44336" android:textStyle="bold"/>
     <TextView
-            android:text="TextView"
+            android:text="@string/fila_nevera_tipoalimento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tipoAlimento" android:layout_marginTop="5dp"

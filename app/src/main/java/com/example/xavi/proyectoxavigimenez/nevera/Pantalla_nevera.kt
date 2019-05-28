@@ -1,8 +1,8 @@
 package com.example.xavi.proyectoxavigimenez.nevera
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
@@ -13,8 +13,8 @@ import com.example.xavi.proyectoxavigimenez.R
 import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.Pantalla_aprende_a_cocinar
 import com.example.xavi.proyectoxavigimenez.lista_compra.Pantalla_lista_compra
 import com.example.xavi.proyectoxavigimenez.recetas.Pantalla_Recetas
+import kotlinx.android.synthetic.main.content_pantalla_nevera_2.*
 import kotlinx.android.synthetic.main.pantalla_nevera.*
-
 
 class Pantalla_nevera : AppCompatActivity() {
 
@@ -43,11 +43,11 @@ class Pantalla_nevera : AppCompatActivity() {
 
         listView.adapter=customAdptor
 
-        addAlimento_nevera.setOnClickListener(){
+
+        botonFlotante.setOnClickListener { view ->
             val intent = Intent(this, add_fila_neveraActivity::class.java)
             startActivityForResult(intent,1)
         }
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
