@@ -5,7 +5,8 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".nevera.add_fila_neveraActivity">
+        tools:context=".nevera.add_fila_neveraActivity"
+        android:background="@color/colorPrimaryLight">
 
     <include android:id="@+id/my_toolbar7" layout="@layout/toolbar"/>
 
@@ -17,32 +18,39 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="155dp" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="155dp" android:textSize="24sp" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/my_toolbar7"/>
+            app:layout_constraintTop_toBottomOf="@+id/my_toolbar7" android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"/>
     <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
             android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/alimento"
-            android:hint="@string/addFilaNevera_alimento" android:layout_marginTop="64dp" app:layout_constraintTop_toBottomOf="@+id/titulo"
-            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+            android:background="@drawable/edit_text_redondo"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:hint="@string/addFilaNevera_alimento" android:layout_marginTop="64dp"
+            app:layout_constraintTop_toBottomOf="@+id/titulo"
+            android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="16dp"
             app:layout_constraintStart_toStartOf="parent"/>
     <Button
             android:text="@string/addFilaNevera_anadir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
             android:id="@+id/addAlimento_fila_nevera" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="160dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="160dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/boton_redondo_login_register"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
             app:layout_constraintHorizontal_bias="0.333"
-            android:layout_marginBottom="32dp" app:layout_constraintBottom_toBottomOf="parent"/>
+            android:textColor="@android:color/white" android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_tiposAlimentos"/>
 
     <Spinner
             android:id="@+id/spinner_tiposAlimentos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="181dp"
-            android:layout_marginEnd="181dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="32dp"
-            app:layout_constraintTop_toBottomOf="@+id/alimento"/>
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/alimento" android:spinnerMode="dialog"/>
 
 </android.support.constraint.ConstraintLayout>
