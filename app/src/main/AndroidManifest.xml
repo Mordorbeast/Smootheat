@@ -12,6 +12,11 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
+                android:name=".lista_compra.Pantalla_lista_compra"
+                android:label="@string/title_activity_pantalla_lista_compra_2"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
                 android:name=".nevera.Pantalla_nevera"
                 android:label="@string/title_activity_pantalla_nevera_2"
                 android:theme="@style/AppTheme.NoActionBar">
@@ -36,15 +41,6 @@
         <activity android:name=".recetas.Pantalla_Recetas">
         </activity>
         <activity android:name=".Pantalla_Registrarse">
-        </activity>
-        <activity android:name=".lista_compra.Pantalla_lista_compra">
-
-            <!--
-            android:parentActivityName=".add_fila_lista_compra" >
-            <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".add_fila_lista_compra" />
-            -->
         </activity>
         <activity android:name=".lista_compra.add_fila_lista_compra">
         </activity>

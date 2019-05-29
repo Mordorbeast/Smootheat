@@ -2,21 +2,22 @@ package com.example.xavi.proyectoxavigimenez.lista_compra
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.*
+import android.widget.ListView
+import android.widget.Toast
 import com.example.xavi.proyectoxavigimenez.Alimento
 import com.example.xavi.proyectoxavigimenez.R
 import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.Pantalla_aprende_a_cocinar
 import com.example.xavi.proyectoxavigimenez.nevera.Pantalla_nevera
 import com.example.xavi.proyectoxavigimenez.recetas.Pantalla_Recetas
+import kotlinx.android.synthetic.main.content_pantalla_lista_compra.*
+
 import kotlinx.android.synthetic.main.pantalla_lista_compra.*
 
-
 class Pantalla_lista_compra : AppCompatActivity() {
-
 
     val alimento1 = Alimento("patatas", "")
     val alimento2 = Alimento("arroz", "")
@@ -42,19 +43,11 @@ class Pantalla_lista_compra : AppCompatActivity() {
 
         listView.adapter = customAdptor
 
-
-/*
-        listView.setOnItemClickListener{ parent, view, position, id ->
-            Toast.makeText(this, "You Clicked:"+" "+customAdptor.alimentos[position], Toast.LENGTH_SHORT).show()
-        }
-*/
-
-        addAlimento_lista_compra.setOnClickListener(){
+        botonFlotante.setOnClickListener { view ->
             val intent = Intent(this, add_fila_lista_compra::class.java)
             startActivityForResult(intent,1)
         }
     }
-
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == 1) {
@@ -73,7 +66,7 @@ class Pantalla_lista_compra : AppCompatActivity() {
     //toolbar
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.action_bar, menu)
-         return true
+        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -91,5 +84,5 @@ class Pantalla_lista_compra : AppCompatActivity() {
 
         return super.onOptionsItemSelected(item)
     }
-}
 
+}

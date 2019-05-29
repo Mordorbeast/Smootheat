@@ -45,15 +45,21 @@
     <string name="addFilaListaCompra_anadirAlimento">Añadir alimento</string>
     <string name="addFilaListaCompra_alimento">Alimento</string>
     <string name="addFilaListaCompra_anadir">Añadir</string>
+
     <string name="lista_compra_boton_anadir">Añadir</string>
+
     <string name="fila_receta_nombre_receta">Nombre receta</string>
     <string name="fila_receta_autor">Autor</string>
     <string name="fila_receta_descripcion">Descripcion</string>
     <string name="fila_nevera_alimento">Alimento</string>
     <string name="fila_nevera_eliminar">Eliminar</string>
     <string name="fila_nevera_tipoalimento">TipoAlimento</string>
+
     <string name="title_activity_prueba">prueba</string>
     <string name="title_activity_pantalla_nevera_2">Pantalla_nevera_2</string>
+    <string name="addListaCompra_nombrealimento">nombreAlimento</string>
+    <string name="addListaCompra_eliminar">Eliminar</string>
+    <string name="title_activity_pantalla_lista_compra_2">Pantalla_lista_compra_2</string>
 
 
 </resources>

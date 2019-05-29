@@ -5,7 +5,8 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".nevera.Pantalla_nevera">
+        tools:context=".nevera.Pantalla_nevera"
+        android:background="@color/colorPrimaryLight">
 
     <include layout="@layout/content_pantalla_nevera_2"/>
 
