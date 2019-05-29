@@ -5,7 +5,8 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".recetas.Pantalla_Recetas2">
+        tools:context=".recetas.Pantalla_Recetas2"
+        android:background="@color/colorPrimaryLight">
 
     <include android:id="@+id/my_toolbar_receta2" layout="@layout/toolbar"/>
 
@@ -40,7 +41,7 @@
                     app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
                     android:layout_marginTop="16dp"
                     app:layout_constraintTop_toBottomOf="@+id/foto_receta2" android:hint="@string/receta2_descripcion"
-                    android:enabled="false" android:singleLine="false"/>
+                    android:enabled="false" android:singleLine="false" android:textColor="@android:color/black"/>
             <VideoView
                     android:layout_width="0dp"
                     android:layout_height="200dp"
