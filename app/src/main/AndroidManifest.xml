@@ -10,25 +10,15 @@
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:theme="@style/AppTheme">
-        <activity
-                android:name=".lista_compra.Pantalla_lista_compra"
-                android:label="@string/title_activity_pantalla_lista_compra_2"
-                android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity
-                android:name=".nevera.Pantalla_nevera"
-                android:label="@string/title_activity_pantalla_nevera_2"
-                android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity android:name=".menu.Pantalla_MenuPrincipal"> <!-- SplashScreen -->
+            android:theme="@style/AppTheme.Splash">
+        <activity android:name=".Pantalla_log_in"> <!-- .menu.Pantalla_MenuPrincipal -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".SplashScreen"> <!-- Pantalla_MenuPrincipal -->
+        <activity android:name=".menu.Pantalla_MenuPrincipal"> <!-- .Pantalla_log_in -->
         </activity>
         <activity android:name=".recetas.Pantalla_Recetas2">
         </activity>
@@ -44,9 +34,17 @@
         </activity>
         <activity android:name=".lista_compra.add_fila_lista_compra">
         </activity>
-        <activity android:name=".Pantalla_log_in">
-        </activity>
         <activity android:name=".aprende_a_cocinar.Pantalla_aprende_a_cocinar">
+        </activity>
+        <activity
+                android:name=".lista_compra.Pantalla_lista_compra"
+                android:label="@string/title_activity_pantalla_lista_compra_2"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+                android:name=".nevera.Pantalla_nevera"
+                android:label="@string/title_activity_pantalla_nevera_2"
+                android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
 
