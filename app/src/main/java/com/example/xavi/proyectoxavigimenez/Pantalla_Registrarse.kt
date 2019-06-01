@@ -9,11 +9,6 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.pantalla_registrarse.*
 import java.util.regex.Pattern
-import com.google.firebase.auth.FirebaseUser
-
-
-
-
 
 
 class Pantalla_Registrarse : AppCompatActivity() {
@@ -127,19 +122,7 @@ class Pantalla_Registrarse : AppCompatActivity() {
         bundle.putString(Pantalla_log_in.PASSWORD_EXTRA, registrarse_contrasena.text.toString())
         return bundle
     }
-/*
-    override fun onStart() {
-        super.onStart()
 
-        // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = mAuth?.currentUser
-        updateUI(currentUser)
-    }
-
-    private fun updateUI(currentUser: FirebaseUser?) {
-
-    }
-*/
 
     fun registrarUsuario(){
         val email = registrarse_email.text.toString()

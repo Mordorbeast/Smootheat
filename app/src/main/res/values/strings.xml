@@ -61,5 +61,11 @@
     <string name="addListaCompra_eliminar">Eliminar</string>
     <string name="title_activity_pantalla_lista_compra_2">Pantalla_lista_compra_2</string>
 
+    <string name="pantallaReceta2_tituloPasos">Pasos:</string>
+    <string name="pantallaReceta2_pasos_receta">Pasos receta</string>
+    <string name="pantallaReceta2_ingredientes_receta">Ingredientes receta</string>
+    <string name="pantallaReceta2_tituloIngredientes">Ingredientes:</string>
+    <string name="pantallaReceta2_receta">Receta</string>
+
 
 </resources>

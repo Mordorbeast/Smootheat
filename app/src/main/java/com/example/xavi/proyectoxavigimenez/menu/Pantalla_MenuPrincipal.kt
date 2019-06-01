@@ -27,6 +27,7 @@ class Pantalla_MenuPrincipal : AppCompatActivity(), AdapterView.OnItemClickListe
     val adaptador = MenuAdapter(this, textos)
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pantalla_menu_principal)
 

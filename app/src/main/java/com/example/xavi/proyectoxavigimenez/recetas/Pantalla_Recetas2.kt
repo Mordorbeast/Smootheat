@@ -25,11 +25,11 @@ class Pantalla_Recetas2 : AppCompatActivity() {
         setSupportActionBar(my_toolbar_receta2 as Toolbar)
 
         val foto = findViewById<ImageView>(R.id.foto_receta2)
-        val desc = findViewById<TextView>(R.id.descripcion_receta2)
+        val ingredientes = findViewById<TextView>(R.id.ingredientes)
         val video = findViewById<VideoView>(R.id.video_receta2)
 
         //foto.setImage = receta.imagen
-        desc.text = receta.descLarga
+        //ingredientes.text = receta.descLarga
         //video = receta.video
     }
 

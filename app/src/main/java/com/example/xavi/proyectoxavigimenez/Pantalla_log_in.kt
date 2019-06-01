@@ -4,9 +4,12 @@ import android.app.Activity
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import kotlinx.android.synthetic.main.pantalla_log_in.*
 import java.util.regex.Pattern
 import com.example.xavi.proyectoxavigimenez.menu.Pantalla_MenuPrincipal
+import com.google.firebase.auth.FirebaseAuth
 
 
 class Pantalla_log_in : AppCompatActivity() {
@@ -62,7 +65,7 @@ class Pantalla_log_in : AppCompatActivity() {
                 toast.show()
                 */
 
-                //loguearUsuario()
+                logUsuario()
 
                 val intent2 = Intent(this, Pantalla_MenuPrincipal::class.java)
                 startActivityForResult(intent2,1)
@@ -120,37 +123,19 @@ class Pantalla_log_in : AppCompatActivity() {
             ).show()
         }
     }
-
-    fun loguearUsuario(){
-        mAuth.signInWithEmailAndPassword(login_email.text.toString(), login_contrasena.text.toString())
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Log.d(TAG, "signInWithEmail:success")
-
-                    Toast.makeText(
-                        this, "Se ha iniciado sesion correctamente.",
-                        Toast.LENGTH_SHORT
-                    ).show()
-
-                    val user = mAuth.currentUser
-                    updateUI(user)
+*/
+    fun logUsuario(){
+        val email =  login_email.text.toString()
+        val password = login_contrasena.text.toString()
 
 
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Log.w(TAG, "signInWithEmail:failure", task.exception)
-                    Toast.makeText(
-                        this, "Error al iniciar sesion.",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    updateUI(null)
-                }
+        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+        Log.d("Main", "Usuario logeado ")
 
-            }
+
     }
 
     //para log out un usuario
     // FirebaseAuth.getInstance().signOut()
-*/
+
 }
