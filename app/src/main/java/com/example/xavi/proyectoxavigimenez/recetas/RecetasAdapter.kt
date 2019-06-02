@@ -13,19 +13,16 @@ import kotlinx.android.synthetic.main.fila_receta.view.*
 class RecetasAdapter(private val context: Context, var recetas : ArrayList<Receta>): BaseAdapter() {
 
 
-
-
     @SuppressLint("ViewHolder", "InflateParams")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val inflater = LayoutInflater.from(context)
         val fila = inflater.inflate(R.layout.fila_receta,null)
 
 
-
         fila.foto_receta2.setImageResource(recetas[position].imagen)
         fila.nombreReceta.text = recetas[position].nombre
         fila.autor.text = recetas[position].autor
-        fila.descripcion.text = recetas[position].descBrebe
+        fila.descripcion.text = recetas[position].descCorta
 
 
         return fila

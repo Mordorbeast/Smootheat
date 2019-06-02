@@ -16,9 +16,13 @@ import com.example.xavi.proyectoxavigimenez.nevera.Pantalla_nevera
 
 class Pantalla_Recetas : AppCompatActivity() {
 
-    val receta1 = Receta("patatas","xavi","descripcion brebe","descripcion larga",R.drawable.abc_ab_share_pack_mtrl_alpha,"video")
-    val receta2 = Receta("alcachofa","pablo","descripcion brebe","descripcion larga",R.drawable.abc_btn_check_to_on_mtrl_015,"video")
-    val receta3 = Receta("pepinos","uri","descripcion brebe","descripcion larga",R.drawable.abc_btn_radio_to_on_mtrl_000,"video")
+    companion object {
+        const val REQUEST_CODE = 10
+    }
+
+    val receta1 = Receta("patatas","xavi","descripcion brebe","ingredientes xavi","pasos xavi",R.drawable.abc_ab_share_pack_mtrl_alpha,"video")
+    val receta2 = Receta("alcachofa","pablo","descripcion brebe","ingredientes pablo","pasos pablo",R.drawable.abc_btn_check_to_on_mtrl_015,"video")
+    val receta3 = Receta("pepinos","uri","descripcion brebe","ingredientes uri","pasos uri",R.drawable.abc_btn_radio_to_on_mtrl_000,"video")
 
     val recetas = arrayListOf<Receta>(receta1,receta2,receta3)
 
@@ -38,7 +42,7 @@ class Pantalla_Recetas : AppCompatActivity() {
 
             val intent = Intent(this, Pantalla_Recetas2::class.java)
             intent.putExtra("receta",customAdptor.recetas[position])
-            startActivityForResult(intent,1)
+            startActivity(intent)
 
 
 
