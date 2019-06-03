@@ -67,5 +67,15 @@
     <string name="pantallaReceta2_tituloIngredientes">Ingredientes:</string>
     <string name="pantallaReceta2_receta">Receta</string>
 
+    <string name="error_noVacio">No puede estar vacio.</string>
+    <string name="error_formatoIncorrecto">Formato incorrecto.</string>
+    <string name="error_min1letra">Tiene que tener minimo una letra.</string>
+    <string name="error_min1num">Tiene que tener minimo un numero.</string>
+    <string name="error_min8caracteres">Tiene que tener minimo 8 caracteres.</string>
+    <string name="error_contrasDif">Las dos contraseñas tienen que ser iguales.</string>
+
+    <string name="toast_usuarioNoCreado">Fallo al crear el ususario.</string>
+    <string name="toast_addAlimento">Se ha añadido el alimento</string>
+
 
 </resources>

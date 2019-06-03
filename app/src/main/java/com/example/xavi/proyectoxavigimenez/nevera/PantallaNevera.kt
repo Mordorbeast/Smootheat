@@ -10,13 +10,13 @@ import android.widget.ListView
 import android.widget.Toast
 import com.example.xavi.proyectoxavigimenez.Alimento
 import com.example.xavi.proyectoxavigimenez.R
-import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.Pantalla_aprende_a_cocinar
-import com.example.xavi.proyectoxavigimenez.lista_compra.Pantalla_lista_compra
-import com.example.xavi.proyectoxavigimenez.recetas.Pantalla_Recetas
+import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.PantallaAprendeACocinar
+import com.example.xavi.proyectoxavigimenez.lista_compra.PantallaListaCompra
+import com.example.xavi.proyectoxavigimenez.recetas.PantallaRecetas
 import kotlinx.android.synthetic.main.content_pantalla_nevera_2.*
 import kotlinx.android.synthetic.main.pantalla_nevera.*
 
-class Pantalla_nevera : AppCompatActivity() {
+class PantallaNevera : AppCompatActivity() {
 
     val alimento1 = Alimento("patatas", "hortaliza")
     val alimento2 = Alimento("lomo", "carne")
@@ -45,7 +45,7 @@ class Pantalla_nevera : AppCompatActivity() {
 
 
         botonFlotante.setOnClickListener { view ->
-            val intent = Intent(this, add_fila_neveraActivity::class.java)
+            val intent = Intent(this, AddFilaNevera::class.java)
             startActivityForResult(intent,1)
         }
     }
@@ -57,7 +57,7 @@ class Pantalla_nevera : AppCompatActivity() {
                 val name = data!!.getParcelableExtra<Alimento>("alimento2").alimento
                 alimentos.add(data.getParcelableExtra<Alimento>("alimento2"))
                 customAdptor.notifyDataSetChanged()
-                Toast.makeText(this, "Se ha añadido el alimento $name", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.toast_addAlimento) + name, Toast.LENGTH_SHORT).show()
 
             }
         }
@@ -70,10 +70,10 @@ class Pantalla_nevera : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        val intent5 = Intent(this, Pantalla_Recetas::class.java)
-        val intent6 = Intent(this, Pantalla_nevera::class.java)
-        val intent7 = Intent(this, Pantalla_aprende_a_cocinar::class.java)
-        val intent8 = Intent(this, Pantalla_lista_compra::class.java)
+        val intent5 = Intent(this, PantallaRecetas::class.java)
+        val intent6 = Intent(this, PantallaNevera::class.java)
+        val intent7 = Intent(this, PantallaAprendeACocinar::class.java)
+        val intent8 = Intent(this, PantallaListaCompra::class.java)
 
         when(item?.itemId) {
             R.id.recetas_actionbar -> startActivityForResult(intent5,1)

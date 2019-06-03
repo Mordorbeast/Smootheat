@@ -10,15 +10,11 @@ import android.view.Menu
 import android.view.MenuItem
 import com.example.xavi.proyectoxavigimenez.R
 import com.example.xavi.proyectoxavigimenez.Receta
-import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.Pantalla_aprende_a_cocinar
-import com.example.xavi.proyectoxavigimenez.lista_compra.Pantalla_lista_compra
-import com.example.xavi.proyectoxavigimenez.nevera.Pantalla_nevera
+import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.PantallaAprendeACocinar
+import com.example.xavi.proyectoxavigimenez.lista_compra.PantallaListaCompra
+import com.example.xavi.proyectoxavigimenez.nevera.PantallaNevera
 
-class Pantalla_Recetas : AppCompatActivity() {
-
-    companion object {
-        const val REQUEST_CODE = 10
-    }
+class PantallaRecetas : AppCompatActivity() {
 
     val receta1 = Receta("patatas","xavi","descripcion brebe","ingredientes xavi","pasos xavi",R.drawable.abc_ab_share_pack_mtrl_alpha,"video")
     val receta2 = Receta("alcachofa","pablo","descripcion brebe","ingredientes pablo","pasos pablo",R.drawable.abc_btn_check_to_on_mtrl_015,"video")
@@ -43,11 +39,6 @@ class Pantalla_Recetas : AppCompatActivity() {
             val intent = Intent(this, Pantalla_Recetas2::class.java)
             intent.putExtra("receta",customAdptor.recetas[position])
             startActivity(intent)
-
-
-
-
-            //setResult(Activity.RESULT_OK, intent)
         }
     }
 
@@ -58,10 +49,10 @@ class Pantalla_Recetas : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        val intent5 = Intent(this, Pantalla_Recetas::class.java)
-        val intent6 = Intent(this, Pantalla_nevera::class.java)
-        val intent7 = Intent(this, Pantalla_aprende_a_cocinar::class.java)
-        val intent8 = Intent(this, Pantalla_lista_compra::class.java)
+        val intent5 = Intent(this, PantallaRecetas::class.java)
+        val intent6 = Intent(this, PantallaNevera::class.java)
+        val intent7 = Intent(this, PantallaAprendeACocinar::class.java)
+        val intent8 = Intent(this, PantallaListaCompra::class.java)
 
         when(item?.itemId) {
             R.id.recetas_actionbar -> startActivityForResult(intent5,1)

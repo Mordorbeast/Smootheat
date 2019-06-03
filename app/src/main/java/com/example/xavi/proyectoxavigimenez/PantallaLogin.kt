@@ -5,14 +5,13 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import kotlinx.android.synthetic.main.pantalla_log_in.*
 import java.util.regex.Pattern
-import com.example.xavi.proyectoxavigimenez.menu.Pantalla_MenuPrincipal
+import com.example.xavi.proyectoxavigimenez.menu.PantallaMenuPrincipal
 import com.google.firebase.auth.FirebaseAuth
 
 
-class Pantalla_log_in : AppCompatActivity() {
+class PantallaLogin : AppCompatActivity() {
 
     companion object {
         const val EMAIL_EXTRA = "email"
@@ -29,45 +28,38 @@ class Pantalla_log_in : AppCompatActivity() {
             var emailOK = false
 
             if(login_email.text.isEmpty()){
-                login_email.error = "No puede estar vacio."
+                login_email.error = getString(R.string.error_noVacio)
             }else{
                 if(!Pattern.compile(".+\\@.+\\..+").matcher(login_email.text).matches()) {
-                    login_email.error = "Formato incorrecto."
+                    login_email.error = getString(R.string.error_formatoIncorrecto)
                 }else{
                     emailOK = true;
                 }
             }
 
             if(login_contrasena.text.isEmpty()){
-                login_contrasena.error = "No puede estar vacio."
+                login_contrasena.error = getString(R.string.error_noVacio)
             }else{
                 if (login_contrasena.length() >= 8) {
                     if (login_contrasena.text.toString().contains("[0-9]".toRegex())) {
                         if (login_contrasena.text.toString().contains("[a-zA-Z]".toRegex())) {
                             contraOK = true
                         }else{
-                            login_contrasena.error = "Tiene que tener minimo una letra."
+                            login_contrasena.error = getString(R.string.error_min1letra)
                         }
                     }else{
-                        login_contrasena.error = "Tiene que tener minimo un numero."
+                        login_contrasena.error = getString(R.string.error_min1num)
                     }
                 }else{
-                    login_contrasena.error = "Tiene que tener minimo 8 caracteres."
+                    login_contrasena.error = getString(R.string.error_min8caracteres)
                 }
             }
 
             if(contraOK && emailOK ){
-                /*
-                val text = "Logueado correctamente"
-                val duration = Toast.LENGTH_LONG
-
-                val toast = Toast.makeText(applicationContext, text, duration)
-                toast.show()
-                */
 
                 logUsuario()
 
-                val intent2 = Intent(this, Pantalla_MenuPrincipal::class.java)
+                val intent2 = Intent(this, PantallaMenuPrincipal::class.java)
                 startActivityForResult(intent2,1)
 
 
@@ -75,9 +67,9 @@ class Pantalla_log_in : AppCompatActivity() {
         }
 
         login_registrarse.setOnClickListener {
-            val intent = Intent(this, Pantalla_Registrarse::class.java)
+            val intent = Intent(this, PantallaRegistrarse::class.java)
             intent.putExtras(getRegisterBundle())
-            startActivityForResult(intent,Pantalla_Registrarse.REQUEST_CODE)
+            startActivityForResult(intent,PantallaRegistrarse.REQUEST_CODE)
         }
     }
 
@@ -91,7 +83,7 @@ class Pantalla_log_in : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
-            Pantalla_Registrarse.REQUEST_CODE -> {
+            PantallaRegistrarse.REQUEST_CODE -> {
                 if (resultCode == Activity.RESULT_OK) updateViews(data!!)
             }
         }
@@ -102,28 +94,7 @@ class Pantalla_log_in : AppCompatActivity() {
         login_contrasena.setText(data.getStringExtra(PASSWORD_EXTRA))
     }
 
-/*
-    public override fun onStart() {
-        super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = mAuth?.currentUser
-        updateUI(currentUser)
-    }
 
-    private fun updateUI(currentUser: FirebaseUser?) {
-        if (currentUser != null){
-            Toast.makeText(
-                this, "Ya has iniciado sesion.",
-                Toast.LENGTH_SHORT
-            ).show()
-        }else{
-            Toast.makeText(
-                this, "No has iniciado sesion.",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
-    }
-*/
     fun logUsuario(){
         val email =  login_email.text.toString()
         val password = login_contrasena.text.toString()
@@ -134,8 +105,5 @@ class Pantalla_log_in : AppCompatActivity() {
 
 
     }
-
-    //para log out un usuario
-    // FirebaseAuth.getInstance().signOut()
 
 }

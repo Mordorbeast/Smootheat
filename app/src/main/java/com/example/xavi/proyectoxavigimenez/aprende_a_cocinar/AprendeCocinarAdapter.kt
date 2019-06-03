@@ -17,7 +17,7 @@ class AprendeCocinarAdapter(private val context: Activity): BaseAdapter() {
         val inflater = context.layoutInflater
         val view1 = inflater.inflate(R.layout.fila_aprende_cocinar,null)
 
-        var ftitulo = view1.findViewById<TextView>(R.id.tituloVideo)
+        val ftitulo = view1.findViewById<TextView>(R.id.tituloVideo)
 
         ftitulo.text = tituloVideos[position]
 

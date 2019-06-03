@@ -13,15 +13,14 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import com.example.xavi.proyectoxavigimenez.Alimento
 import com.example.xavi.proyectoxavigimenez.R
-import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.Pantalla_aprende_a_cocinar
-import com.example.xavi.proyectoxavigimenez.lista_compra.Pantalla_lista_compra
-import com.example.xavi.proyectoxavigimenez.recetas.Pantalla_Recetas
+import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.PantallaAprendeACocinar
+import com.example.xavi.proyectoxavigimenez.lista_compra.PantallaListaCompra
+import com.example.xavi.proyectoxavigimenez.recetas.PantallaRecetas
 import kotlinx.android.synthetic.main.add_fila_nevera.*
 
-class add_fila_neveraActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
+class AddFilaNevera : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     var alimento_OK = false
-    //var tipoAlimento_OK = false
     var tipos = arrayOf("Frutas", "Verduras y hortalizas", "Leche y derivados", "Carne y embutidos", "Pescados y mariscos", "Huevos", "Legumbres", "Cereales", "Frutos secos", "Bebidas", "Salsas", "Otros")
     var spinner: Spinner? = null
     var tipoAlimento = ""
@@ -35,34 +34,23 @@ class add_fila_neveraActivity : AppCompatActivity(), AdapterView.OnItemSelectedL
         spinner = this.spinner_tiposAlimentos
         spinner!!.onItemSelectedListener = this
 
-        // Create an ArrayAdapter using a simple spinner layout and languages array
+
         val aa = ArrayAdapter(this, android.R.layout.simple_spinner_item, tipos)
-        // Set layout to use when the list of choices appear
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        // Set Adapter to Spinner
         spinner!!.adapter = aa
+
 
         addAlimento_fila_nevera.setOnClickListener(){
 
             val aliment = alimento.text.toString()
-            //val tipoAliment = tipoAlimento.text.toString()
-
 
             if(aliment.trim() == "" || aliment.isEmpty()){
-                //Toast.makeText(this, "No puede estar vacio", Toast.LENGTH_SHORT).show()
-                alimento.error = "No puede estar vacio"
+                alimento.error = getString(R.string.error_noVacio)
             }else{
                 alimento_OK = true
             }
-/*
-            if(tipoAliment.trim() == "" || tipoAliment.isEmpty()){
-                //Toast.makeText(this, "No puede estar vacio", Toast.LENGTH_SHORT).show()
-                tipoAlimento.error = "No puede estar vacio"
-            }else{
-                tipoAlimento_OK = true
-            }
-*/
-            if(alimento_OK == true){ //&& tipoAlimento_OK == true
+
+            if(alimento_OK == true){
                 val alimento2 = Alimento(aliment, tipoAlimento)
 
                 intent.putExtra("alimento2",alimento2)
@@ -89,10 +77,10 @@ class add_fila_neveraActivity : AppCompatActivity(), AdapterView.OnItemSelectedL
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        val intent5 = Intent(this, Pantalla_Recetas::class.java)
-        val intent6 = Intent(this, Pantalla_nevera::class.java)
-        val intent7 = Intent(this, Pantalla_aprende_a_cocinar::class.java)
-        val intent8 = Intent(this, Pantalla_lista_compra::class.java)
+        val intent5 = Intent(this, PantallaRecetas::class.java)
+        val intent6 = Intent(this, PantallaNevera::class.java)
+        val intent7 = Intent(this, PantallaAprendeACocinar::class.java)
+        val intent8 = Intent(this, PantallaListaCompra::class.java)
 
         when(item?.itemId) {
             R.id.recetas_actionbar -> startActivityForResult(intent5,1)

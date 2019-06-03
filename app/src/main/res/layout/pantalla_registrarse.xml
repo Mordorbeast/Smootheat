@@ -5,20 +5,20 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Pantalla_Registrarse"
+        tools:context=".PantallaRegistrarse"
         android:background="@color/colorPrimary">
 
     <TextView
             android:text="@string/registrarse_titulo"
             android:layout_width="234dp"
             android:layout_height="46dp"
-            android:id="@+id/textView4" android:layout_marginTop="44dp"
+            android:id="@+id/registrarse_titulo" android:layout_marginTop="44dp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
             android:textStyle="bold" android:textAllCaps="false"
             android:textSize="30sp" android:textAlignment="center" android:textColor="@color/colorPrimaryDark"/>
-
+<!--
     <EditText
             android:layout_width="0dp"
             android:layout_height="40dp"
@@ -32,7 +32,7 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.503"
             android:hint="@string/registrarse_nombre" android:inputType="textPersonName"
             android:layout_marginTop="60dp" app:layout_constraintTop_toBottomOf="@+id/textView4"/>
-
+-->
     <EditText
             android:layout_width="0dp"
             android:layout_height="40dp"
@@ -43,9 +43,9 @@
             android:paddingEnd="15dp"
             android:layout_marginStart="16dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
             android:hint="@string/registrarse_email" android:inputType="textEmailAddress"
-            android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/registrarse_nombre"/>
+            android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/registrarse_titulo"/>
 
     <EditText
             android:layout_width="0dp"

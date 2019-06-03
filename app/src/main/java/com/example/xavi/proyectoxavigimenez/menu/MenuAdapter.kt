@@ -8,10 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import com.example.xavi.proyectoxavigimenez.R
-import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.Pantalla_aprende_a_cocinar
-import com.example.xavi.proyectoxavigimenez.lista_compra.Pantalla_lista_compra
-import com.example.xavi.proyectoxavigimenez.nevera.Pantalla_nevera
-import com.example.xavi.proyectoxavigimenez.recetas.Pantalla_Recetas
+import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.PantallaAprendeACocinar
+import com.example.xavi.proyectoxavigimenez.lista_compra.PantallaListaCompra
+import com.example.xavi.proyectoxavigimenez.nevera.PantallaNevera
+import com.example.xavi.proyectoxavigimenez.recetas.PantallaRecetas
 import kotlinx.android.synthetic.main.elemento_gridlayout_menu_principal.view.*
 
 class MenuAdapter(var context: Context ,var textos : ArrayList<String>) : BaseAdapter() {
@@ -28,19 +28,19 @@ class MenuAdapter(var context: Context ,var textos : ArrayList<String>) : BaseAd
         elemento.boton.setOnClickListener{
             when(position){
                 0 -> {
-                    val intent1 = Intent(context, Pantalla_Recetas::class.java)
+                    val intent1 = Intent(context, PantallaRecetas::class.java)
                     context.startActivity(intent1)
                 }
                 1 -> {
-                    val intent2 = Intent(context, Pantalla_nevera::class.java)
+                    val intent2 = Intent(context, PantallaNevera::class.java)
                     context.startActivity(intent2)
                 }
                 2 -> {
-                    val intent3 = Intent(context, Pantalla_aprende_a_cocinar::class.java)
+                    val intent3 = Intent(context, PantallaAprendeACocinar::class.java)
                     context.startActivity(intent3)
                 }
                 3 -> {
-                    val intent4 = Intent(context, Pantalla_lista_compra::class.java)
+                    val intent4 = Intent(context, PantallaListaCompra::class.java)
                     context.startActivity(intent4)
                 }
             }

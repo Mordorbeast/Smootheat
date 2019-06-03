@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:showIn="@layout/pantalla_lista_compra"
-        tools:context=".lista_compra.Pantalla_lista_compra">
+        tools:context=".lista_compra.PantallaListaCompra">
 
     <include android:id="@+id/my_toolbar2" layout="@layout/toolbar"/>
 
