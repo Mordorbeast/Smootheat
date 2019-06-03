@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.pantalla_receta2.*
 
 class Pantalla_Recetas2 : AppCompatActivity() {
 
-    var receta = Receta("","","","","",0,"")
+    var receta = Receta("","","","",0,"")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +36,7 @@ class Pantalla_Recetas2 : AppCompatActivity() {
         val recetaObtenida = intent.getParcelableExtra<Receta>("receta")
         receta = recetaObtenida
 
+        nombreReceta.text = receta.nombre
         //foto.setImage = receta.imagen
         ingredientes.text = receta.ingredientes
         pasos.text = receta.pasos

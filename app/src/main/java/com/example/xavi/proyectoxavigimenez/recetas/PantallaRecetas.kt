@@ -16,9 +16,9 @@ import com.example.xavi.proyectoxavigimenez.nevera.PantallaNevera
 
 class PantallaRecetas : AppCompatActivity() {
 
-    val receta1 = Receta("patatas","xavi","descripcion brebe","ingredientes xavi","pasos xavi",R.drawable.abc_ab_share_pack_mtrl_alpha,"video")
-    val receta2 = Receta("alcachofa","pablo","descripcion brebe","ingredientes pablo","pasos pablo",R.drawable.abc_btn_check_to_on_mtrl_015,"video")
-    val receta3 = Receta("pepinos","uri","descripcion brebe","ingredientes uri","pasos uri",R.drawable.abc_btn_radio_to_on_mtrl_000,"video")
+    val receta1 = Receta("patatas","descripcion brebe","ingredientes xavi","pasos xavi",R.drawable.abc_ab_share_pack_mtrl_alpha,"video")
+    val receta2 = Receta("alcachofa","descripcion brebe","ingredientes pablo","pasos pablo",R.drawable.abc_btn_check_to_on_mtrl_015,"video")
+    val receta3 = Receta("pepinos","descripcion brebe","ingredientes uri","pasos uri",R.drawable.abc_btn_radio_to_on_mtrl_000,"video")
 
     val recetas = arrayListOf<Receta>(receta1,receta2,receta3)
 
@@ -34,8 +34,6 @@ class PantallaRecetas : AppCompatActivity() {
         listView.adapter=customAdptor
 
         listView.setOnItemClickListener{ parent, view, position, id ->
-            //Toast.makeText(this, "You Clicked:"+" "+customAdptor.nombreReceta[position], Toast.LENGTH_SHORT).show()
-
             val intent = Intent(this, Pantalla_Recetas2::class.java)
             intent.putExtra("receta",customAdptor.recetas[position])
             startActivity(intent)
