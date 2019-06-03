@@ -14,7 +14,7 @@ import java.util.regex.Pattern
 class PantallaRegistrarse : AppCompatActivity() {
 
     companion object {
-        const val REQUEST_CODE = 1234
+        const val REQUEST_CODE = 1
     }
 
 

@@ -40,18 +40,16 @@ class PantallaNevera : AppCompatActivity() {
 
         val listView = findViewById<ListView>(R.id.listViewNevera)
 
-
         listView.adapter=customAdptor
-
 
         botonFlotante.setOnClickListener { view ->
             val intent = Intent(this, AddFilaNevera::class.java)
-            startActivityForResult(intent,1)
+            startActivityForResult(intent,AddFilaNevera.REQUEST_CODE)
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == 1) {
+        if (requestCode == AddFilaNevera.REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
 
                 val name = data!!.getParcelableExtra<Alimento>("alimento2").alimento
@@ -76,10 +74,10 @@ class PantallaNevera : AppCompatActivity() {
         val intent8 = Intent(this, PantallaListaCompra::class.java)
 
         when(item?.itemId) {
-            R.id.recetas_actionbar -> startActivityForResult(intent5,1)
-            R.id.nevera_actionbar -> startActivityForResult(intent6,1)
-            R.id.aprendeCocinar_actionbar -> startActivityForResult(intent7,1)
-            R.id.listaCompra_actionbar -> startActivityForResult(intent8,1)
+            R.id.recetas_actionbar -> startActivity(intent5)
+            R.id.nevera_actionbar -> startActivity(intent6)
+            R.id.aprendeCocinar_actionbar -> startActivity(intent7)
+            R.id.listaCompra_actionbar -> startActivity(intent8)
         }
 
         return super.onOptionsItemSelected(item)

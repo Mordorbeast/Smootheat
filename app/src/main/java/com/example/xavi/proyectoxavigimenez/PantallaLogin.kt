@@ -33,7 +33,7 @@ class PantallaLogin : AppCompatActivity() {
                 if(!Pattern.compile(".+\\@.+\\..+").matcher(login_email.text).matches()) {
                     login_email.error = getString(R.string.error_formatoIncorrecto)
                 }else{
-                    emailOK = true;
+                    emailOK = true
                 }
             }
 
@@ -60,7 +60,7 @@ class PantallaLogin : AppCompatActivity() {
                 logUsuario()
 
                 val intent2 = Intent(this, PantallaMenuPrincipal::class.java)
-                startActivityForResult(intent2,1)
+                startActivity(intent2)
 
 
             }

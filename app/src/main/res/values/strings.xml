@@ -23,10 +23,10 @@
     <string name="login_titulo_email">Email</string>
     <string name="login_titulo_contrasena">Contraseña</string>
 
-    <string name="menuPrincipal_recetas">Recetas</string>
-    <string name="menuPrincipal_nevera">Nevera</string>
-    <string name="menuPrincipal_aprende_a_cocinar">Aprende a\n cocinar</string>
-    <string name="menuPrincipal_lista_de_la_compra">Lista de \n la compra</string>
+    <string name="menuPrincipal_recetas">RECETAS</string>
+    <string name="menuPrincipal_nevera">NEVERA</string>
+    <string name="menuPrincipal_aprende_a_cocinar">APRENDE A COCINAR</string>
+    <string name="menuPrincipal_lista_de_la_compra">LISTA DE LA COMPRA</string>
 
     <string name="actionbar_recetas">Recetas</string>
     <string name="actionbar_nevera">Nevera</string>
@@ -76,6 +76,4 @@
 
     <string name="toast_usuarioNoCreado">Fallo al crear el ususario.</string>
     <string name="toast_addAlimento">Se ha añadido el alimento</string>
-
-
 </resources>

@@ -20,6 +20,10 @@ import kotlinx.android.synthetic.main.add_fila_nevera.*
 
 class AddFilaNevera : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
+    companion object {
+        const val REQUEST_CODE = 2
+    }
+
     var alimento_OK = false
     var tipos = arrayOf("Frutas", "Verduras y hortalizas", "Leche y derivados", "Carne y embutidos", "Pescados y mariscos", "Huevos", "Legumbres", "Cereales", "Frutos secos", "Bebidas", "Salsas", "Otros")
     var spinner: Spinner? = null

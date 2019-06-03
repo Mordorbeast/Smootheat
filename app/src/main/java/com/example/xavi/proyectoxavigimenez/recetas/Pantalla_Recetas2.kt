@@ -57,10 +57,10 @@ class Pantalla_Recetas2 : AppCompatActivity() {
         val intent8 = Intent(this, PantallaListaCompra::class.java)
 
         when(item?.itemId) {
-            R.id.recetas_actionbar -> startActivityForResult(intent5,1)
-            R.id.nevera_actionbar -> startActivityForResult(intent6,1)
-            R.id.aprendeCocinar_actionbar -> startActivityForResult(intent7,1)
-            R.id.listaCompra_actionbar -> startActivityForResult(intent8,1)
+            R.id.recetas_actionbar -> startActivity(intent5)
+            R.id.nevera_actionbar -> startActivity(intent6)
+            R.id.aprendeCocinar_actionbar -> startActivity(intent7)
+            R.id.listaCompra_actionbar -> startActivity(intent8)
         }
 
         return super.onOptionsItemSelected(item)

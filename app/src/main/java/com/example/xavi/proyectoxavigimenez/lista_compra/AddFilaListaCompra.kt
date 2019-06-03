@@ -17,6 +17,10 @@ import kotlinx.android.synthetic.main.add_fila_lista_compra.*
 
 class AddFilaListaCompra : AppCompatActivity() {
 
+    companion object {
+        const val REQUEST_CODE = 3
+    }
+
     private var alimento_OK = false
 
     override fun onCreate(savedInstanceState: Bundle?) {

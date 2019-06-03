@@ -23,7 +23,8 @@ import kotlinx.android.synthetic.main.pantalla_menu_principal.*
 class PantallaMenuPrincipal : AppCompatActivity(), AdapterView.OnItemClickListener {
 
 
-    private val textos = arrayListOf<String>("RECETAS","NEVERA","APRENDE A COCINAR","LISTA DE LA COMPRA")
+    private val textos = arrayListOf<String>("recetas","nevera","aprende a cocinar","lista de la compra")
+
     private val adaptador = MenuAdapter(this, textos)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,10 +59,10 @@ class PantallaMenuPrincipal : AppCompatActivity(), AdapterView.OnItemClickListen
         val intent8 = Intent(this, PantallaListaCompra::class.java)
 
         when(item?.itemId) {
-            R.id.recetas_actionbar -> startActivityForResult(intent5,1)
-            R.id.nevera_actionbar -> startActivityForResult(intent6,1)
-            R.id.aprendeCocinar_actionbar -> startActivityForResult(intent7,1)
-            R.id.listaCompra_actionbar -> startActivityForResult(intent8,1)
+            R.id.recetas_actionbar -> startActivity(intent5)
+            R.id.nevera_actionbar -> startActivity(intent6)
+            R.id.aprendeCocinar_actionbar -> startActivity(intent7)
+            R.id.listaCompra_actionbar -> startActivity(intent8)
         }
 
         return super.onOptionsItemSelected(item)
