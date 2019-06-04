@@ -1,12 +1,14 @@
 package com.example.xavi.proyectoxavigimenez.recetas
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.*
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.VideoView
 import com.example.xavi.proyectoxavigimenez.R
 import com.example.xavi.proyectoxavigimenez.Receta
 import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.PantallaAprendeACocinar
@@ -25,6 +27,8 @@ class Pantalla_Recetas2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pantalla_receta2)
 
+        receta2_nombreReceta.requestFocus()
+
         setSupportActionBar(my_toolbar_receta2 as Toolbar)
 
         val foto = findViewById<ImageView>(R.id.foto_receta2)
@@ -36,11 +40,12 @@ class Pantalla_Recetas2 : AppCompatActivity() {
         val recetaObtenida = intent.getParcelableExtra<Receta>("receta")
         receta = recetaObtenida
 
-        nombreReceta.text = receta.nombre
+        receta2_nombreReceta.text = receta.nombre
         //foto.setImage = receta.imagen
         ingredientes.text = receta.ingredientes
         pasos.text = receta.pasos
         //video = receta.video
+
     }
 
 

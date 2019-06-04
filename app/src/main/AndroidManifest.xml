@@ -41,13 +41,11 @@
         <activity
                 android:screenOrientation="portrait"
                 android:name=".lista_compra.PantallaListaCompra"
-                android:label="@string/title_activity_pantalla_lista_compra_2"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
                 android:screenOrientation="portrait"
                 android:name=".nevera.PantallaNevera"
-                android:label="@string/title_activity_pantalla_nevera_2"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
