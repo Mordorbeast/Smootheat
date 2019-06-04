@@ -3,13 +3,11 @@ package com.example.xavi.proyectoxavigimenez
 import android.os.Parcel
 import android.os.Parcelable
 
-@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class Alimento(var alimento: String, var tipo: String) : Parcelable {
     constructor(parcel: Parcel) : this(
-        parcel.readString(),
-        parcel.readString()
-    ) {
-    }
+        parcel.readString() ?: "",
+        parcel.readString()  ?: ""
+    )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(alimento)

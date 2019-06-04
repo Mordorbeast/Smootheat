@@ -3,16 +3,15 @@ package com.example.xavi.proyectoxavigimenez
 import android.os.Parcel
 import android.os.Parcelable
 
-@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class Receta(var nombre: String, var descCorta: String, var ingredientes: String, var pasos: String, var imagen: Int, var video: String) : Parcelable {
     
     constructor(parcel: Parcel) : this(
-        parcel.readString(),
-        parcel.readString(),
-        parcel.readString(),
-        parcel.readString(),
+        parcel.readString() ?: "",
+        parcel.readString() ?: "",
+        parcel.readString() ?: "",
+        parcel.readString() ?: "",
         parcel.readInt(),
-        parcel.readString()
+        parcel.readString() ?: ""
     )
 
 

@@ -1,6 +1,5 @@
 package com.example.xavi.proyectoxavigimenez.nevera
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -12,9 +11,6 @@ import kotlinx.android.synthetic.main.fila_nevera.view.*
 
 class NeveraAdapter(private val context: Context, private val alimentos: ArrayList<Alimento>) : BaseAdapter() {
 
-
-
-    @SuppressLint("ViewHolder", "SetTextI18n", "ResourceType")
     override fun getView(position: Int, convertView: View?, viewGrup: ViewGroup?): View {
 
         val layoutInflater = LayoutInflater.from(context)

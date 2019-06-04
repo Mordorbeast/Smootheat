@@ -2,12 +2,11 @@ package com.example.xavi.proyectoxavigimenez.nevera
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ListView
-import android.widget.Toast
 import com.example.xavi.proyectoxavigimenez.Alimento
 import com.example.xavi.proyectoxavigimenez.R
 import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.PantallaAprendeACocinar
@@ -68,13 +67,12 @@ class PantallaNevera : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        val intent5 = Intent(this, PantallaRecetas::class.java)
         val intent6 = Intent(this, PantallaNevera::class.java)
         val intent7 = Intent(this, PantallaAprendeACocinar::class.java)
         val intent8 = Intent(this, PantallaListaCompra::class.java)
 
         when(item?.itemId) {
-            R.id.recetas_actionbar -> startActivity(intent5)
+            R.id.recetas_actionbar -> startActivity(Intent(this, PantallaRecetas::class.java))
             R.id.nevera_actionbar -> startActivity(intent6)
             R.id.aprendeCocinar_actionbar -> startActivity(intent7)
             R.id.listaCompra_actionbar -> startActivity(intent8)

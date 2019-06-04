@@ -2,26 +2,31 @@ package com.example.xavi.proyectoxavigimenez.lista_compra
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity;
+import android.support.annotation.Nullable
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ListView
-import android.widget.Toast
 import com.example.xavi.proyectoxavigimenez.Alimento
 import com.example.xavi.proyectoxavigimenez.R
 import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.PantallaAprendeACocinar
 import com.example.xavi.proyectoxavigimenez.nevera.PantallaNevera
 import com.example.xavi.proyectoxavigimenez.recetas.PantallaRecetas
-import kotlinx.android.synthetic.main.content_pantalla_lista_compra.*
-
-import kotlinx.android.synthetic.main.pantalla_lista_compra.*
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
-
+import com.google.firebase.firestore.FirebaseFirestoreException
+import kotlinx.android.synthetic.main.content_pantalla_lista_compra.*
+import kotlinx.android.synthetic.main.pantalla_lista_compra.*
 
 
 class PantallaListaCompra : AppCompatActivity() {
 
+    var db = FirebaseFirestore.getInstance()
+
+    val docRef = db.collection("alimentoListaCompra").document("6ZX5u4wlv9Og65wZCwuH")
 
 
     val alimento1 = Alimento("patatas", "")
@@ -55,7 +60,29 @@ class PantallaListaCompra : AppCompatActivity() {
             val intent = Intent(this, AddFilaListaCompra::class.java)
             startActivityForResult(intent,AddFilaListaCompra.REQUEST_CODE)
         }
+
+
+        docRef.addSnapshotListener(object : EventListener<DocumentSnapshot> {
+            override fun onEvent(
+                @Nullable snapshot: DocumentSnapshot?,
+                @Nullable e: FirebaseFirestoreException?
+            ) {
+                if (e != null) {
+                    Log.w("PantallaListaCompra", "Listen failed.", e)
+                    return
+                }
+
+                if (snapshot != null && snapshot.exists()) {
+                    Log.d("PantallaListaCompra", "Current data: " + snapshot.data!!)
+                } else {
+                    Log.d("PantallaListaCompra", "Current data: null")
+                }
+            }
+        })
+
+
     }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == AddFilaListaCompra.REQUEST_CODE) {

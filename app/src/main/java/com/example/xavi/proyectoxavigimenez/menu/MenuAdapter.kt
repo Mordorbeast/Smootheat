@@ -1,6 +1,5 @@
 package com.example.xavi.proyectoxavigimenez.menu
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -18,7 +17,6 @@ class MenuAdapter(var context: Context ,var textos : ArrayList<String>) : BaseAd
 
     var botonApretado:Int = 0
 
-    @SuppressLint("ViewHolder", "InflateParams")
     override fun getView(position: Int, convertView: View?, viewGroup: ViewGroup?): View {
         val layoutInflater = LayoutInflater.from(context)
         val elemento = layoutInflater.inflate(R.layout.elemento_gridlayout_menu_principal, null)

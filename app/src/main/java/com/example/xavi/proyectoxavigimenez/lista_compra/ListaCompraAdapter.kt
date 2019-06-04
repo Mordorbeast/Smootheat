@@ -1,6 +1,5 @@
 package com.example.xavi.proyectoxavigimenez.lista_compra
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -12,12 +11,9 @@ import kotlinx.android.synthetic.main.fila_lista_compra.view.*
 
 class ListaCompraAdapter(var context: Context, var alimentos : ArrayList<Alimento>) : BaseAdapter(){
 
-
-
-    @SuppressLint("ViewHolder")
     override fun getView(position: Int, convertView: View?, viewGroup: ViewGroup): View {
         val layoutInflater = LayoutInflater.from(context)
-        val fila = layoutInflater.inflate(R.layout.fila_lista_compra, viewGroup, false)
+        val fila = convertView ?: layoutInflater.inflate(R.layout.fila_lista_compra, viewGroup, false)
         
         fila.nombreAlimento.text = alimentos[position].alimento
 

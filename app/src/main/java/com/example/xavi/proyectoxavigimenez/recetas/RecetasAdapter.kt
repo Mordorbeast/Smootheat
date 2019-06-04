@@ -1,6 +1,5 @@
 package com.example.xavi.proyectoxavigimenez.recetas
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -12,11 +11,9 @@ import kotlinx.android.synthetic.main.fila_receta.view.*
 
 class RecetasAdapter(private val context: Context, var recetas : ArrayList<Receta>): BaseAdapter() {
 
-
-    @SuppressLint("ViewHolder", "InflateParams")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val inflater = LayoutInflater.from(context)
-        val fila = inflater.inflate(R.layout.fila_receta,null)
+        val fila = convertView ?: inflater.inflate(R.layout.fila_receta,parent, false)
 
 
         fila.foto_receta2.setImageResource(recetas[position].imagen)

@@ -1,8 +1,8 @@
 package com.example.xavi.proyectoxavigimenez.aprende_a_cocinar
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
@@ -27,7 +27,7 @@ class PantallaAprendeACocinar : AppCompatActivity() {
         val customAdptor = AprendeCocinarAdapter(this)
         listView.adapter=customAdptor
 
-        listView.setOnItemClickListener{ parent, view, position, id ->
+        listView.setOnItemClickListener{ _, _, position, _ ->
             Toast.makeText(this, "You Clicked: "+customAdptor.tituloVideos[position], Toast.LENGTH_SHORT).show()
         }
     }

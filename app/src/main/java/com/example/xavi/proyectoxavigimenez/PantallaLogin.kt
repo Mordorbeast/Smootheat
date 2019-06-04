@@ -2,13 +2,15 @@ package com.example.xavi.proyectoxavigimenez
 
 import android.app.Activity
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import kotlinx.android.synthetic.main.pantalla_log_in.*
-import java.util.regex.Pattern
 import com.example.xavi.proyectoxavigimenez.menu.PantallaMenuPrincipal
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.pantalla_log_in.*
+import java.util.regex.Pattern
+
+
 
 
 class PantallaLogin : AppCompatActivity() {
@@ -22,6 +24,7 @@ class PantallaLogin : AppCompatActivity() {
         setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pantalla_log_in)
+
 
         login_boton.setOnClickListener {
             var contraOK = false

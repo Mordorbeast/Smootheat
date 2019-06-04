@@ -12,17 +12,8 @@ import com.example.xavi.proyectoxavigimenez.R
 import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.PantallaAprendeACocinar
 import com.example.xavi.proyectoxavigimenez.nevera.PantallaNevera
 import com.example.xavi.proyectoxavigimenez.recetas.PantallaRecetas
-import kotlinx.android.synthetic.main.add_fila_lista_compra.*
-import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
-
-
-
-
-
-
-
-
+import kotlinx.android.synthetic.main.add_fila_lista_compra.*
 
 class AddFilaListaCompra : AppCompatActivity() {
 
@@ -30,7 +21,7 @@ class AddFilaListaCompra : AppCompatActivity() {
         const val REQUEST_CODE = 3
     }
 
-    private var alimento_OK = false
+    private var alimentoOk = false
 
     var db = FirebaseFirestore.getInstance()
 
@@ -40,17 +31,17 @@ class AddFilaListaCompra : AppCompatActivity() {
 
         setSupportActionBar(my_toolbar7 as Toolbar)
 
-        addAlimento_fila_nevera.setOnClickListener(){
+        addAlimento_fila_nevera.setOnClickListener{
 
             val aliment = alimento.text.toString()
 
             if(aliment.trim() == "" || aliment.isEmpty()){
                 alimento.error = getString(R.string.error_noVacio)
             }else{
-                alimento_OK = true
+                alimentoOk = true
             }
 
-            if(alimento_OK == true){
+            if(alimentoOk){
 
 
                 val alimento1 = Alimento(aliment, "")
@@ -67,8 +58,6 @@ class AddFilaListaCompra : AppCompatActivity() {
 
                 alimentos.document("6ZX5u4wlv9Og65wZCwuH").set(data1)
 */
-
-
 
 
                 finish()
