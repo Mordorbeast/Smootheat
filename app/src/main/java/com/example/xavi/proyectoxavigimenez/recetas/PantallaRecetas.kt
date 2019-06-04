@@ -13,8 +13,14 @@ import com.example.xavi.proyectoxavigimenez.Receta
 import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.PantallaAprendeACocinar
 import com.example.xavi.proyectoxavigimenez.lista_compra.PantallaListaCompra
 import com.example.xavi.proyectoxavigimenez.nevera.PantallaNevera
+import com.google.firebase.firestore.FirebaseFirestore
+
+
+
 
 class PantallaRecetas : AppCompatActivity() {
+
+    //var db = FirebaseFirestore.getInstance()
 
     val receta1 = Receta("patatas","descripcion brebe","ingredientes xavi","pasos xavi",R.drawable.abc_ab_share_pack_mtrl_alpha,"video")
     val receta2 = Receta("alcachofa","descripcion brebe","ingredientes pablo","pasos pablo",R.drawable.abc_btn_check_to_on_mtrl_015,"video")

@@ -16,8 +16,13 @@ import com.example.xavi.proyectoxavigimenez.recetas.PantallaRecetas
 import kotlinx.android.synthetic.main.content_pantalla_lista_compra.*
 
 import kotlinx.android.synthetic.main.pantalla_lista_compra.*
+import com.google.firebase.firestore.FirebaseFirestore
+
+
 
 class PantallaListaCompra : AppCompatActivity() {
+
+
 
     val alimento1 = Alimento("patatas", "")
     val alimento2 = Alimento("arroz", "")
@@ -27,6 +32,9 @@ class PantallaListaCompra : AppCompatActivity() {
     val alimento6 = Alimento("platano", "")
 
     val alimentos = arrayListOf<Alimento>(alimento1,alimento2,alimento3,alimento4,alimento5,alimento6)
+
+
+
 
     val customAdptor = ListaCompraAdapter(this, alimentos)
 
@@ -56,7 +64,7 @@ class PantallaListaCompra : AppCompatActivity() {
                 val name = data!!.getParcelableExtra<Alimento>("alimento1").alimento
                 alimentos.add(data.getParcelableExtra<Alimento>("alimento1"))
                 customAdptor.notifyDataSetChanged()
-                Toast.makeText(this, getString(R.string.toast_addAlimento) + name, Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this, getString(R.string.toast_addAlimento) + name, Toast.LENGTH_SHORT).show()
 
             }
         }

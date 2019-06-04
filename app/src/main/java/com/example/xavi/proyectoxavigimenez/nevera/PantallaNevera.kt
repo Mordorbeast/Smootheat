@@ -55,7 +55,7 @@ class PantallaNevera : AppCompatActivity() {
                 val name = data!!.getParcelableExtra<Alimento>("alimento2").alimento
                 alimentos.add(data.getParcelableExtra<Alimento>("alimento2"))
                 customAdptor.notifyDataSetChanged()
-                Toast.makeText(this, getString(R.string.toast_addAlimento) + name, Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this, getString(R.string.toast_addAlimento) + name, Toast.LENGTH_SHORT).show()
 
             }
         }

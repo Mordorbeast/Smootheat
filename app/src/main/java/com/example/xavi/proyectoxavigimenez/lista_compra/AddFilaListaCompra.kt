@@ -13,6 +13,15 @@ import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.PantallaAprendeACo
 import com.example.xavi.proyectoxavigimenez.nevera.PantallaNevera
 import com.example.xavi.proyectoxavigimenez.recetas.PantallaRecetas
 import kotlinx.android.synthetic.main.add_fila_lista_compra.*
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.FirebaseFirestore
+
+
+
+
+
+
+
 
 
 class AddFilaListaCompra : AppCompatActivity() {
@@ -22,6 +31,8 @@ class AddFilaListaCompra : AppCompatActivity() {
     }
 
     private var alimento_OK = false
+
+    var db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,11 +51,25 @@ class AddFilaListaCompra : AppCompatActivity() {
             }
 
             if(alimento_OK == true){
+
+
                 val alimento1 = Alimento(aliment, "")
 
                 val intent = Intent()
                 intent.putExtra("alimento1",alimento1)
                 setResult(Activity.RESULT_OK, intent)
+
+/*
+                val alimentos = db.collection("alimentoListaCompra")
+
+                val data1 = HashMap<String, String>()
+                data1["nombre"] = aliment
+
+                alimentos.document("6ZX5u4wlv9Og65wZCwuH").set(data1)
+*/
+
+
+
 
                 finish()
             }
