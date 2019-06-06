@@ -3,10 +3,11 @@ package com.example.xavi.proyectoxavigimenez
 import android.os.Parcel
 import android.os.Parcelable
 
-class Alimento(var alimento: String, var tipo: String) : Parcelable {
+class Alimento(var alimento: String, var tipo: String, var uso: String) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString() ?: "",
-        parcel.readString()  ?: ""
+        parcel.readString()  ?: "",
+        parcel.readString() ?: ""
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {

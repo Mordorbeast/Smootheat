@@ -8,7 +8,7 @@
         tools:context=".aprende_a_cocinar.filaListViewAprendeCocinar">
 
     <TextView
-            android:text="Titulo del video"
+            android:text="@string/filaAprendeCocina_titulo_del_video"
             android:layout_width="wrap_content"
             android:layout_height="16dp"
             android:id="@+id/tituloVideo" app:layout_constraintTop_toTopOf="parent"

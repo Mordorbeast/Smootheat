@@ -1,19 +1,18 @@
 package com.example.xavi.proyectoxavigimenez.lista_compra
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import com.example.xavi.proyectoxavigimenez.Alimento
-import com.example.xavi.proyectoxavigimenez.R
 import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.PantallaAprendeACocinar
 import com.example.xavi.proyectoxavigimenez.nevera.PantallaNevera
 import com.example.xavi.proyectoxavigimenez.recetas.PantallaRecetas
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.add_fila_lista_compra.*
+
 
 class AddFilaListaCompra : AppCompatActivity() {
 
@@ -27,7 +26,7 @@ class AddFilaListaCompra : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.add_fila_lista_compra)
+        setContentView(com.example.xavi.proyectoxavigimenez.R.layout.add_fila_lista_compra)
 
         setSupportActionBar(my_toolbar7 as Toolbar)
 
@@ -36,29 +35,32 @@ class AddFilaListaCompra : AppCompatActivity() {
             val aliment = alimento.text.toString()
 
             if(aliment.trim() == "" || aliment.isEmpty()){
-                alimento.error = getString(R.string.error_noVacio)
+                alimento.error = getString(com.example.xavi.proyectoxavigimenez.R.string.error_noVacio)
             }else{
                 alimentoOk = true
             }
 
             if(alimentoOk){
 
-
+/*
                 val alimento1 = Alimento(aliment, "")
 
                 val intent = Intent()
                 intent.putExtra("alimento1",alimento1)
                 setResult(Activity.RESULT_OK, intent)
-
-/*
-                val alimentos = db.collection("alimentoListaCompra")
+*/
 
                 val data1 = HashMap<String, String>()
                 data1["nombre"] = aliment
+                data1["tipoAlimento"] = ""
+                data1["uso"] = "listaCompra"
 
-                alimentos.document("6ZX5u4wlv9Og65wZCwuH").set(data1)
-*/
-
+                db.collection("alimento")
+                    .add(data1)
+                    .addOnSuccessListener { documentReference ->
+                        Log.d("AddFilaListaCompra","DocumentSnapshot written with ID: " + documentReference.id)
+                    }
+                    .addOnFailureListener { e -> Log.w("AddFilaListaCompra", "Error adding document", e) }
 
                 finish()
             }
@@ -68,7 +70,7 @@ class AddFilaListaCompra : AppCompatActivity() {
 
     //toolbar
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.action_bar, menu)
+        menuInflater.inflate(com.example.xavi.proyectoxavigimenez.R.menu.action_bar, menu)
         return true
     }
 
@@ -79,10 +81,10 @@ class AddFilaListaCompra : AppCompatActivity() {
         val intent8 = Intent(this, PantallaListaCompra::class.java)
 
         when(item?.itemId) {
-            R.id.recetas_actionbar -> startActivityForResult(intent5,1)
-            R.id.nevera_actionbar -> startActivityForResult(intent6,1)
-            R.id.aprendeCocinar_actionbar -> startActivityForResult(intent7,1)
-            R.id.listaCompra_actionbar -> startActivityForResult(intent8,1)
+            com.example.xavi.proyectoxavigimenez.R.id.recetas_actionbar -> startActivityForResult(intent5,1)
+            com.example.xavi.proyectoxavigimenez.R.id.nevera_actionbar -> startActivityForResult(intent6,1)
+            com.example.xavi.proyectoxavigimenez.R.id.aprendeCocinar_actionbar -> startActivityForResult(intent7,1)
+            com.example.xavi.proyectoxavigimenez.R.id.listaCompra_actionbar -> startActivityForResult(intent8,1)
         }
 
         return super.onOptionsItemSelected(item)

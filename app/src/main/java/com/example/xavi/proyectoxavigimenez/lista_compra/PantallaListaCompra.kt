@@ -26,19 +26,17 @@ class PantallaListaCompra : AppCompatActivity() {
 
     var db = FirebaseFirestore.getInstance()
 
-    val docRef = db.collection("alimentoListaCompra").document("6ZX5u4wlv9Og65wZCwuH")
+    val docRef = db.collection("alimento").document("y79liJQes7xEbT37ylZh")
 
 
-    val alimento1 = Alimento("patatas", "")
-    val alimento2 = Alimento("arroz", "")
-    val alimento3 = Alimento("pepino", "")
-    val alimento4 = Alimento("manzana", "")
-    val alimento5 = Alimento("galletas", "")
-    val alimento6 = Alimento("platano", "")
+    val alimento1 = Alimento("patatas", "", "listaCompra")
+    val alimento2 = Alimento("arroz", "", "listaCompra")
+    val alimento3 = Alimento("pepino", "", "listaCompra")
+    val alimento4 = Alimento("manzana", "", "listaCompra")
+    val alimento5 = Alimento("galletas", "", "listaCompra")
+    val alimento6 = Alimento("platano", "", "listaCompra")
 
-    val alimentos = arrayListOf<Alimento>(alimento1,alimento2,alimento3,alimento4,alimento5,alimento6)
-
-
+    val alimentos = arrayListOf(alimento1,alimento2,alimento3,alimento4,alimento5,alimento6)
 
 
     val customAdptor = ListaCompraAdapter(this, alimentos)

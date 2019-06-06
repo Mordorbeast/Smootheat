@@ -1,19 +1,18 @@
 package com.example.xavi.proyectoxavigimenez.recetas
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.*
-import kotlinx.android.synthetic.main.pantalla_recetas.*
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ListView
 import com.example.xavi.proyectoxavigimenez.R
 import com.example.xavi.proyectoxavigimenez.Receta
 import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.PantallaAprendeACocinar
 import com.example.xavi.proyectoxavigimenez.lista_compra.PantallaListaCompra
 import com.example.xavi.proyectoxavigimenez.nevera.PantallaNevera
-import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.pantalla_recetas.*
 
 
 
@@ -39,7 +38,7 @@ class PantallaRecetas : AppCompatActivity() {
         val customAdptor = RecetasAdapter(this, recetas)
         listView.adapter=customAdptor
 
-        listView.setOnItemClickListener{ parent, view, position, id ->
+        listView.setOnItemClickListener{ _, _, position, _ ->
             val intent = Intent(this, Pantalla_Recetas2::class.java)
             intent.putExtra("receta",customAdptor.recetas[position])
             startActivity(intent)

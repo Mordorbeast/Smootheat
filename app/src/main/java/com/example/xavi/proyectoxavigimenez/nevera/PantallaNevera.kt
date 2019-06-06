@@ -17,12 +17,12 @@ import kotlinx.android.synthetic.main.pantalla_nevera.*
 
 class PantallaNevera : AppCompatActivity() {
 
-    val alimento1 = Alimento("patatas", "hortaliza")
-    val alimento2 = Alimento("lomo", "carne")
-    val alimento3 = Alimento("pepino", "verdura")
-    val alimento4 = Alimento("manzana", "fruta")
-    val alimento5 = Alimento("ternera", "carne")
-    val alimento6 = Alimento("platano", "fruta")
+    val alimento1 = Alimento("patatas", "hortaliza", "nevera")
+    val alimento2 = Alimento("lomo", "carne", "nevera")
+    val alimento3 = Alimento("pepino", "verdura", "nevera")
+    val alimento4 = Alimento("manzana", "fruta", "nevera")
+    val alimento5 = Alimento("ternera", "carne", "nevera")
+    val alimento6 = Alimento("platano", "fruta", "nevera")
 
     val alimentos = arrayListOf<Alimento>(alimento1,alimento2,alimento3,alimento4,alimento5,alimento6)
 
