@@ -61,15 +61,7 @@ class PantallaLogin : AppCompatActivity() {
             }
 
             if(contraOK && emailOK ){
-
                 logUsuario()
-
-                if(loginOK){
-                    val intent2 = Intent(this, PantallaMenuPrincipal::class.java)
-                    startActivity(intent2)
-                }else{
-                    login_email.error = getString(R.string.login_emailContraseñaIncorrectos)
-                }
             }
         }
 
@@ -110,16 +102,18 @@ class PantallaLogin : AppCompatActivity() {
         FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
             .addOnCompleteListener{
                 if (!it.isSuccessful){
-                    loginOK = false
                     return@addOnCompleteListener
                 }else{
-                    loginOK = true
+
+                    startActivity(Intent(this, PantallaMenuPrincipal::class.java))
+
                     Log.d("Main", "Usuario logueado con uid: ${it.result!!.user.uid}")
                 }
             }
             .addOnFailureListener{
+                login_email.error = getString(R.string.login_emailContraseñaIncorrectos)
+
                 Log.d("Main", "Fallo al loguear el usuario: ${it.message}")
-                loginOK = false
             }
 
 

@@ -1,7 +1,6 @@
 package com.example.xavi.proyectoxavigimenez
 
 import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
@@ -81,19 +80,7 @@ class PantallaRegistrarse : AppCompatActivity() {
             }
 
             if(contraOK && emailOK && contra2OK){
-
                 registrarUsuario()
-
-                if(registroOK){
-                    val intent = Intent()
-
-                    intent.putExtras(getLoginBundle())
-                    setResult(Activity.RESULT_OK, intent)
-
-                    finish()
-                }else{
-                    registrarse_email.error = "Error al crear el usuario."
-                }
             }
 
         }
@@ -120,17 +107,20 @@ class PantallaRegistrarse : AppCompatActivity() {
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener {
                 if (!it.isSuccessful){
-                    registroOK = false
                     return@addOnCompleteListener
                 }else{
-                    registroOK = true
+                    intent.putExtras(getLoginBundle())
+                    setResult(Activity.RESULT_OK, intent)
+
+                    finish()
+
                     Log.d("Main", "Usuario creado con uid: ${it.result!!.user.uid}")
                 }
             }
             .addOnFailureListener{
+                registrarse_email.error = getString(R.string.register_errorCrearUsuario)
+
                 Log.d("Main", "Fallo al crear el usuario: ${it.message}")
-                //Toast.makeText(this, getString(R.string.toast_usuarioNoCreado),Toast.LENGTH_SHORT).show()
-                registroOK = false
             }
     }
 }

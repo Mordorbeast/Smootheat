@@ -78,4 +78,5 @@
     <string name="toast_addAlimento">Se ha añadido el alimento</string>
     <string name="filaAprendeCocina_titulo_del_video">Titulo del video</string>
     <string name="login_emailContraseñaIncorrectos">Email o contraseña incorrectas</string>
+    <string name="register_errorCrearUsuario">Error al crear el usuario.</string>
 </resources>
