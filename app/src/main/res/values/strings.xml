@@ -74,7 +74,8 @@
     <string name="error_min8caracteres">Tiene que tener minimo 8 caracteres.</string>
     <string name="error_contrasDif">Las dos contraseñas tienen que ser iguales.</string>
 
-    <string name="toast_usuarioNoCreado">Fallo al crear el ususario.</string>
+    <string name="toast_usuarioNoCreado">Fallo al crear el usuario.</string>
     <string name="toast_addAlimento">Se ha añadido el alimento</string>
     <string name="filaAprendeCocina_titulo_del_video">Titulo del video</string>
+    <string name="login_emailContraseñaIncorrectos">Email o contraseña incorrectas</string>
 </resources>

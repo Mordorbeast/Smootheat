@@ -20,6 +20,8 @@ class PantallaLogin : AppCompatActivity() {
         const val PASSWORD_EXTRA = "contraseña"
     }
 
+    private var loginOK = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
@@ -62,10 +64,12 @@ class PantallaLogin : AppCompatActivity() {
 
                 logUsuario()
 
-                val intent2 = Intent(this, PantallaMenuPrincipal::class.java)
-                startActivity(intent2)
-
-
+                if(loginOK){
+                    val intent2 = Intent(this, PantallaMenuPrincipal::class.java)
+                    startActivity(intent2)
+                }else{
+                    login_email.error = getString(R.string.login_emailContraseñaIncorrectos)
+                }
             }
         }
 
@@ -104,7 +108,24 @@ class PantallaLogin : AppCompatActivity() {
 
 
         FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
-        Log.d("Main", "Usuario logeado ")
+            .addOnCompleteListener{
+                if (!it.isSuccessful){
+                    loginOK = false
+                    return@addOnCompleteListener
+                }else{
+                    loginOK = true
+                    Log.d("Main", "Usuario logueado con uid: ${it.result!!.user.uid}")
+                }
+            }
+            .addOnFailureListener{
+                Log.d("Main", "Fallo al loguear el usuario: ${it.message}")
+                loginOK = false
+            }
+
+
+
+
+
 
 
     }

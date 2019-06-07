@@ -2,10 +2,9 @@ package com.example.xavi.proyectoxavigimenez
 
 import android.app.Activity
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.pantalla_registrarse.*
 import java.util.regex.Pattern
@@ -17,6 +16,7 @@ class PantallaRegistrarse : AppCompatActivity() {
         const val REQUEST_CODE = 1
     }
 
+    var registroOK = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,7 +65,6 @@ class PantallaRegistrarse : AppCompatActivity() {
                 }
             }
 
-
             if(registrarse_repetir_contrasena.text.isEmpty()){
                 registrarse_repetir_contrasena.error = getString(R.string.error_noVacio)
             }else{
@@ -85,12 +84,16 @@ class PantallaRegistrarse : AppCompatActivity() {
 
                 registrarUsuario()
 
-                val intent = Intent()
+                if(registroOK){
+                    val intent = Intent()
 
-                intent.putExtras(getLoginBundle())
-                setResult(Activity.RESULT_OK, intent)
+                    intent.putExtras(getLoginBundle())
+                    setResult(Activity.RESULT_OK, intent)
 
-                finish()
+                    finish()
+                }else{
+                    registrarse_email.error = "Error al crear el usuario."
+                }
             }
 
         }
@@ -117,17 +120,17 @@ class PantallaRegistrarse : AppCompatActivity() {
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener {
                 if (!it.isSuccessful){
+                    registroOK = false
                     return@addOnCompleteListener
                 }else{
+                    registroOK = true
                     Log.d("Main", "Usuario creado con uid: ${it.result!!.user.uid}")
                 }
             }
             .addOnFailureListener{
-                Log.d("Main", "Fallo al crear el ususario: ${it.message}")
-                Toast.makeText(this, getString(R.string.toast_usuarioNoCreado),Toast.LENGTH_SHORT).show()
+                Log.d("Main", "Fallo al crear el usuario: ${it.message}")
+                //Toast.makeText(this, getString(R.string.toast_usuarioNoCreado),Toast.LENGTH_SHORT).show()
+                registroOK = false
             }
     }
-
-
-
 }
