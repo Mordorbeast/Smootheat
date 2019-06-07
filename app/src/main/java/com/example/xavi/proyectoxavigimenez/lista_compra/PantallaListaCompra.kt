@@ -12,11 +12,12 @@ import com.example.xavi.proyectoxavigimenez.Alimento
 import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.PantallaAprendeACocinar
 import com.example.xavi.proyectoxavigimenez.nevera.PantallaNevera
 import com.example.xavi.proyectoxavigimenez.recetas.PantallaRecetas
+import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreException
+import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.android.synthetic.main.content_pantalla_lista_compra.*
 import kotlinx.android.synthetic.main.pantalla_lista_compra.*
-
-
 
 
 class PantallaListaCompra : AppCompatActivity() {
@@ -45,6 +46,7 @@ class PantallaListaCompra : AppCompatActivity() {
 
     lateinit var customAdptor:ListaCompraAdapter
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(com.example.xavi.proyectoxavigimenez.R.layout.pantalla_lista_compra)
@@ -52,30 +54,6 @@ class PantallaListaCompra : AppCompatActivity() {
         setSupportActionBar(my_toolbar2 as Toolbar)
 
 
-        val auxAlimento = Alimento("","","")
-
-
-        db.collection("alimento")
-            .whereEqualTo("uso", "listaCompra")
-            .get()
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    alimentos.clear()
-                    for (document in task.result!!) {
-                        Log.d("PantallaListaCompra", document.id + " => " + document.data)
-                        auxAlimento.alimento = document.getString("nombre")!!
-                        //alimentoPrueba.tipo = doc.getString("tipoAlimento")!!
-                        auxAlimento.uso = document.getString("uso")!!
-                        alimentos.add(auxAlimento)
-                    }
-                    customAdptor.notifyDataSetChanged()
-                } else {
-                    Log.d("PantallaListaCompra", "Error getting documents: ", task.exception)
-                }
-            }
-
-
-/*
         db.collection("alimento")
             .whereEqualTo("uso", "listaCompra")
             .addSnapshotListener(object : EventListener<QuerySnapshot> {
@@ -85,28 +63,26 @@ class PantallaListaCompra : AppCompatActivity() {
                         return
                     }
 
-/*
-                    if (value != null) {
-                        for (doc in value.documentChanges) {
-                            when (doc.type) {
-                                ADDED -> Log.d("PantallaListaCompra", "Alimento añadido: " + doc.document.data)
-                                MODIFIED -> Log.d("PantallaListaCompra", "Alimento modificado: " + doc.document.data)
-                                //REMOVED -> Log.d("PantallaListaCompra", "Alimento borrado: " + doc.document.data)
-                                DocumentChange.Type.REMOVED -> Log.d("PantallaListaCompra", "Alimento borrado: " + doc.document.data)
-                            }
-                        }
-                    }
-*/
                     if (value != null) {
                         for (doc in value) {
                             if (doc.get("nombre") != null) {
-                                auxAlimento.alimento = doc.getString("nombre")!!
-                                //alimentoPrueba.tipo = doc.getString("tipoAlimento")!!
-                                auxAlimento.uso = doc.getString("uso")!!
-                                alimentos.add(auxAlimento)
+
+                                alimentos.add(
+                                    Alimento(
+                                        doc.getString("nombre")!!,
+                                        "",
+                                        doc.getString("uso")!!
+                                    )
+                                )
+
+                                val listView = findViewById<ListView>(com.example.xavi.proyectoxavigimenez.R.id.listViewCompra)
+
+                                customAdptor = ListaCompraAdapter(this@PantallaListaCompra, alimentos)
+                                listView.adapter = customAdptor
+                                customAdptor.notifyDataSetChanged() //actualiza la listView
+
                             }
                         }
-                        customAdptor.notifyDataSetChanged() //actualiza la listView
                     }
 
                     Log.d("PantallaListaCompra", "Alimentos del array alimentos:")
@@ -117,15 +93,13 @@ class PantallaListaCompra : AppCompatActivity() {
                 }
             })
 
-*/
+
         var cfgOptions = intent.getParcelableExtra<Alimento>("alimento1")
         var productAdd = intent.getStringExtra("alimento1")
 
-        val listView = findViewById<ListView>(com.example.xavi.proyectoxavigimenez.R.id.listViewCompra)
 
 
-        customAdptor = ListaCompraAdapter(this, alimentos)
-        listView.adapter = customAdptor
+
 
         botonFlotante.setOnClickListener { view ->
             val intent = Intent(this, AddFilaListaCompra::class.java)
