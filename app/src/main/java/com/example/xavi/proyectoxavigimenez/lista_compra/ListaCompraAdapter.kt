@@ -9,7 +9,6 @@ import android.widget.BaseAdapter
 import com.example.xavi.proyectoxavigimenez.Alimento
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fila_lista_compra.view.*
-import kotlinx.android.synthetic.main.fila_nevera.view.*
 import java.util.*
 
 
@@ -20,18 +19,20 @@ class ListaCompraAdapter(var context: Context, private var alimentos : ArrayList
     override fun getView(position: Int, convertView: View?, viewGroup: ViewGroup): View {
         val layoutInflater = LayoutInflater.from(context)
         val fila = convertView ?: layoutInflater.inflate(com.example.xavi.proyectoxavigimenez.R.layout.fila_lista_compra, viewGroup, false)
-        
+
         fila.nombreAlimento.text = alimentos[position].alimento
 
+        fila.eliminar_listaCompra.setOnClickListener{
+            val nombreDoc = fila.nombreAlimento.text.toString() + "_listaCompra"
 
-        fila.eliminar_nevera.setOnClickListener{
-            db.collection("alimento").document(fila.nombreAlimento.text.toString())
+            db.collection("alimento").document(nombreDoc)
                 .delete()
                 .addOnSuccessListener { Log.d("ListaCompraAdapter", "DocumentSnapshot successfully deleted!") }
                 .addOnFailureListener { e -> Log.w("ListaCompraAdapter", "Error deleting document", e) }
 
             notifyDataSetChanged()
         }
+
         return fila
     }
 

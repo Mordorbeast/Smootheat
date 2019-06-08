@@ -45,7 +45,9 @@ class AddFilaListaCompra : AppCompatActivity() {
                 data["tipoAlimento"] = ""
                 data["uso"] = "listaCompra"
 
-                db.collection("alimento").document(aliment).set(data)
+                val nombreDoc = aliment + "_listaCompra"
+
+                db.collection("alimento").document(nombreDoc).set(data)
 
                 finish()
             }

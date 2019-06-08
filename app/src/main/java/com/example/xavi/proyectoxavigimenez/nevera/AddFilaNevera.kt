@@ -60,7 +60,9 @@ class AddFilaNevera : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                 data["tipoAlimento"] = tipoAlimento
                 data["uso"] = "nevera"
 
-                db.collection("alimento").document(aliment).set(data)
+                val nombreDoc = aliment + "_nevera"
+
+                db.collection("alimento").document(nombreDoc).set(data)
 
                 finish()
             }
