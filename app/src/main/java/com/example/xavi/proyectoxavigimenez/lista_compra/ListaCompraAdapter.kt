@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import com.example.xavi.proyectoxavigimenez.Alimento
 import kotlinx.android.synthetic.main.fila_lista_compra.view.*
+import java.util.*
 
 
 class ListaCompraAdapter(var context: Context, var alimentos : ArrayList<Alimento>) : BaseAdapter(){
@@ -18,12 +19,11 @@ class ListaCompraAdapter(var context: Context, var alimentos : ArrayList<Aliment
         fila.nombreAlimento.text = alimentos[position].alimento
 /*
         fila.eliminar.setOnClickListener{
-            alimentos.removeAt(position)
+            auxArray.removeAt(position)
             notifyDataSetChanged() //actualiza la list view
 
         }
 */
-
 
         return fila
     }
@@ -39,6 +39,7 @@ class ListaCompraAdapter(var context: Context, var alimentos : ArrayList<Aliment
     override fun getCount(): Int {
         return alimentos.size
     }
+
 
 
 }

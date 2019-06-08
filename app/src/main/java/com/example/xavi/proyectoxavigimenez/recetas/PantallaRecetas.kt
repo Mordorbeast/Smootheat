@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ListView
+import android.widget.SearchView
 import com.example.xavi.proyectoxavigimenez.R
 import com.example.xavi.proyectoxavigimenez.Receta
 import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.PantallaAprendeACocinar
@@ -17,7 +18,8 @@ import kotlinx.android.synthetic.main.pantalla_recetas.*
 
 
 
-class PantallaRecetas : AppCompatActivity() {
+class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
+
 
     //var db = FirebaseFirestore.getInstance()
 
@@ -27,6 +29,8 @@ class PantallaRecetas : AppCompatActivity() {
 
     val recetas = arrayListOf<Receta>(receta1,receta2,receta3)
 
+    val customAdptor = RecetasAdapter(this, recetas)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pantalla_recetas)
@@ -35,7 +39,6 @@ class PantallaRecetas : AppCompatActivity() {
 
         val listView = findViewById<ListView>(R.id.listViewRecetas)
 
-        val customAdptor = RecetasAdapter(this, recetas)
         listView.adapter=customAdptor
 
         listView.setOnItemClickListener{ _, _, position, _ ->
@@ -43,7 +46,22 @@ class PantallaRecetas : AppCompatActivity() {
             intent.putExtra("receta",customAdptor.recetas[position])
             startActivity(intent)
         }
+
+        val searchView = findViewById<SearchView>(R.id.buscador_receta)
+        searchView.setOnQueryTextListener(this)
     }
+
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        return false
+    }
+
+    override fun onQueryTextChange(newText: String): Boolean {
+        customAdptor.filtro(newText)
+        return false
+    }
+
+
 
     //toolbar
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

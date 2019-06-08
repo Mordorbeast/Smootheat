@@ -60,7 +60,9 @@ class AddFilaListaCompra : AppCompatActivity() {
                     .addOnSuccessListener { documentReference ->
                         Log.d("AddFilaListaCompra","DocumentSnapshot written with ID: " + documentReference.id)
                     }
-                    .addOnFailureListener { e -> Log.w("AddFilaListaCompra", "Error adding document", e) }
+                    .addOnFailureListener { e ->
+                        Log.w("AddFilaListaCompra", "Error adding document", e)
+                    }
 
                 finish()
             }
