@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ListView
@@ -13,6 +14,10 @@ import com.example.xavi.proyectoxavigimenez.Receta
 import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.PantallaAprendeACocinar
 import com.example.xavi.proyectoxavigimenez.lista_compra.PantallaListaCompra
 import com.example.xavi.proyectoxavigimenez.nevera.PantallaNevera
+import com.google.firebase.firestore.EventListener
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreException
+import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.android.synthetic.main.pantalla_recetas.*
 
 
@@ -21,8 +26,9 @@ import kotlinx.android.synthetic.main.pantalla_recetas.*
 class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
 
 
-    //var db = FirebaseFirestore.getInstance()
+    var db = FirebaseFirestore.getInstance()
 
+    /*
     val receta1 = Receta("patatas","descripcion brebe","ingredientes xavi","pasos xavi",R.drawable.abc_ab_share_pack_mtrl_alpha,"video")
     val receta2 = Receta("alcachofa","descripcion brebe","ingredientes pablo","pasos pablo",R.drawable.abc_btn_check_to_on_mtrl_015,"video")
     val receta3 = Receta("pepinos","descripcion brebe","ingredientes uri","pasos uri",R.drawable.abc_btn_radio_to_on_mtrl_000,"video")
@@ -30,6 +36,12 @@ class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
     val recetas = arrayListOf<Receta>(receta1,receta2,receta3)
 
     val customAdptor = RecetasAdapter(this, recetas)
+*/
+
+    val recetas = ArrayList<Receta>()
+
+    lateinit var customAdptor:RecetasAdapter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +51,7 @@ class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
 
         val listView = findViewById<ListView>(R.id.listViewRecetas)
 
-        listView.adapter=customAdptor
+        selectDatosLista(listView)
 
         listView.setOnItemClickListener{ _, _, position, _ ->
             val intent = Intent(this, Pantalla_Recetas2::class.java)
@@ -51,7 +63,50 @@ class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
         searchView.setOnQueryTextListener(this)
     }
 
+    private fun selectDatosLista(listView: ListView){
+        db.collection("receta")
+            .addSnapshotListener(object : EventListener<QuerySnapshot> {
+                override fun onEvent(value: QuerySnapshot?, e: FirebaseFirestoreException?) {
+                    if (e != null) {
+                        Log.w("PantallaRecetas", "Listen failed.", e)
+                        return
+                    }
 
+                    if (value != null) {
+                        for (doc in value) {
+                            if (doc.get("nombreReceta") != null) {
+                                recetas.add(
+                                    Receta(
+                                        doc.getString("nombreReceta")!!,
+                                        doc.getString("descripcionCorta")!!,
+                                        doc.getString("ingredientes")!!,
+                                        doc.getString("pasos")!!,
+                                        "",
+                                        ""
+                                        //doc.getString("foto")!!,
+                                        //doc.getString("video")!!
+                                    )
+                                )
+
+
+                                customAdptor = RecetasAdapter(this@PantallaRecetas, recetas)
+                                listView.adapter = customAdptor
+                                customAdptor.notifyDataSetChanged()
+
+                            }
+                        }
+                    }
+
+                    Log.d("PantallaRecetas", "Recetas del array recetas:")
+                    for (i in recetas){
+                        Log.d("PantallaRecetas","$i")
+                    }
+
+                }
+            })
+    }
+
+    //searchView
     override fun onQueryTextSubmit(query: String?): Boolean {
         return false
     }

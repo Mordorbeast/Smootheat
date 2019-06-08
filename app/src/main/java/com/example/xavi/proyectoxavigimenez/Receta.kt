@@ -3,14 +3,14 @@ package com.example.xavi.proyectoxavigimenez
 import android.os.Parcel
 import android.os.Parcelable
 
-class Receta(var nombre: String, var descCorta: String, var ingredientes: String, var pasos: String, var imagen: Int, var video: String) : Parcelable {
+class Receta(var nombre: String, var descCorta: String, var ingredientes: String, var pasos: String, var imagen: String, var video: String) : Parcelable {
     
     constructor(parcel: Parcel) : this(
         parcel.readString() ?: "",
         parcel.readString() ?: "",
         parcel.readString() ?: "",
         parcel.readString() ?: "",
-        parcel.readInt(),
+        parcel.readString() ?: "",
         parcel.readString() ?: ""
     )
 
@@ -20,7 +20,7 @@ class Receta(var nombre: String, var descCorta: String, var ingredientes: String
         parcel.writeString(descCorta)
         parcel.writeString(ingredientes)
         parcel.writeString(pasos)
-        parcel.writeInt(imagen)
+        parcel.writeString(imagen)
         parcel.writeString(video)
     }
 

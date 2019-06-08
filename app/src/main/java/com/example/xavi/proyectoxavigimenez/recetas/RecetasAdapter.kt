@@ -13,7 +13,7 @@ import java.util.*
 class RecetasAdapter(private val context: Context, var recetas : ArrayList<Receta>): BaseAdapter() {
 
     private var auxArray2: ArrayList<Receta> = recetas
-    private var auxArray: ArrayList<Receta> = arrayListOf(Receta("","","","",0,""))
+    private var auxArray: ArrayList<Receta> = arrayListOf(Receta("","","","","",""))
 
     init {
         auxArray.clear()
@@ -27,9 +27,9 @@ class RecetasAdapter(private val context: Context, var recetas : ArrayList<Recet
 
 
 
-        //fila.foto_receta2.setImageResource(auxArray2[position].imagen)
-        fila.receta2_nombreReceta.text = auxArray2[position].nombre
-        fila.descripcion.text = auxArray2[position].descCorta
+        //fila.foto_receta.setImageResource(auxArray2[position].imagen)
+        fila.nombreReceta_receta.text = auxArray2[position].nombre
+        fila.descripcionCorta.text = auxArray2[position].descCorta
 
 
         return fila

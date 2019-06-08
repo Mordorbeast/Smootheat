@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.pantalla_receta2.*
 
 class Pantalla_Recetas2 : AppCompatActivity() {
 
-    var receta = Receta("","","","",0,"")
+    var receta = Receta("","","","","","")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
