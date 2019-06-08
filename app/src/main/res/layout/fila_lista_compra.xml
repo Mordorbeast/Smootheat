@@ -21,7 +21,7 @@
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:background="@drawable/boton_redondo_eliminar"
-            android:id="@+id/eliminar" app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/eliminar_listaCompra" app:layout_constraintTop_toTopOf="parent"
             android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
             android:textColor="@android:color/white"
             android:textStyle="bold" android:textAlignment="center" android:layout_marginTop="8dp"/>

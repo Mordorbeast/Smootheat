@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ListView
@@ -12,11 +13,17 @@ import com.example.xavi.proyectoxavigimenez.R
 import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.PantallaAprendeACocinar
 import com.example.xavi.proyectoxavigimenez.lista_compra.PantallaListaCompra
 import com.example.xavi.proyectoxavigimenez.recetas.PantallaRecetas
+import com.google.firebase.firestore.EventListener
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreException
+import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.android.synthetic.main.content_pantalla_nevera_2.*
 import kotlinx.android.synthetic.main.pantalla_nevera.*
 
 class PantallaNevera : AppCompatActivity() {
 
+    var db = FirebaseFirestore.getInstance()
+/*
     val alimento1 = Alimento("patatas", "hortaliza", "nevera")
     val alimento2 = Alimento("lomo", "carne", "nevera")
     val alimento3 = Alimento("pepino", "verdura", "nevera")
@@ -27,6 +34,11 @@ class PantallaNevera : AppCompatActivity() {
     val alimentos = arrayListOf<Alimento>(alimento1,alimento2,alimento3,alimento4,alimento5,alimento6)
 
     val customAdptor = NeveraAdapter(this, alimentos)
+*/
+
+    val alimentos = ArrayList<Alimento>()
+
+    lateinit var customAdptor:NeveraAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,14 +46,15 @@ class PantallaNevera : AppCompatActivity() {
 
         setSupportActionBar(my_toolbar4 as Toolbar)
 
+        val listView = findViewById<ListView>(R.id.listViewNevera)
+
+        selectDatosLista(listView)
+
         var cfgOptions = intent.getParcelableExtra<Alimento>("alimento2")
         var alimentoAdd = intent.getStringExtra("alimento2")
 
-        val listView = findViewById<ListView>(R.id.listViewNevera)
 
-        listView.adapter=customAdptor
-
-        botonFlotante.setOnClickListener { view ->
+        botonFlotante.setOnClickListener {
             val intent = Intent(this, AddFilaNevera::class.java)
             startActivityForResult(intent,AddFilaNevera.REQUEST_CODE)
         }
@@ -58,6 +71,43 @@ class PantallaNevera : AppCompatActivity() {
 
             }
         }
+    }
+
+    private fun selectDatosLista(listView: ListView){
+        db.collection("alimento")
+            .whereEqualTo("uso", "nevera")
+            .addSnapshotListener(object : EventListener<QuerySnapshot> {
+                override fun onEvent(value: QuerySnapshot?, e: FirebaseFirestoreException?) {
+                    if (e != null) {
+                        Log.w("PantallaNevera", "Listen failed.", e)
+                        return
+                    }
+
+                    if (value != null) {
+                        for (doc in value) {
+                            if (doc.get("nombre") != null || doc.get("tipo") != null) {
+                                alimentos.add(
+                                    Alimento(
+                                        doc.getString("nombre")!!,
+                                        doc.getString("tipo")!!,
+                                        doc.getString("uso")!!
+                                    )
+                                )
+
+                                customAdptor = NeveraAdapter(this@PantallaNevera, alimentos)
+                                listView.adapter = customAdptor
+                                customAdptor.notifyDataSetChanged()
+                            }
+                        }
+                    }
+
+                    Log.d("PantallaListaCompra", "Alimentos del array alimentos:")
+                    for (i in alimentos){
+                        Log.d("PantallaListaCompra", "Alimento: ${i.alimento}")
+                    }
+
+                }
+            })
     }
 
     //toolbar

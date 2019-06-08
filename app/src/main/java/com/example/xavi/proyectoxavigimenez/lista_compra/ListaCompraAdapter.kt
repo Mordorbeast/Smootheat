@@ -9,6 +9,7 @@ import android.widget.BaseAdapter
 import com.example.xavi.proyectoxavigimenez.Alimento
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fila_lista_compra.view.*
+import kotlinx.android.synthetic.main.fila_nevera.view.*
 import java.util.*
 
 
@@ -23,7 +24,7 @@ class ListaCompraAdapter(var context: Context, private var alimentos : ArrayList
         fila.nombreAlimento.text = alimentos[position].alimento
 
 
-        fila.eliminar.setOnClickListener{
+        fila.eliminar_nevera.setOnClickListener{
             db.collection("alimento").document(fila.nombreAlimento.text.toString())
                 .delete()
                 .addOnSuccessListener { Log.d("ListaCompraAdapter", "DocumentSnapshot successfully deleted!") }
@@ -45,7 +46,4 @@ class ListaCompraAdapter(var context: Context, private var alimentos : ArrayList
     override fun getCount(): Int {
         return alimentos.size
     }
-
-
-
 }
