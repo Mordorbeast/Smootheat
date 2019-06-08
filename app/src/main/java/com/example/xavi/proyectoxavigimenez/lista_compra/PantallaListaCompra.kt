@@ -53,64 +53,18 @@ class PantallaListaCompra : AppCompatActivity() {
 
         setSupportActionBar(my_toolbar2 as Toolbar)
 
+        val listView = findViewById<ListView>(com.example.xavi.proyectoxavigimenez.R.id.listViewCompra)
 
-        db.collection("alimento")
-            .whereEqualTo("uso", "listaCompra")
-            .addSnapshotListener(object : EventListener<QuerySnapshot> {
-                override fun onEvent(value: QuerySnapshot?, e: FirebaseFirestoreException?) {
-                    if (e != null) {
-                        Log.w("PantallaListaCompra", "Listen failed.", e)
-                        return
-                    }
-
-                    if (value != null) {
-                        for (doc in value) {
-                            if (doc.get("nombre") != null) {
-
-                                alimentos.add(
-                                    Alimento(
-                                        doc.getString("nombre")!!,
-                                        "",
-                                        doc.getString("uso")!!
-                                    )
-                                )
-
-                                val listView = findViewById<ListView>(com.example.xavi.proyectoxavigimenez.R.id.listViewCompra)
-
-                                customAdptor = ListaCompraAdapter(this@PantallaListaCompra, alimentos)
-                                listView.adapter = customAdptor
-                                customAdptor.notifyDataSetChanged() //actualiza la listView
-
-                            }
-                        }
-                    }
-
-                    Log.d("PantallaListaCompra", "Alimentos del array alimentos:")
-                    for (i in alimentos){
-                        Log.d("PantallaListaCompra", "Alimento: ${i.alimento}")
-                    }
-
-                }
-            })
-
+        selectDatosLista(listView)
 
         var cfgOptions = intent.getParcelableExtra<Alimento>("alimento1")
         var productAdd = intent.getStringExtra("alimento1")
 
 
-
-
-
-        botonFlotante.setOnClickListener { view ->
+        botonFlotante.setOnClickListener {
             val intent = Intent(this, AddFilaListaCompra::class.java)
             startActivityForResult(intent,AddFilaListaCompra.REQUEST_CODE)
         }
-
-
-
-
-
-
     }
 
 
@@ -127,6 +81,46 @@ class PantallaListaCompra : AppCompatActivity() {
         }
     }
 
+
+private fun selectDatosLista(listView: ListView){
+    db.collection("alimento")
+        .whereEqualTo("uso", "listaCompra")
+        .addSnapshotListener(object : EventListener<QuerySnapshot> {
+            override fun onEvent(value: QuerySnapshot?, e: FirebaseFirestoreException?) {
+                if (e != null) {
+                    Log.w("PantallaListaCompra", "Listen failed.", e)
+                    return
+                }
+
+                if (value != null) {
+                    for (doc in value) {
+                        if (doc.get("nombre") != null) {
+
+                            alimentos.add(
+                                Alimento(
+                                    doc.getString("nombre")!!,
+                                    "",
+                                    doc.getString("uso")!!
+                                )
+                            )
+
+
+                            customAdptor = ListaCompraAdapter(this@PantallaListaCompra, alimentos)
+                            listView.adapter = customAdptor
+                            customAdptor.notifyDataSetChanged() //actualiza la listView
+
+                        }
+                    }
+                }
+
+                Log.d("PantallaListaCompra", "Alimentos del array alimentos:")
+                for (i in alimentos){
+                    Log.d("PantallaListaCompra", "Alimento: ${i.alimento}")
+                }
+
+            }
+        })
+}
 
     //toolbar
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

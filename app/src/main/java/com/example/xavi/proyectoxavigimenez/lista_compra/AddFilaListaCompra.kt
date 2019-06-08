@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.PantallaAprendeACocinar
@@ -50,11 +49,14 @@ class AddFilaListaCompra : AppCompatActivity() {
                 setResult(Activity.RESULT_OK, intent)
 */
 
-                val data1 = HashMap<String, String>()
-                data1["nombre"] = aliment
-                data1["tipoAlimento"] = ""
-                data1["uso"] = "listaCompra"
+                val data = HashMap<String, String>()
+                data["nombre"] = aliment
+                data["tipoAlimento"] = ""
+                data["uso"] = "listaCompra"
 
+                db.collection("alimento").document(aliment).set(data)
+
+/*              // añadir doc con id automatica
                 db.collection("alimento")
                     .add(data1)
                     .addOnSuccessListener { documentReference ->
@@ -63,7 +65,7 @@ class AddFilaListaCompra : AppCompatActivity() {
                     .addOnFailureListener { e ->
                         Log.w("AddFilaListaCompra", "Error adding document", e)
                     }
-
+*/
                 finish()
             }
         }
