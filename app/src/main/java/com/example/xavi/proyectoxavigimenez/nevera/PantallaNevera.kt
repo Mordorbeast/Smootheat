@@ -89,7 +89,7 @@ class PantallaNevera : AppCompatActivity() {
                                 alimentos.add(
                                     Alimento(
                                         doc.getString("nombre")!!,
-                                        doc.getString("tipo")!!,
+                                        doc.getString("tipoAlimento")!!,
                                         doc.getString("uso")!!
                                     )
                                 )

@@ -1,6 +1,5 @@
 package com.example.xavi.proyectoxavigimenez.nevera
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -11,11 +10,11 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
-import com.example.xavi.proyectoxavigimenez.Alimento
 import com.example.xavi.proyectoxavigimenez.R
 import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.PantallaAprendeACocinar
 import com.example.xavi.proyectoxavigimenez.lista_compra.PantallaListaCompra
 import com.example.xavi.proyectoxavigimenez.recetas.PantallaRecetas
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.add_fila_nevera.*
 
 class AddFilaNevera : AppCompatActivity(), AdapterView.OnItemSelectedListener {
@@ -23,6 +22,8 @@ class AddFilaNevera : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     companion object {
         const val REQUEST_CODE = 2
     }
+
+    var db = FirebaseFirestore.getInstance()
 
     var alimento_OK = false
     var tipos = arrayOf("Frutas", "Verduras y hortalizas", "Leche y derivados", "Carne y embutidos", "Pescados y mariscos", "Huevos", "Legumbres", "Cereales", "Frutos secos", "Bebidas", "Salsas", "Otros")
@@ -44,8 +45,7 @@ class AddFilaNevera : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         spinner!!.adapter = aa
 
 
-        addAlimento_fila_nevera.setOnClickListener(){
-
+        addAlimento_fila_nevera.setOnClickListener{
             val aliment = alimento.text.toString()
 
             if(aliment.trim() == "" || aliment.isEmpty()){
@@ -54,11 +54,14 @@ class AddFilaNevera : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                 alimento_OK = true
             }
 
-            if(alimento_OK == true){
-                val alimento2 = Alimento(aliment, tipoAlimento,"nevera")
+            if(alimento_OK){
+                val data = HashMap<String, String>()
+                data["nombre"] = aliment
+                data["tipoAlimento"] = tipoAlimento
+                data["uso"] = "nevera"
 
-                intent.putExtra("alimento2",alimento2)
-                setResult(Activity.RESULT_OK, intent)
+                db.collection("alimento").document(aliment).set(data)
+
                 finish()
             }
         }
@@ -70,7 +73,7 @@ class AddFilaNevera : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     }
 
     override fun onNothingSelected(arg0: AdapterView<*>) {
-
+        tipoAlimento = tipos[0]
     }
 
 

@@ -40,15 +40,6 @@ class AddFilaListaCompra : AppCompatActivity() {
             }
 
             if(alimentoOk){
-
-/*
-                val alimento1 = Alimento(aliment, "")
-
-                val intent = Intent()
-                intent.putExtra("alimento1",alimento1)
-                setResult(Activity.RESULT_OK, intent)
-*/
-
                 val data = HashMap<String, String>()
                 data["nombre"] = aliment
                 data["tipoAlimento"] = ""
@@ -56,16 +47,6 @@ class AddFilaListaCompra : AppCompatActivity() {
 
                 db.collection("alimento").document(aliment).set(data)
 
-/*              // añadir doc con id automatica
-                db.collection("alimento")
-                    .add(data1)
-                    .addOnSuccessListener { documentReference ->
-                        Log.d("AddFilaListaCompra","DocumentSnapshot written with ID: " + documentReference.id)
-                    }
-                    .addOnFailureListener { e ->
-                        Log.w("AddFilaListaCompra", "Error adding document", e)
-                    }
-*/
                 finish()
             }
         }
