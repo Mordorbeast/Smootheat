@@ -30,13 +30,17 @@ class AprendeCocinarAdapter(private val context: Activity,var videos : ArrayList
 
         fila.tituloVideo.text = auxArray2[position].tituloVideo
 
-        val mediaC = MediaController(context)
-        val videoPath = auxArray2[position].video
-        val uri = Uri.parse(videoPath)
-        fila.video_aprendeCocinar.setVideoURI(uri)
-        fila.video_aprendeCocinar.setMediaController(mediaC)
-        mediaC.setAnchorView(fila.video_aprendeCocinar)
-        fila.video_aprendeCocinar.start()
+        fila.reproducirVideo_aprendeCocinar.setOnClickListener{
+            val mediaC = MediaController(context)
+            val videoPath = auxArray2[position].video
+            val uri = Uri.parse(videoPath)
+            fila.video_aprendeCocinar.setVideoURI(uri)
+            fila.video_aprendeCocinar.setMediaController(mediaC)
+            mediaC.setAnchorView(fila.video_aprendeCocinar)
+            fila.video_aprendeCocinar.start()
+        }
+
+
 
         return fila
     }
