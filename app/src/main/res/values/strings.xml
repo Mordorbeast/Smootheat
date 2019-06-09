@@ -81,4 +81,6 @@
     <string name="login_emailContraseñaIncorrectos">Email o contraseña incorrectas</string>
     <string name="register_errorCrearUsuario">Error al crear el usuario.</string>
     <string name="boton_reproducir">Reproducir</string>
+    <string name="cerrarSesion_actionbr">Cerrar sesion</string>
+    <string name="PantallaRegistro_ya_tienes_cuenta">Ya tienes cuenta? Pulsa aqui.</string>
 </resources>

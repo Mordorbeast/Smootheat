@@ -20,4 +20,9 @@
               app:showAsAction="never"
               android:title="@string/actionbar_listaCompra"
         />
+
+        <item android:id="@+id/cerrarSesion_actionbar"
+              app:showAsAction="never"
+              android:title="@string/cerrarSesion_actionbr"
+        />
 </menu>

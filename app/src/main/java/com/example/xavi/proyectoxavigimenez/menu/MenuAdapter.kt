@@ -19,7 +19,7 @@ class MenuAdapter(var context: Context ,var textos : ArrayList<String>) : BaseAd
 
     override fun getView(position: Int, convertView: View?, viewGroup: ViewGroup?): View {
         val layoutInflater = LayoutInflater.from(context)
-        val elemento = layoutInflater.inflate(R.layout.elemento_gridlayout_menu_principal, null)
+        val elemento = convertView ?: layoutInflater.inflate(R.layout.elemento_gridlayout_menu_principal, null)
 
         elemento.boton.text = textos[position]
 

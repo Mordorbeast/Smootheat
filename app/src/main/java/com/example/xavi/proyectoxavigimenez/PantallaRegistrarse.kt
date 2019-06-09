@@ -23,6 +23,11 @@ class PantallaRegistrarse : AppCompatActivity() {
 
         loadFields(intent.extras!!)
 
+        ya_tienes_cuenta.setOnClickListener {
+            //startActivity(Intent(this, PantallaLogin::class.java))
+            finish()
+        }
+
         registrarse_boton.setOnClickListener {
             var contraOK = false
             var contra2OK = false
