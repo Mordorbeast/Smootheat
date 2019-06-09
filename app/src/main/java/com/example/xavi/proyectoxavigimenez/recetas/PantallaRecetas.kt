@@ -18,6 +18,7 @@ import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.pantalla_recetas.*
 
 
@@ -27,16 +28,7 @@ class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
 
 
     var db = FirebaseFirestore.getInstance()
-
-    /*
-    val receta1 = Receta("patatas","descripcion brebe","ingredientes xavi","pasos xavi",R.drawable.abc_ab_share_pack_mtrl_alpha,"video")
-    val receta2 = Receta("alcachofa","descripcion brebe","ingredientes pablo","pasos pablo",R.drawable.abc_btn_check_to_on_mtrl_015,"video")
-    val receta3 = Receta("pepinos","descripcion brebe","ingredientes uri","pasos uri",R.drawable.abc_btn_radio_to_on_mtrl_000,"video")
-
-    val recetas = arrayListOf<Receta>(receta1,receta2,receta3)
-
-    val customAdptor = RecetasAdapter(this, recetas)
-*/
+    var storage = FirebaseStorage.getInstance()
 
     val recetas = ArrayList<Receta>()
 
@@ -81,7 +73,7 @@ class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
                                         doc.getString("descripcionCorta")!!,
                                         doc.getString("ingredientes")!!,
                                         doc.getString("pasos")!!,
-                                        "",
+                                        doc.get("foto").toString(),
                                         ""
                                         //doc.getString("foto")!!,
                                         //doc.getString("video")!!

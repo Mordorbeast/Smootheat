@@ -5,15 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import com.example.xavi.proyectoxavigimenez.R
+import com.bumptech.glide.Glide
 import com.example.xavi.proyectoxavigimenez.Receta
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.fila_receta.view.*
 import java.util.*
+
+
 
 class RecetasAdapter(private val context: Context, var recetas : ArrayList<Receta>): BaseAdapter() {
 
     private var auxArray2: ArrayList<Receta> = recetas
     private var auxArray: ArrayList<Receta> = arrayListOf(Receta("","","","","",""))
+    var storage = FirebaseStorage.getInstance()
+
 
     init {
         auxArray.clear()
@@ -23,11 +28,16 @@ class RecetasAdapter(private val context: Context, var recetas : ArrayList<Recet
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val inflater = LayoutInflater.from(context)
-        val fila = convertView ?: inflater.inflate(R.layout.fila_receta,parent, false)
+        val fila = convertView ?: inflater.inflate(com.example.xavi.proyectoxavigimenez.R.layout.fila_receta,parent, false)
 
+        //val descargarUri = storage.getReferenceFromUrl(auxArray2[position].imagen)
+        //val descargarFoto = descargarUri.toString()
 
+        Glide.with(context)
+            .load(auxArray2[position].imagen)
+            .into(fila.foto_receta)
 
-        //fila.foto_receta.setImageResource(auxArray2[position].imagen)
+        //fila.foto_receta.setImageURI(photoReference.result)
         fila.nombreReceta_receta.text = auxArray2[position].nombre
         fila.descripcionCorta.text = auxArray2[position].descCorta
 

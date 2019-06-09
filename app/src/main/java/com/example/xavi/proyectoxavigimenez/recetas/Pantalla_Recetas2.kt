@@ -27,7 +27,7 @@ class Pantalla_Recetas2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pantalla_receta2)
 
-        receta2_nombreReceta.requestFocus()
+        nombreReceta_receta2.requestFocus()
 
         setSupportActionBar(my_toolbar_receta2 as Toolbar)
 
@@ -40,7 +40,7 @@ class Pantalla_Recetas2 : AppCompatActivity() {
         val recetaObtenida = intent.getParcelableExtra<Receta>("receta")
         receta = recetaObtenida
 
-        receta2_nombreReceta.text = receta.nombre
+        nombreReceta_receta2.text = receta.nombre
         //foto.setImage = receta.imagen
         ingredientes.text = receta.ingredientes
         pasos.text = receta.pasos
