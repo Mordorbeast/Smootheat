@@ -76,8 +76,9 @@
 
     <string name="toast_usuarioNoCreado">Fallo al crear el usuario.</string>
     <string name="toast_addAlimento">Se ha añadido el alimento</string>
+
     <string name="filaAprendeCocina_titulo_del_video">Titulo del video</string>
     <string name="login_emailContraseñaIncorrectos">Email o contraseña incorrectas</string>
     <string name="register_errorCrearUsuario">Error al crear el usuario.</string>
-    <string name="filaAprendeCocinar_reproducir">Reproducir</string>
+    <string name="boton_reproducir">Reproducir</string>
 </resources>

@@ -1,12 +1,10 @@
 package com.example.xavi.proyectoxavigimenez.recetas
 
 import android.content.Intent
-import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.MediaController
@@ -47,81 +45,15 @@ class PantallaRecetas2 : AppCompatActivity() {
         ingredientes.text = receta.ingredientes
         pasos.text = receta.pasos
 
-        setUpVideoView()
-    }
-
-    private fun setUpVideoView(){
-        // Prepara la URI del vídeo que será reproducido.
-        val uriPath = receta.video
-        val uri = Uri.parse(uriPath)
-
-        // Se crean los controles multimedia.
-        val mediaController = MediaController(this)
-
-        // Asigna los controles multimedia a la VideoView.
-        video_receta2.setMediaController(mediaController)
-
-
-        try {
-            // Asigna la URI del vídeo que será reproducido a la vista.
+        reproducirVideo_receta2.setOnClickListener{
+            val mediaC = MediaController(this)
+            val videoPath = receta.video
+            val uri = Uri.parse(videoPath)
             video_receta2.setVideoURI(uri)
-            // Se asigna el foco a la VideoView.
-            video_receta2.requestFocus()
-        } catch (e: Exception) {
-            Log.e("Error", e.message)
-            e.printStackTrace()
-        }
-
-
-        /*
-         * Se asigna un listener que nos informa cuando el vídeo
-         * está listo para ser reproducido.
-         */
-        video_receta2.setOnPreparedListener(videoViewListener)
-    }
-
-    private val videoViewListener = MediaPlayer.OnPreparedListener { mediaPlayer ->
-
-         /*
-         * Se indica al reproductor multimedia que el vídeo
-         * se reproducirá en un loop (on repeat).
-         */
-        mediaPlayer.isLooping = true
-
-        if (position == 0) {
-            /*
-                 * Si tenemos una posición en savedInstanceState,
-                 * el vídeo debería comenzar desde aquí.
-                 */
+            video_receta2.setMediaController(mediaC)
+            mediaC.setAnchorView(video_receta2)
             video_receta2.start()
-        } else {
-            /*
-                 * Si venimos de un Activity "resumed",
-                 * la reproducción del vídeo será pausada.
-                 */
-            video_receta2.pause()
         }
-    }
-
-    public override fun onSaveInstanceState(savedInstanceState: Bundle) {
-        super.onSaveInstanceState(savedInstanceState)
-        /* Usamos onSaveInstanceState para guardar la posición de
-           reproducción del vídeo en caso de un cambio de orientación. */
-        savedInstanceState.putInt(
-            "Position",
-            video_receta2.currentPosition
-        )
-        video_receta2.pause()
-    }
-
-    public override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        super.onRestoreInstanceState(savedInstanceState)
-        /*
-         * Usamos onRestoreInstanceState para reproducir el vídeo
-         * desde la posición guardada.
-         */
-        position = savedInstanceState.getInt("Position")
-        video_receta2.seekTo(position)
     }
 
 

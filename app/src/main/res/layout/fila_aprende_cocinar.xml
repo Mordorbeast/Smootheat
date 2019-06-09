@@ -22,7 +22,7 @@
             app:layout_constraintEnd_toEndOf="parent"
     />
     <Button
-            android:text="@string/filaAprendeCocinar_reproducir"
+            android:text="@string/boton_reproducir"
             android:layout_width="150dp"
             android:layout_height="20dp"
             android:id="@+id/reproducirVideo_aprendeCocinar" app:layout_constraintTop_toTopOf="parent"
