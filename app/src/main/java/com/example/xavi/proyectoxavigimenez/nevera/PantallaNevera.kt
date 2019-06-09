@@ -9,10 +9,12 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.ListView
 import com.example.xavi.proyectoxavigimenez.Alimento
+import com.example.xavi.proyectoxavigimenez.PantallaLogin
 import com.example.xavi.proyectoxavigimenez.R
 import com.example.xavi.proyectoxavigimenez.aprende_a_cocinar.PantallaAprendeACocinar
 import com.example.xavi.proyectoxavigimenez.lista_compra.PantallaListaCompra
 import com.example.xavi.proyectoxavigimenez.recetas.PantallaRecetas
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
@@ -117,15 +119,15 @@ class PantallaNevera : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        val intent6 = Intent(this, PantallaNevera::class.java)
-        val intent7 = Intent(this, PantallaAprendeACocinar::class.java)
-        val intent8 = Intent(this, PantallaListaCompra::class.java)
-
         when(item?.itemId) {
             R.id.recetas_actionbar -> startActivity(Intent(this, PantallaRecetas::class.java))
-            R.id.nevera_actionbar -> startActivity(intent6)
-            R.id.aprendeCocinar_actionbar -> startActivity(intent7)
-            R.id.listaCompra_actionbar -> startActivity(intent8)
+            R.id.nevera_actionbar -> startActivity(Intent(this, PantallaNevera::class.java))
+            R.id.aprendeCocinar_actionbar -> startActivity(Intent(this, PantallaAprendeACocinar::class.java))
+            R.id.listaCompra_actionbar -> startActivity(Intent(this, PantallaListaCompra::class.java))
+            R.id.cerrarSesion_actionbar -> {
+                FirebaseAuth.getInstance().signOut()
+                startActivity(Intent(this, PantallaLogin::class.java))
+            }
         }
 
         return super.onOptionsItemSelected(item)
