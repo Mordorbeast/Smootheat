@@ -1,10 +1,12 @@
 package com.example.xavi.proyectoxavigimenez.aprende_a_cocinar
 
 import android.app.Activity
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.MediaController
 import com.example.xavi.proyectoxavigimenez.AprendeCocinar
 import com.example.xavi.proyectoxavigimenez.R
 import kotlinx.android.synthetic.main.fila_aprende_cocinar.view.*
@@ -27,6 +29,14 @@ class AprendeCocinarAdapter(private val context: Activity,var videos : ArrayList
         val fila = convertView ?: inflater.inflate(R.layout.fila_aprende_cocinar, parent, false)
 
         fila.tituloVideo.text = auxArray2[position].tituloVideo
+
+        val mediaC = MediaController(context)
+        val videoPath = auxArray2[position].video
+        val uri = Uri.parse(videoPath)
+        fila.video_aprendeCocinar.setVideoURI(uri)
+        fila.video_aprendeCocinar.setMediaController(mediaC)
+        mediaC.setAnchorView(fila.video_aprendeCocinar)
+        fila.video_aprendeCocinar.start()
 
         return fila
     }
