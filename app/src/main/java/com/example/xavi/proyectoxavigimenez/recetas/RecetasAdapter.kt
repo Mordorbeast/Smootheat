@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import com.bumptech.glide.Glide
 import com.example.xavi.proyectoxavigimenez.Receta
-import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.fila_receta.view.*
 import java.util.*
 
@@ -15,9 +14,8 @@ import java.util.*
 
 class RecetasAdapter(private val context: Context, var recetas : ArrayList<Receta>): BaseAdapter() {
 
-    private var auxArray2: ArrayList<Receta> = recetas
     private var auxArray: ArrayList<Receta> = arrayListOf(Receta("","","","","",""))
-    var storage = FirebaseStorage.getInstance()
+    private var auxArray2: ArrayList<Receta> = recetas
 
 
     init {

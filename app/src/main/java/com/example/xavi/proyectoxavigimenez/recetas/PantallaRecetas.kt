@@ -18,7 +18,6 @@ import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
-import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.pantalla_recetas.*
 
 
@@ -26,9 +25,7 @@ import kotlinx.android.synthetic.main.pantalla_recetas.*
 
 class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
 
-
     var db = FirebaseFirestore.getInstance()
-    var storage = FirebaseStorage.getInstance()
 
     val recetas = ArrayList<Receta>()
 

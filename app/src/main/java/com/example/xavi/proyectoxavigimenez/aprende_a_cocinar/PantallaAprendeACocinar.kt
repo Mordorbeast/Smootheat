@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ListView
+import android.widget.SearchView
 import com.example.xavi.proyectoxavigimenez.AprendeCocinar
 import com.example.xavi.proyectoxavigimenez.R
 import com.example.xavi.proyectoxavigimenez.lista_compra.PantallaListaCompra
@@ -19,7 +20,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.android.synthetic.main.pantalla_aprende_a_cocinar.*
 
-class PantallaAprendeACocinar : AppCompatActivity() {
+class PantallaAprendeACocinar : AppCompatActivity(), SearchView.OnQueryTextListener {
 
     var db = FirebaseFirestore.getInstance()
 
@@ -37,7 +38,8 @@ class PantallaAprendeACocinar : AppCompatActivity() {
 
         selectDatosLista(listView)
 
-
+        val searchView = findViewById<SearchView>(R.id.buscador_aprendeCocinar)
+        searchView.setOnQueryTextListener(this)
     }
 
     private fun selectDatosLista(listView: ListView){
@@ -56,10 +58,8 @@ class PantallaAprendeACocinar : AppCompatActivity() {
                                     AprendeCocinar(
                                         doc.getString("tituloVideo")!!,
                                         doc.getString("video")!!
-                                        //doc.getString("video")!!
                                     )
                                 )
-
 
                                 customAdptor = AprendeCocinarAdapter(this@PantallaAprendeACocinar, videos)
                                 listView.adapter = customAdptor
@@ -69,13 +69,23 @@ class PantallaAprendeACocinar : AppCompatActivity() {
                         }
                     }
 
-                    Log.d("PantallaRecetas", "Recetas del array recetas:")
+                    Log.d("PantallaAprendeCocinar", "Videos del array videos:")
                     for (i in videos){
-                        Log.d("PantallaRecetas","$i")
+                        Log.d("PantallaAprendeCocinar", i.tituloVideo)
                     }
 
                 }
             })
+    }
+
+    //searchView
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        return false
+    }
+
+    override fun onQueryTextChange(newText: String): Boolean {
+        customAdptor.filtro(newText)
+        return false
     }
 
     //toolbar
