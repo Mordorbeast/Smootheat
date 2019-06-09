@@ -23,7 +23,7 @@
         </activity>
         <activity android:name=".menu.PantallaMenuPrincipal" android:screenOrientation="portrait"> <!-- .PantallaLogin -->
         </activity>
-        <activity android:name=".recetas.Pantalla_Recetas2" android:screenOrientation="portrait">
+        <activity android:name=".recetas.PantallaRecetas2" android:screenOrientation="portrait">
         </activity>
         <activity android:name=".nevera.AddFilaNevera" android:screenOrientation="portrait">
         </activity>

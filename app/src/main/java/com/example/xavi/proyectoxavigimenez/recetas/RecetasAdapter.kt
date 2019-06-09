@@ -30,14 +30,10 @@ class RecetasAdapter(private val context: Context, var recetas : ArrayList<Recet
         val inflater = LayoutInflater.from(context)
         val fila = convertView ?: inflater.inflate(com.example.xavi.proyectoxavigimenez.R.layout.fila_receta,parent, false)
 
-        //val descargarUri = storage.getReferenceFromUrl(auxArray2[position].imagen)
-        //val descargarFoto = descargarUri.toString()
-
         Glide.with(context)
             .load(auxArray2[position].imagen)
             .into(fila.foto_receta)
 
-        //fila.foto_receta.setImageURI(photoReference.result)
         fila.nombreReceta_receta.text = auxArray2[position].nombre
         fila.descripcionCorta.text = auxArray2[position].descCorta
 

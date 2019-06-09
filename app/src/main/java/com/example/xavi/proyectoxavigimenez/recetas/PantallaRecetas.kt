@@ -46,7 +46,7 @@ class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
         selectDatosLista(listView)
 
         listView.setOnItemClickListener{ _, _, position, _ ->
-            val intent = Intent(this, Pantalla_Recetas2::class.java)
+            val intent = Intent(this, PantallaRecetas2::class.java)
             intent.putExtra("receta",customAdptor.recetas[position])
             startActivity(intent)
         }
@@ -73,10 +73,8 @@ class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
                                         doc.getString("descripcionCorta")!!,
                                         doc.getString("ingredientes")!!,
                                         doc.getString("pasos")!!,
-                                        doc.get("foto").toString(),
-                                        ""
-                                        //doc.getString("foto")!!,
-                                        //doc.getString("video")!!
+                                        doc.getString("foto")!!,
+                                        doc.getString("video")!!
                                     )
                                 )
 

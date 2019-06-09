@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".recetas.Pantalla_Recetas2"
+        tools:context=".recetas.PantallaRecetas2"
         android:background="@color/colorPrimaryLight">
 
     <include android:id="@+id/my_toolbar_receta2" layout="@layout/toolbar"/>
