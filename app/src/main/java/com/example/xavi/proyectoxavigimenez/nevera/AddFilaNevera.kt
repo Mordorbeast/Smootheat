@@ -28,7 +28,7 @@ class AddFilaNevera : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     var db = FirebaseFirestore.getInstance()
 
     var alimento_OK = false
-    var tipos = arrayOf("Frutas", "Verduras y hortalizas", "Leche y derivados", "Carne y embutidos", "Pescados y mariscos", "Huevos", "Legumbres", "Cereales", "Frutos secos", "Bebidas", "Salsas", "Otros")
+    var tipos = arrayOf("Frutas", "Verduras y hortalizas", "Leche y derivados", "Carne y embutidos", "Pescados y mariscos", "Pasta", "Legumbres", "Cereales", "Frutos secos", "Bebidas", "Salsas", "Otros")
     var spinner: Spinner? = null
     var tipoAlimento = ""
 

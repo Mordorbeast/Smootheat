@@ -30,6 +30,8 @@ class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
     var db = FirebaseFirestore.getInstance()
 
     val recetas = ArrayList<Receta>()
+    //var ingredientesNevera = ArrayList<Alimento>()
+    //var contador: Int = 0
 
     lateinit var customAdptor:RecetasAdapter
 
@@ -42,7 +44,8 @@ class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
 
         val listView = findViewById<ListView>(R.id.listViewRecetas)
 
-        selectDatosLista(listView)
+        //selectDatosNevera()
+        selectDatosLista(listView) //, ingredientesNevera
 
         listView.setOnItemClickListener{ _, _, position, _ ->
             val intent = Intent(this, PantallaRecetas2::class.java)
@@ -54,7 +57,7 @@ class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
         searchView.setOnQueryTextListener(this)
     }
 
-    private fun selectDatosLista(listView: ListView){
+    private fun selectDatosLista(listView: ListView){ //, ingredientesNevera: ArrayList<Alimento>
         db.collection("receta")
             .addSnapshotListener(object : EventListener<QuerySnapshot> {
                 override fun onEvent(value: QuerySnapshot?, e: FirebaseFirestoreException?) {
@@ -77,8 +80,7 @@ class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
                                     )
                                 )
 
-
-                                customAdptor = RecetasAdapter(this@PantallaRecetas, recetas)
+                                customAdptor = RecetasAdapter(this@PantallaRecetas, recetas) //, ingredientesNevera
                                 listView.adapter = customAdptor
                                 customAdptor.notifyDataSetChanged()
 
@@ -88,13 +90,49 @@ class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
 
                     Log.d("PantallaRecetas", "Recetas del array recetas:")
                     for (i in recetas){
-                        Log.d("PantallaRecetas","$i")
+                        Log.d("PantallaRecetas", i.nombre)
                     }
 
                 }
             })
     }
+/*
+    private fun selectDatosNevera(){
+        ingredientesNevera.clear()
 
+
+        db.collection("alimento")
+            .whereEqualTo("uso", "nevera")
+            .addSnapshotListener(object : EventListener<QuerySnapshot> {
+                override fun onEvent(value: QuerySnapshot?, e: FirebaseFirestoreException?) {
+                    if (e != null) {
+                        Log.w("PantallaRecetas", "Listen failed.", e)
+                        return
+                    }
+
+                    if (value != null) {
+                        for (doc in value) {
+                            if (doc.get("nombre") != null) {
+                                ingredientesNevera.add(
+                                    Alimento(
+                                        doc.getString("nombre")!!,
+                                        doc.getString("tipoAlimento")!!,
+                                        doc.getString("uso")!!
+                                    )
+                                )
+                            }
+                        }
+                    }
+
+                    Log.d("PantallaRecetas", "array ingredientes nevera:")
+                    for (i in recetas){
+                        Log.d("PantallaRecetas", i.nombre)
+                    }
+
+                }
+            })
+    }
+*/
     //searchView
     override fun onQueryTextSubmit(query: String?): Boolean {
         return false

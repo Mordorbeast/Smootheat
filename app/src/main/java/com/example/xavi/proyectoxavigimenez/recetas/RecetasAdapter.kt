@@ -12,17 +12,38 @@ import java.util.*
 
 
 
-class RecetasAdapter(private val context: Context, var recetas : ArrayList<Receta>): BaseAdapter() {
+class RecetasAdapter(private val context: Context, var recetas : ArrayList<Receta>): BaseAdapter() { //, var ingredientesNevera: ArrayList<Alimento>
 
     private var auxArray: ArrayList<Receta> = arrayListOf(Receta("","","","","",""))
     private var auxArray2: ArrayList<Receta> = recetas
-
+    //private var ingredientesReceta: ArrayList<Alimento> = arrayListOf(Alimento("","",""))
 
     init {
         auxArray.clear()
         auxArray.addAll(recetas)
     }
 
+/*
+    init {
+        auxArray.clear()
+        auxArray.addAll(recetas)
+        ingredientesReceta.clear()
+
+        var auxArrayString: List<String>
+
+        for (i in 0 until auxArray.size){
+            auxArrayString = auxArray[i].ingredientes.split(",")
+            for (j in 0 until auxArrayString.size){
+                ingredientesReceta.add(
+                    Alimento(
+                        auxArrayString[j],
+                        "",
+                        "")
+                )
+            }
+        }
+    }
+*/
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val inflater = LayoutInflater.from(context)
