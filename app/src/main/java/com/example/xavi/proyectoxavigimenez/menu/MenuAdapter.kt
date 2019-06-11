@@ -13,7 +13,7 @@ import com.example.xavi.proyectoxavigimenez.nevera.PantallaNevera
 import com.example.xavi.proyectoxavigimenez.recetas.PantallaRecetas
 import kotlinx.android.synthetic.main.elemento_gridlayout_menu_principal.view.*
 
-class MenuAdapter(var context: Context ,var textos : ArrayList<String>) : BaseAdapter() {
+class MenuAdapter(var context: Context ,var textos : Array<String>) : BaseAdapter() {
 
     override fun getView(position: Int, convertView: View?, viewGroup: ViewGroup?): View {
         val layoutInflater = LayoutInflater.from(context)
