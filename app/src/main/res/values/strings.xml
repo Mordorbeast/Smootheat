@@ -83,4 +83,12 @@
     <string name="boton_reproducir">Reproducir</string>
     <string name="cerrarSesion_actionbr">Cerrar sesion</string>
     <string name="PantallaRegistro_ya_tienes_cuenta">Ya tienes cuenta? Pulsa aqui.</string>
+    <string name="nombre_menuPrincipal">MENÚ PRINCIPAL</string>
+    <string name="nombre_pantallaDetallesReceta">DETALLES RECETA</string>
+    <string name="nombre_nevera">NEVERA</string>
+    <string name="nombre_listaCompra">LISTA DE LA COMPRA</string>
+    <string name="nombre_aprendeCocinar">APRENDE A COCINAR</string>
+    <string name="nombre_recetas">RECETAS</string>
+
+
 </resources>

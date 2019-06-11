@@ -17,8 +17,15 @@ class ListaCompraAdapter(var context: Context, private var alimentos : ArrayList
     var db = FirebaseFirestore.getInstance()
 
     override fun getView(position: Int, convertView: View?, viewGroup: ViewGroup): View {
-        val layoutInflater = LayoutInflater.from(context)
-        val fila = convertView ?: layoutInflater.inflate(com.example.xavi.proyectoxavigimenez.R.layout.fila_lista_compra, viewGroup, false)
+
+        val fila: View
+
+        if(convertView == null){
+            val layoutInflater = LayoutInflater.from(context)
+            fila = layoutInflater.inflate(com.example.xavi.proyectoxavigimenez.R.layout.fila_lista_compra, viewGroup, false)
+        }else{
+            fila = convertView
+        }
 
         fila.nombreAlimento.text = alimentos[position].alimento
 
