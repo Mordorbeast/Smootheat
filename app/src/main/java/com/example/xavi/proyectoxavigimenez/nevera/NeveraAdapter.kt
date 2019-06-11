@@ -24,9 +24,9 @@ class NeveraAdapter(private val context: Context, private val alimentos: ArrayLi
         fila.tipoAlimento.text = alimentos[position].tipo
 
         fila.eliminar_nevera.setOnClickListener{
-            val nombreDoc = fila.alimento.text.toString() + "_nevera"
+            val nombreDoc = fila.alimento.text.toString() + context.getString(R.string.bbdd_pk_alimneto_nevera)
 
-            db.collection("alimento").document(nombreDoc)
+            db.collection(context.getString(R.string.bbdd_coleccion_alimento)).document(nombreDoc)
                 .delete()
                 .addOnSuccessListener { Log.d("NeveraAdapter", "DocumentSnapshot successfully deleted!") }
                 .addOnFailureListener { e -> Log.w("NeveraAdapter", "Error deleting document", e) }

@@ -21,14 +21,21 @@ import kotlinx.android.synthetic.main.add_fila_nevera.*
 
 class AddFilaNevera : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
-    companion object {
-        const val REQUEST_CODE = 2
-    }
-
     var db = FirebaseFirestore.getInstance()
 
-    var alimento_OK = false
-    var tipos = arrayOf("Frutas", "Verduras y hortalizas", "Leche y derivados", "Carne y embutidos", "Pescados y mariscos", "Pasta", "Legumbres", "Cereales", "Frutos secos", "Bebidas", "Salsas", "Otros")
+    private var alimento_OK = false
+    private var tipos = arrayOf(
+        getString(R.string.nevera_tipo_Frutas),
+        getString(R.string.nevera_tipo_Verduras_hortalizas),
+        getString(R.string.nevera_tipo_Leche_derivados),
+        getString(R.string.nevera_tipo_carne),
+        getString(R.string.nevera_tipo_pescado),
+        getString(R.string.nevera_tipo_pasta),
+        getString(R.string.nevera_tipo_frutosSecos),
+        getString(R.string.nevera_tipo_bebidas),
+        getString(R.string.nevera_tipo_salsas),
+        getString(R.string.nevera_tipo_otros)
+    )
     var spinner: Spinner? = null
     var tipoAlimento = ""
 
@@ -58,13 +65,13 @@ class AddFilaNevera : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
             if(alimento_OK){
                 val data = HashMap<String, String>()
-                data["nombre"] = aliment
-                data["tipoAlimento"] = tipoAlimento
-                data["uso"] = "nevera"
+                data[getString(R.string.bbdd_campo_nombre)] = aliment
+                data[getString(R.string.bbdd_campo_tipoAlimento)] = tipoAlimento
+                data[getString(R.string.bbdd_campo_uso)] = getString(R.string.bbdd_campo_uso_nevera)
 
-                val nombreDoc = aliment + "_nevera"
+                val nombreDoc = aliment + getString(R.string.bbdd_pk_alimneto_nevera)
 
-                db.collection("alimento").document(nombreDoc).set(data)
+                db.collection(getString(R.string.bbdd_coleccion_alimento)).document(nombreDoc).set(data)
 
                 finish()
             }

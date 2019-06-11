@@ -83,12 +83,45 @@
     <string name="boton_reproducir">Reproducir</string>
     <string name="cerrarSesion_actionbr">Cerrar sesion</string>
     <string name="PantallaRegistro_ya_tienes_cuenta">Ya tienes cuenta? Pulsa aqui.</string>
+
     <string name="nombre_menuPrincipal">MENÚ PRINCIPAL</string>
     <string name="nombre_pantallaDetallesReceta">DETALLES RECETA</string>
     <string name="nombre_nevera">NEVERA</string>
     <string name="nombre_listaCompra">LISTA DE LA COMPRA</string>
     <string name="nombre_aprendeCocinar">APRENDE A COCINAR</string>
     <string name="nombre_recetas">RECETAS</string>
+
+
+    <string name="nevera_tipo_Frutas">Frutas</string>
+    <string name="nevera_tipo_Verduras_hortalizas">Verduras y hortalizas</string>
+    <string name="nevera_tipo_Leche_derivados">Leche y derivados</string>
+    <string name="nevera_tipo_carne">Carne y embutidos</string>
+    <string name="nevera_tipo_pescado">Pescados y mariscos</string>
+    <string name="nevera_tipo_pasta">Pasta</string>
+    <string name="nevera_tipo_frutosSecos">Frutos secos</string>
+    <string name="nevera_tipo_bebidas">Bebidas</string>
+    <string name="nevera_tipo_salsas">Salsas</string>
+    <string name="nevera_tipo_otros">Otros</string>
+
+    <string name="intent_puExtra_receta">receta</string>
+
+    <string name="bbdd_campo_nombre">nombre</string>
+    <string name="bbdd_campo_tipoAlimento">tipoAlimento</string>
+    <string name="bbdd_campo_uso">uso</string>
+    <string name="bbdd_campo_uso_listaCompra">listaCompra</string>
+    <string name="bbdd_pk_alimneto_listacompra">_listaCompra</string>
+    <string name="bbdd_coleccion_alimento">alimento</string>
+    <string name="bbdd_campo_uso_nevera">nevera</string>
+    <string name="bbdd_pk_alimneto_nevera">_nevera</string>
+    <string name="bbdd_coleccion_receta">receta</string>
+    <string name="bbdd_campo_nombreReceta">nombreReceta</string>
+    <string name="bbdd_campo_descripcionCorta">descripcionCorta</string>
+    <string name="bbdd_campo_ingredientes">ingredientes</string>
+    <string name="bbdd_campo_pasos">pasos</string>
+    <string name="bbdd_campo_foto">foto</string>
+    <string name="bbdd_coleccion_aprendeCocinar">aprendeCocinar</string>
+    <string name="bbdd_campo_tituloVideo">tituloVideo</string>
+    <string name="bbdd_campo_video">video</string>
 
 
 </resources>

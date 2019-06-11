@@ -17,11 +17,6 @@ import kotlinx.android.synthetic.main.add_fila_lista_compra.*
 
 
 class AddFilaListaCompra : AppCompatActivity() {
-
-    companion object {
-        const val REQUEST_CODE = 3
-    }
-
     private var alimentoOk = false
 
     var db = FirebaseFirestore.getInstance()
@@ -44,13 +39,13 @@ class AddFilaListaCompra : AppCompatActivity() {
 
             if(alimentoOk){
                 val data = HashMap<String, String>()
-                data["nombre"] = aliment
-                data["tipoAlimento"] = ""
-                data["uso"] = "listaCompra"
+                data[getString(R.string.bbdd_campo_nombre)] = aliment
+                data[getString(R.string.bbdd_campo_tipoAlimento)] = ""
+                data[getString(R.string.bbdd_campo_uso)] = getString(R.string.bbdd_campo_uso_listaCompra)
 
-                val nombreDoc = aliment + "_listaCompra"
+                val nombreDoc = aliment + getString(R.string.bbdd_pk_alimneto_listacompra)
 
-                db.collection("alimento").document(nombreDoc).set(data)
+                db.collection(getString(R.string.bbdd_coleccion_alimento)).document(nombreDoc).set(data)
 
                 finish()
             }

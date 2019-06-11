@@ -25,18 +25,6 @@ import kotlinx.android.synthetic.main.pantalla_nevera.*
 class PantallaNevera : AppCompatActivity() {
 
     var db = FirebaseFirestore.getInstance()
-/*
-    val alimento1 = Alimento("patatas", "hortaliza", "nevera")
-    val alimento2 = Alimento("lomo", "carne", "nevera")
-    val alimento3 = Alimento("pepino", "verdura", "nevera")
-    val alimento4 = Alimento("manzana", "fruta", "nevera")
-    val alimento5 = Alimento("ternera", "carne", "nevera")
-    val alimento6 = Alimento("platano", "fruta", "nevera")
-
-    val alimentos = arrayListOf<Alimento>(alimento1,alimento2,alimento3,alimento4,alimento5,alimento6)
-
-    val customAdptor = NeveraAdapter(this, alimentos)
-*/
 
     val alimentos = ArrayList<Alimento>()
 
@@ -52,32 +40,14 @@ class PantallaNevera : AppCompatActivity() {
 
         selectDatosLista(listView)
 
-        var cfgOptions = intent.getParcelableExtra<Alimento>("alimento2")
-        var alimentoAdd = intent.getStringExtra("alimento2")
-
-
         botonFlotante.setOnClickListener {
-            val intent = Intent(this, AddFilaNevera::class.java)
-            startActivityForResult(intent,AddFilaNevera.REQUEST_CODE)
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == AddFilaNevera.REQUEST_CODE) {
-            if (resultCode == RESULT_OK) {
-
-                val name = data!!.getParcelableExtra<Alimento>("alimento2").alimento
-                alimentos.add(data.getParcelableExtra<Alimento>("alimento2"))
-                customAdptor.notifyDataSetChanged()
-                //Toast.makeText(this, getString(R.string.toast_addAlimento) + name, Toast.LENGTH_SHORT).show()
-
-            }
+            startActivity(Intent(this, AddFilaNevera::class.java))
         }
     }
 
     private fun selectDatosLista(listView: ListView){
-        db.collection("alimento")
-            .whereEqualTo("uso", "nevera")
+        db.collection(getString(R.string.bbdd_coleccion_alimento))
+            .whereEqualTo(getString(R.string.bbdd_campo_uso), getString(R.string.bbdd_campo_uso_nevera))
             .addSnapshotListener(object : EventListener<QuerySnapshot> {
                 override fun onEvent(value: QuerySnapshot?, e: FirebaseFirestoreException?) {
                     if (e != null) {
@@ -87,12 +57,12 @@ class PantallaNevera : AppCompatActivity() {
 
                     if (value != null) {
                         for (doc in value) {
-                            if (doc.get("nombre") != null || doc.get("tipo") != null) {
+                            if (doc.get(getString(R.string.bbdd_campo_nombre)) != null || doc.get(getString(R.string.bbdd_campo_tipoAlimento)) != null) {
                                 alimentos.add(
                                     Alimento(
-                                        doc.getString("nombre")!!,
-                                        doc.getString("tipoAlimento")!!,
-                                        doc.getString("uso")!!
+                                        doc.getString(getString(R.string.bbdd_campo_nombre))!!,
+                                        doc.getString(getString(R.string.bbdd_campo_tipoAlimento))!!,
+                                        doc.getString(getString(R.string.bbdd_campo_uso))!!
                                     )
                                 )
 

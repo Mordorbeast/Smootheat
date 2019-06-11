@@ -45,7 +45,7 @@ class PantallaAprendeACocinar : AppCompatActivity(), SearchView.OnQueryTextListe
     }
 
     private fun selectDatosLista(listView: ListView){
-        db.collection("aprendeCocinar")
+        db.collection(getString(R.string.bbdd_coleccion_aprendeCocinar))
             .addSnapshotListener(object : EventListener<QuerySnapshot> {
                 override fun onEvent(value: QuerySnapshot?, e: FirebaseFirestoreException?) {
                     if (e != null) {
@@ -55,11 +55,11 @@ class PantallaAprendeACocinar : AppCompatActivity(), SearchView.OnQueryTextListe
 
                     if (value != null) {
                         for (doc in value) {
-                            if (doc.get("tituloVideo") != null) {
+                            if (doc.get(getString(R.string.bbdd_campo_tituloVideo)) != null) {
                                 videos.add(
                                     AprendeCocinar(
-                                        doc.getString("tituloVideo")!!,
-                                        doc.getString("video")!!
+                                        doc.getString(getString(R.string.bbdd_campo_tituloVideo))!!,
+                                        doc.getString(getString(R.string.bbdd_campo_video))!!
                                     )
                                 )
 

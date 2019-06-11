@@ -15,31 +15,25 @@ import kotlinx.android.synthetic.main.elemento_gridlayout_menu_principal.view.*
 
 class MenuAdapter(var context: Context ,var textos : ArrayList<String>) : BaseAdapter() {
 
-    var botonApretado:Int = 0
-
     override fun getView(position: Int, convertView: View?, viewGroup: ViewGroup?): View {
         val layoutInflater = LayoutInflater.from(context)
-        val elemento = convertView ?: layoutInflater.inflate(R.layout.elemento_gridlayout_menu_principal, null)
+        val elemento = convertView ?: layoutInflater.inflate(R.layout.elemento_gridlayout_menu_principal, viewGroup, false)
 
         elemento.boton.text = textos[position]
 
         elemento.boton.setOnClickListener{
             when(position){
                 0 -> {
-                    val intent1 = Intent(context, PantallaRecetas::class.java)
-                    context.startActivity(intent1)
+                    context.startActivity(Intent(context, PantallaRecetas::class.java))
                 }
                 1 -> {
-                    val intent2 = Intent(context, PantallaNevera::class.java)
-                    context.startActivity(intent2)
+                    context.startActivity(Intent(context, PantallaNevera::class.java))
                 }
                 2 -> {
-                    val intent3 = Intent(context, PantallaAprendeACocinar::class.java)
-                    context.startActivity(intent3)
+                    context.startActivity(Intent(context, PantallaAprendeACocinar::class.java))
                 }
                 3 -> {
-                    val intent4 = Intent(context, PantallaListaCompra::class.java)
-                    context.startActivity(intent4)
+                    context.startActivity(Intent(context, PantallaListaCompra::class.java))
                 }
             }
         }

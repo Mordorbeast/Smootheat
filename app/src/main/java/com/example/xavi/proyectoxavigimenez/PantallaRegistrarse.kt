@@ -15,8 +15,6 @@ class PantallaRegistrarse : AppCompatActivity() {
         const val REQUEST_CODE = 1
     }
 
-    var registroOK = false
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pantalla_registrarse)
@@ -24,7 +22,6 @@ class PantallaRegistrarse : AppCompatActivity() {
         loadFields(intent.extras!!)
 
         ya_tienes_cuenta.setOnClickListener {
-            //startActivity(Intent(this, PantallaLogin::class.java))
             finish()
         }
 
@@ -32,19 +29,12 @@ class PantallaRegistrarse : AppCompatActivity() {
             var contraOK = false
             var contra2OK = false
             var emailOK = false
-            //var nombreOK = false
-/*
-            if(registrarse_nombre.text.isEmpty()){
-                registrarse_nombre.error = "No puede estar vacio."
-            }else{
-                nombreOK = true
-            }
-*/
+
             if(registrarse_email.text.isEmpty()){
                 registrarse_email.error = getString(R.string.error_noVacio)
             }else{
 
-                if ( !Pattern.compile(".+\\@.+\\..+").matcher(registrarse_email.text).matches()) {
+                if ( !Pattern.compile(".+@.+\\..+").matcher(registrarse_email.text).matches()) {
                     registrarse_email.error = getString(R.string.error_formatoIncorrecto)
                 }else{
                     emailOK = true
@@ -73,7 +63,7 @@ class PantallaRegistrarse : AppCompatActivity() {
                 registrarse_repetir_contrasena.error = getString(R.string.error_noVacio)
             }else{
                 if (registrarse_repetir_contrasena.length() >= 8) {
-                    if(registrarse_repetir_contrasena.text.toString().equals(registrarse_contrasena.text.toString()) ){
+                    if(registrarse_repetir_contrasena.text.toString() == registrarse_contrasena.text.toString()){
                         contra2OK = true
                     }else{
                         registrarse_repetir_contrasena.error = getString(R.string.error_contrasDif)

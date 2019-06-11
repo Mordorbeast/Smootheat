@@ -12,7 +12,7 @@ import com.example.xavi.proyectoxavigimenez.R
 import kotlinx.android.synthetic.main.fila_aprende_cocinar.view.*
 import java.util.*
 
-class AprendeCocinarAdapter(private val context: Activity,var videos : ArrayList<AprendeCocinar>): BaseAdapter() {
+class AprendeCocinarAdapter(private val context: Activity, videos : ArrayList<AprendeCocinar>): BaseAdapter() {
 
     private var auxArray: ArrayList<AprendeCocinar> = arrayListOf(AprendeCocinar("",""))
     private var auxArray2: ArrayList<AprendeCocinar> = videos
@@ -39,9 +39,6 @@ class AprendeCocinarAdapter(private val context: Activity,var videos : ArrayList
             mediaC.setAnchorView(fila.video_aprendeCocinar)
             fila.video_aprendeCocinar.start()
         }
-
-
-
         return fila
     }
 
@@ -58,7 +55,7 @@ class AprendeCocinarAdapter(private val context: Activity,var videos : ArrayList
     }
 
     fun filtro(palabrasBuscador:String ){
-        val palabras = palabrasBuscador.toLowerCase(Locale.getDefault()) //Locale.getDefault()
+        val palabras = palabrasBuscador.toLowerCase()
 
         auxArray2.clear()
 
@@ -66,7 +63,7 @@ class AprendeCocinarAdapter(private val context: Activity,var videos : ArrayList
             auxArray2.addAll(auxArray)
         }else{
             for (receta in auxArray){
-                if(receta.tituloVideo.toLowerCase(Locale.getDefault()).contains(palabras)){ //Locale.getDefault()
+                if(receta.tituloVideo.toLowerCase().contains(palabras)){
                     auxArray2.add(receta)
                 }
             }

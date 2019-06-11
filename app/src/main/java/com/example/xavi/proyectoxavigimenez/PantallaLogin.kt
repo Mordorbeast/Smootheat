@@ -20,8 +20,6 @@ class PantallaLogin : AppCompatActivity() {
         const val PASSWORD_EXTRA = "contraseña"
     }
 
-    private var loginOK = false
-
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
@@ -35,7 +33,7 @@ class PantallaLogin : AppCompatActivity() {
             if(login_email.text.isEmpty()){
                 login_email.error = getString(R.string.error_noVacio)
             }else{
-                if(!Pattern.compile(".+\\@.+\\..+").matcher(login_email.text).matches()) {
+                if(!Pattern.compile(".+@.+\\..+").matcher(login_email.text).matches()) {
                     login_email.error = getString(R.string.error_formatoIncorrecto)
                 }else{
                     emailOK = true

@@ -49,7 +49,7 @@ class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
 
         listView.setOnItemClickListener{ _, _, position, _ ->
             val intent = Intent(this, PantallaRecetas2::class.java)
-            intent.putExtra("receta",customAdptor.recetas[position])
+            intent.putExtra(getString(R.string.intent_puExtra_receta),customAdptor.recetas[position])
             startActivity(intent)
         }
 
@@ -58,7 +58,7 @@ class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
     }
 
     private fun selectDatosLista(listView: ListView){ //, ingredientesNevera: ArrayList<Alimento>
-        db.collection("receta")
+        db.collection(getString(R.string.bbdd_coleccion_receta))
             .addSnapshotListener(object : EventListener<QuerySnapshot> {
                 override fun onEvent(value: QuerySnapshot?, e: FirebaseFirestoreException?) {
                     if (e != null) {
@@ -68,15 +68,15 @@ class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
 
                     if (value != null) {
                         for (doc in value) {
-                            if (doc.get("nombreReceta") != null) {
+                            if (doc.get(getString(R.string.bbdd_campo_nombreReceta)) != null) {
                                 recetas.add(
                                     Receta(
-                                        doc.getString("nombreReceta")!!,
-                                        doc.getString("descripcionCorta")!!,
-                                        doc.getString("ingredientes")!!,
-                                        doc.getString("pasos")!!,
-                                        doc.getString("foto")!!,
-                                        doc.getString("video")!!
+                                        doc.getString(getString(R.string.bbdd_campo_nombreReceta))!!,
+                                        doc.getString(getString(R.string.bbdd_campo_descripcionCorta))!!,
+                                        doc.getString(getString(R.string.bbdd_campo_ingredientes))!!,
+                                        doc.getString(getString(R.string.bbdd_campo_pasos))!!,
+                                        doc.getString(getString(R.string.bbdd_campo_foto))!!,
+                                        doc.getString(getString(R.string.bbdd_campo_video))!!
                                     )
                                 )
 

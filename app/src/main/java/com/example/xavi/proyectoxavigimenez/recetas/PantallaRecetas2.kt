@@ -26,7 +26,6 @@ import kotlinx.android.synthetic.main.pantalla_receta2.*
 class PantallaRecetas2 : AppCompatActivity() {
 
     private var receta = Receta("","","","","","")
-    private var position = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +35,7 @@ class PantallaRecetas2 : AppCompatActivity() {
 
         setSupportActionBar(my_toolbar_receta2 as Toolbar)
 
-        val recetaObtenida = intent.getParcelableExtra<Receta>("receta")
+        val recetaObtenida = intent.getParcelableExtra<Receta>(getString(R.string.intent_puExtra_receta))
         receta = recetaObtenida
 
         nombreReceta_receta2.text = receta.nombre

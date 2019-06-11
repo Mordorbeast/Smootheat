@@ -73,7 +73,7 @@ class RecetasAdapter(private val context: Context, var recetas : ArrayList<Recet
     }
 
     fun filtro(palabrasBuscador:String ){
-        val palabras = palabrasBuscador.toLowerCase(Locale.getDefault()) //Locale.getDefault()
+        val palabras = palabrasBuscador.toLowerCase()
 
         auxArray2.clear()
 
@@ -81,7 +81,7 @@ class RecetasAdapter(private val context: Context, var recetas : ArrayList<Recet
             auxArray2.addAll(auxArray)
         }else{
             for (receta in auxArray){
-                if(receta.nombre.toLowerCase(Locale.getDefault()).contains(palabras)){ //Locale.getDefault()
+                if(receta.nombre.toLowerCase().contains(palabras)){
                     auxArray2.add(receta)
                 }
             }

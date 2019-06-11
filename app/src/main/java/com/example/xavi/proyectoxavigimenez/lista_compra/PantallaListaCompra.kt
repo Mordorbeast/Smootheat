@@ -42,34 +42,15 @@ class PantallaListaCompra : AppCompatActivity() {
 
         selectDatosLista(listView)
 
-        var cfgOptions = intent.getParcelableExtra<Alimento>("alimento1")
-        var productAdd = intent.getStringExtra("alimento1")
-
-
         botonFlotante.setOnClickListener {
-            val intent = Intent(this, AddFilaListaCompra::class.java)
-            startActivityForResult(intent,AddFilaListaCompra.REQUEST_CODE)
-        }
-    }
-
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == AddFilaListaCompra.REQUEST_CODE) {
-            if (resultCode == RESULT_OK) {
-
-                val name = data!!.getParcelableExtra<Alimento>("alimento1").alimento
-                alimentos.add(data.getParcelableExtra<Alimento>("alimento1"))
-                customAdptor.notifyDataSetChanged()
-                //Toast.makeText(this, getString(R.string.toast_addAlimento) + name, Toast.LENGTH_SHORT).show()
-
-            }
+            startActivity(Intent(this, AddFilaListaCompra::class.java))
         }
     }
 
 
 private fun selectDatosLista(listView: ListView){
-    db.collection("alimento")
-        .whereEqualTo("uso", "listaCompra")
+    db.collection(getString(R.string.bbdd_coleccion_alimento) )
+        .whereEqualTo(getString(R.string.bbdd_campo_uso), getString(R.string.bbdd_campo_uso_listaCompra))
         .addSnapshotListener(object : EventListener<QuerySnapshot> {
             override fun onEvent(value: QuerySnapshot?, e: FirebaseFirestoreException?) {
                 if (e != null) {
@@ -79,20 +60,20 @@ private fun selectDatosLista(listView: ListView){
 
                 if (value != null) {
                     for (doc in value) {
-                        if (doc.get("nombre") != null) {
+                        if (doc.get(getString(R.string.bbdd_campo_nombre)) != null) {
 
                             alimentos.add(
                                 Alimento(
-                                    doc.getString("nombre")!!,
+                                    doc.getString(getString(R.string.bbdd_campo_nombre))!!,
                                     "",
-                                    doc.getString("uso")!!
+                                    doc.getString(getString(R.string.bbdd_campo_uso))!!
                                 )
                             )
 
 
                             customAdptor = ListaCompraAdapter(this@PantallaListaCompra, alimentos)
                             listView.adapter = customAdptor
-                            customAdptor.notifyDataSetChanged() //actualiza la listView
+                            customAdptor.notifyDataSetChanged()
 
                         }
                     }
