@@ -27,10 +27,6 @@
         </activity>
         <activity android:name=".nevera.AddFilaNevera" android:label="@string/nombre_nevera" android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".nevera.FilaNeveraActivity" android:screenOrientation="portrait">
-        </activity>
-        <activity android:name=".aprende_a_cocinar.FilaListViewAprendeCocinar" android:screenOrientation="portrait">
-        </activity>
         <activity android:name=".recetas.PantallaRecetas" android:label="@string/nombre_recetas" android:screenOrientation="portrait">
         </activity>
         <activity android:name=".PantallaRegistrarse" android:screenOrientation="portrait">

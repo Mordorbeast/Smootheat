@@ -92,7 +92,7 @@ class PantallaLogin : AppCompatActivity() {
     }
 
 
-    fun logUsuario(){
+    private fun logUsuario(){
         val email =  login_email.text.toString()
         val password = login_contrasena.text.toString()
 

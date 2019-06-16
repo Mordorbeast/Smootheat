@@ -9,6 +9,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.ListView
 import android.widget.SearchView
+import com.example.xavi.proyectoxavigimenez.Alimento
 import com.example.xavi.proyectoxavigimenez.PantallaLogin
 import com.example.xavi.proyectoxavigimenez.R
 import com.example.xavi.proyectoxavigimenez.Receta
@@ -30,8 +31,7 @@ class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
     var db = FirebaseFirestore.getInstance()
 
     val recetas = ArrayList<Receta>()
-    //var ingredientesNevera = ArrayList<Alimento>()
-    //var contador: Int = 0
+    var ingredientesNevera = ArrayList<Alimento>()
 
     lateinit var customAdptor:RecetasAdapter
 
@@ -44,8 +44,8 @@ class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
 
         val listView = findViewById<ListView>(R.id.listViewRecetas)
 
-        //selectDatosNevera()
-        selectDatosLista(listView) //, ingredientesNevera
+        selectDatosLista(listView)
+        selectDatosNevera()
 
         listView.setOnItemClickListener{ _, _, position, _ ->
             val intent = Intent(this, PantallaRecetas2::class.java)
@@ -57,7 +57,7 @@ class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
         searchView.setOnQueryTextListener(this)
     }
 
-    private fun selectDatosLista(listView: ListView){ //, ingredientesNevera: ArrayList<Alimento>
+    private fun selectDatosLista(listView: ListView){
         db.collection(getString(R.string.bbdd_coleccion_receta))
             .addSnapshotListener(object : EventListener<QuerySnapshot> {
                 override fun onEvent(value: QuerySnapshot?, e: FirebaseFirestoreException?) {
@@ -80,7 +80,7 @@ class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
                                     )
                                 )
 
-                                customAdptor = RecetasAdapter(this@PantallaRecetas, recetas) //, ingredientesNevera
+                                customAdptor = RecetasAdapter(this@PantallaRecetas, recetas)
                                 listView.adapter = customAdptor
                                 customAdptor.notifyDataSetChanged()
 
@@ -96,10 +96,9 @@ class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
                 }
             })
     }
-/*
+
     private fun selectDatosNevera(){
         ingredientesNevera.clear()
-
 
         db.collection("alimento")
             .whereEqualTo("uso", "nevera")
@@ -120,6 +119,8 @@ class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
                                         doc.getString("uso")!!
                                     )
                                 )
+
+                                customAdptor.filtroNevera(ingredientesNevera)
                             }
                         }
                     }
@@ -132,14 +133,14 @@ class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
                 }
             })
     }
-*/
+
     //searchView
     override fun onQueryTextSubmit(query: String?): Boolean {
         return false
     }
 
     override fun onQueryTextChange(newText: String): Boolean {
-        customAdptor.filtro(newText)
+        customAdptor.filtroBuscador(newText)
         return false
     }
 

@@ -25,16 +25,16 @@ class AddFilaNevera : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     private var alimento_OK = false
     private var tipos = arrayOf(
-        getString(R.string.nevera_tipo_Frutas),
-        getString(R.string.nevera_tipo_Verduras_hortalizas),
-        getString(R.string.nevera_tipo_Leche_derivados),
-        getString(R.string.nevera_tipo_carne),
-        getString(R.string.nevera_tipo_pescado),
-        getString(R.string.nevera_tipo_pasta),
-        getString(R.string.nevera_tipo_frutosSecos),
-        getString(R.string.nevera_tipo_bebidas),
-        getString(R.string.nevera_tipo_salsas),
-        getString(R.string.nevera_tipo_otros)
+        "Frutas",
+        "Verduras y hortalizas",
+        "Leche y derivados",
+        "Carne y embutidos",
+        "Pescados y mariscos",
+        "Pasta",
+        "Frutos secos",
+        "Bebidas",
+        "Salsas",
+        "Otros"
     )
     var spinner: Spinner? = null
     var tipoAlimento = ""
