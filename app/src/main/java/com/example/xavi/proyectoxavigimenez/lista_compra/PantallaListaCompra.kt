@@ -61,14 +61,21 @@ private fun selectDatosLista(listView: ListView){
                 if (value != null) {
                     for (doc in value) {
                         if (doc.get(getString(R.string.bbdd_campo_nombre)) != null) {
-
-                            alimentos.add(
-                                Alimento(
-                                    doc.getString(getString(R.string.bbdd_campo_nombre))!!,
-                                    "",
-                                    doc.getString(getString(R.string.bbdd_campo_uso))!!
-                                )
-                            )
+                            if(!alimentos.contains(
+                                    Alimento(
+                                        doc.getString(getString(R.string.bbdd_campo_nombre))!!,
+                                        "",
+                                        doc.getString(getString(R.string.bbdd_campo_uso))!!
+                                    )
+                                )){
+                                    alimentos.add(
+                                        Alimento(
+                                            doc.getString(getString(R.string.bbdd_campo_nombre))!!,
+                                            "",
+                                            doc.getString(getString(R.string.bbdd_campo_uso))!!
+                                        )
+                                    )
+                            }
 
 
                             customAdptor = ListaCompraAdapter(this@PantallaListaCompra, alimentos)
