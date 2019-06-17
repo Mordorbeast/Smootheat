@@ -27,7 +27,8 @@ class RecetasAdapter(private val context: Context, var recetas : ArrayList<Recet
     init {
         auxArrayRecetas.clear()
         auxArrayRecetas.addAll(recetas)
-
+        //auxArrayRecetas2.clear()
+        ingredientesNevera.clear()
         //auxArrayNevera.clear()
         //auxArrayNevera2.addAll(ingredientesNevera)
     }

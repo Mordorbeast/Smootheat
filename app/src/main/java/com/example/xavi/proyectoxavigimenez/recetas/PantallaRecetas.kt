@@ -120,8 +120,8 @@ class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
                                     )
                                 )
 
-                                customAdptor.filtroNevera(ingredientesNevera)
                             }
+                                customAdptor.filtroNevera(ingredientesNevera)
                         }
                     }
 
