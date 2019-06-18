@@ -9,29 +9,15 @@ import com.bumptech.glide.Glide
 import com.example.xavi.proyectoxavigimenez.Alimento
 import com.example.xavi.proyectoxavigimenez.Receta
 import kotlinx.android.synthetic.main.fila_receta.view.*
-import java.util.*
 
 
+class RecetasAdapter(private val context: Context): BaseAdapter() {
 
-class RecetasAdapter(private val context: Context, var recetas : ArrayList<Receta>): BaseAdapter() {
-
-    private var auxArrayRecetas: ArrayList<Receta> = arrayListOf()
-    private var auxArrayRecetas2: ArrayList<Receta> = recetas
-    private var auxArrayRecetas3: ArrayList<Receta> = arrayListOf()
+    var auxArrayRecetas: ArrayList<Receta> = arrayListOf()
+    var auxArrayRecetas2: ArrayList<Receta> = arrayListOf()
+    var auxArrayRecetas3: ArrayList<Receta> = arrayListOf()
     var ingredientesNevera: ArrayList<Alimento> = arrayListOf()
 
-   // private var auxArrayNevera: ArrayList<Alimento> = arrayListOf()
-    //private var auxArrayNevera2: ArrayList<Alimento> = ingredientesNevera
-
-
-    init {
-        auxArrayRecetas.clear()
-        auxArrayRecetas.addAll(recetas)
-        //auxArrayRecetas2.clear()
-        ingredientesNevera.clear()
-        //auxArrayNevera.clear()
-        //auxArrayNevera2.addAll(ingredientesNevera)
-    }
 
 /*
     init {
@@ -128,6 +114,12 @@ class RecetasAdapter(private val context: Context, var recetas : ArrayList<Recet
                 }
             }
         }
+        notifyDataSetChanged()
+    }
+
+    fun pasarRecetas(recetas: ArrayList<Receta>){
+        auxArrayRecetas2 = recetas
+        auxArrayRecetas.addAll(recetas)
         notifyDataSetChanged()
     }
 

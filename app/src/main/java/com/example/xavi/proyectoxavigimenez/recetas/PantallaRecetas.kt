@@ -33,7 +33,7 @@ class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
     val recetas = ArrayList<Receta>()
     var ingredientesNevera = ArrayList<Alimento>()
 
-    lateinit var customAdptor:RecetasAdapter
+    var customAdptor = RecetasAdapter(this)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,13 +43,14 @@ class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
         setSupportActionBar(my_toolbar3 as Toolbar)
 
         val listView = findViewById<ListView>(R.id.listViewRecetas)
+        listView.adapter = customAdptor
 
-        selectDatosLista(listView)
+        selectDatosLista()
         selectDatosNevera()
 
         listView.setOnItemClickListener{ _, _, position, _ ->
             val intent = Intent(this, PantallaRecetas2::class.java)
-            intent.putExtra(getString(R.string.intent_puExtra_receta),customAdptor.recetas[position])
+            intent.putExtra(getString(R.string.intent_puExtra_receta),customAdptor.auxArrayRecetas2[position])
             startActivity(intent)
         }
 
@@ -57,7 +58,7 @@ class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
         searchView.setOnQueryTextListener(this)
     }
 
-    private fun selectDatosLista(listView: ListView){
+    private fun selectDatosLista(){
         db.collection(getString(R.string.bbdd_coleccion_receta))
             .addSnapshotListener(object : EventListener<QuerySnapshot> {
                 override fun onEvent(value: QuerySnapshot?, e: FirebaseFirestoreException?) {
@@ -80,8 +81,8 @@ class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
                                     )
                                 )
 
-                                customAdptor = RecetasAdapter(this@PantallaRecetas, recetas)
-                                listView.adapter = customAdptor
+                                customAdptor.pasarRecetas(recetas)
+                                //listView.adapter = customAdptor
                                 customAdptor.notifyDataSetChanged()
 
                             }
@@ -98,7 +99,10 @@ class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
     }
 
     private fun selectDatosNevera(){
-        ingredientesNevera.clear()
+        //ingredientesNevera.clear()
+        if(ingredientesNevera.isEmpty()){
+            customAdptor.filtroNevera(ingredientesNevera)
+        }
 
         db.collection("alimento")
             .whereEqualTo("uso", "nevera")
@@ -120,18 +124,19 @@ class PantallaRecetas : AppCompatActivity(), SearchView.OnQueryTextListener{
                                     )
                                 )
 
-                            }
                                 customAdptor.filtroNevera(ingredientesNevera)
+                            }
                         }
                     }
 
                     Log.d("PantallaRecetas", "array ingredientes nevera:")
-                    for (i in recetas){
-                        Log.d("PantallaRecetas", i.nombre)
+                    for (i in ingredientesNevera){
+                        Log.d("PantallaRecetas", i.alimento)
                     }
 
                 }
             })
+
     }
 
     //searchView
